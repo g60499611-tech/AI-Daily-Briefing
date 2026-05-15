@@ -1,0 +1,54 @@
+name: 每日AI新闻推送
+
+on:
+  schedule:
+    # 北京时间 20:00 = UTC 12:00
+    - cron: '0 12 * * *'
+  workflow_dispatch:
+    inputs:
+      email:
+        description: '收件人邮箱（可选，默认使用 Secrets 中的配置）'
+        required: false
+        type: string
+
+jobs:
+  daily-ai-news:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      - name: 设置 Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: 安装依赖
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-gh.txt
+
+      - name: 执行AI新闻搜索与推送
+        env:
+          TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          EMAIL_ACCOUNT: ${{ secrets.EMAIL_ACCOUNT }}
+          EMAIL_AUTH_CODE: ${{ secrets.EMAIL_AUTH_CODE }}
+        run: |
+          EMAIL="${{ github.event.inputs.email || secrets.EMAIL_TO }}"
+          if [ -z "$EMAIL" ]; then
+            echo "错误：未指定收件人邮箱。请设置 EMAIL_TO Secret 或在手动触发时输入 email 参数。"
+            exit 1
+          fi
+          python main.py --email "$EMAIL" --output index.html
+
+      - name: 上传HTML报告（可选）
+        uses: actions/upload-artifact@v4
+        with:
+          name: ai-daily-news-report
+          path: index.html
+          retention-days: 7
