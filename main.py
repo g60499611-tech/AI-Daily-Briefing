@@ -9,8 +9,6 @@
 环境变量（通过 GitHub Secrets 设置）：
     - TAVILY_API_KEY: Tavily 搜索 API Key
     - DEEPSEEK_API_KEY: DeepSeek API Key
-    - SMTP_SERVER: SMTP 服务器地址（如 smtp.qq.com）
-    - SMTP_PORT: SMTP 端口（如 465）
     - EMAIL_ACCOUNT: 发件人邮箱账号
     - EMAIL_AUTH_CODE: 邮箱授权码
 """
@@ -401,14 +399,14 @@ def _parse_overview(text: str) -> str:
 # ============================================================
 
 def send_email(to_addr: str, html_content: str) -> bool:
-    """通过 SMTP 发送 HTML 邮件"""
-    smtp_server = os.environ.get("SMTP_SERVER", "")
-    smtp_port = int(os.environ.get("SMTP_PORT", "465"))
+    """通过 SMTP 发送 HTML 邮件（QQ邮箱专用）"""
+    smtp_server = "smtp.qq.com"
+    smtp_port = 465
     account = os.environ.get("EMAIL_ACCOUNT", "")
     auth_code = os.environ.get("EMAIL_AUTH_CODE", "")
 
-    if not all([smtp_server, account, auth_code]):
-        logger.error("邮件配置不完整，请设置 SMTP_SERVER, EMAIL_ACCOUNT, EMAIL_AUTH_CODE")
+    if not all([account, auth_code]):
+        logger.error("邮件配置不完整，请设置 EMAIL_ACCOUNT, EMAIL_AUTH_CODE")
         return False
 
     try:
