@@ -1,0 +1,2 @@
+# GitHub Actions 运行依赖（轻量级）
+requests>=2.31.0
