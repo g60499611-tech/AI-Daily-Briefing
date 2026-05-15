@@ -34,21 +34,23 @@ jobs:
         env:
           TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
-          SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
-          SMTP_PORT: ${{ secrets.SMTP_PORT }}
           EMAIL_ACCOUNT: ${{ secrets.EMAIL_ACCOUNT }}
           EMAIL_AUTH_CODE: ${{ secrets.EMAIL_AUTH_CODE }}
         run: |
-          EMAIL="${{ github.event.inputs.email || secrets.EMAIL_TO }}"
+          EMAIL="${{ github.event.inputs.email || secrets.EMAIL_ACCOUNT }}"
           if [ -z "$EMAIL" ]; then
-            echo "错误：未指定收件人邮箱。请设置 EMAIL_TO Secret 或在手动触发时输入 email 参数。"
+            echo "错误：未设置 EMAIL_ACCOUNT Secret 或未输入收件人邮箱。"
             exit 1
           fi
           python main.py --email "$EMAIL" --output index.html
 
-      - name: 上传HTML报告（可选）
-        uses: actions/upload-artifact@v4
-        with:
-          name: ai-daily-news-report
-          path: index.html
-          retention-days: 7
+      - name: 部署到 GitHub Pages
+        run: |
+          mkdir -p docs
+          cp index.html docs/index.html
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/index.html
+          git diff --quiet && git diff --staged --quiet || \
+            git commit -m "chore: 更新AI每日简报 [$(date +'%Y-%m-%d')]"
+          git push
