@@ -55,6 +55,7 @@ SOURCE_DOMAINS = [
     "iyiou.com",             # 亿欧网
     "qbitai.com",            # 量子位
     "caixin.com",            # 财新网
+    "semianalysis.com",      # Semiannlysis
     "technologyreview.com",  # MIT Technology Review
     "venturebeat.com",       # VentureBeat AI
     "wired.com",             # Wired AI
@@ -63,7 +64,7 @@ SOURCE_DOMAINS = [
 
 SOURCE_NAMES = [
     "新华网", "人民网", "机器之心", "36氪",
-    "亿欧网", "量子位", "财新网",
+    "亿欧网", "量子位", "财新网","Semiannlysis",
     "MIT Technology Review", "VentureBeat", "Wired",
     "The Information",
 ]
@@ -193,7 +194,7 @@ def process_news(search_results: List[Dict[str, Any]]) -> str:
   1. **去重**：判断多条资讯是否为同一热点，同一热点仅保留1篇最权威来源
   2. **来源过滤**：仅保留以下权威来源，**非以下来源的资讯直接剔除，一条都不保留**：
      - 国内：新华网、人民网、机器之心、36氪、亿欧网、量子位、财新网
-     - 国际：MIT Technology Review、VentureBeat、Wired、The Information
+     - 国际：Semiannlysis、MIT Technology Review、VentureBeat、Wired、The Information
   3. **分类**：严格按【技术突破、产业供应链、商业落地、政策监管】4类划分
   4. **输出格式**：每篇资讯固定格式「标题｜权威来源｜原文链接｜一段话50-150字核心总结」
   5. **名词提取**：提取资讯中的AI专业陌生名词，文末附「名词释义库」
@@ -369,7 +370,7 @@ def generate_html(processed_news: str) -> str:
 <tr><td style="padding:24px;text-align:center;border-top:1px solid #d2d2d7;">
 <div style="font-size:12px;color:#86868b;line-height:1.6;">
 <p style="margin:0 0 4px;">🤖 由 AI 自动生成 · 每日 20:00 推送</p>
-<p style="margin:0;">数据来源：新华网、人民网、机器之心、36氪、量子位、财新网、亿欧网、MIT Technology Review、VentureBeat、Wired、The Information</p>
+<p style="margin:0;">数据来源：新华网、人民网、机器之心、36氪、量子位、财新网、亿欧网、Semiannlysis、MIT Technology Review、VentureBeat、Wired、The Information</p>
 </div></td></tr>
 </table></td></tr></table></body></html>"""
 
