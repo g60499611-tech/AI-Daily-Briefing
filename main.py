@@ -46,11 +46,23 @@ SEARCH_KEYWORDS = [
     "AI 政策 监管 安全伦理 治理",
 ]
 
-# 来源白名单
-SOURCE_WHITELIST = [
-    "机器之心", "36氪", "新智元", "央视网", "新华网",
-    "TechCrunch", "The Verge", "斯坦福HAI", "OpenAI博客",
-    "机器之心", "36氪", "新智元",
+# 来源白名单（域名 + 名称双维度过滤）
+SOURCE_DOMAINS = [
+    "jiqizhixin.com", "36kr.com", "qbitai.com",
+    "cctv.com", "xinhuanet.com", "thepaper.cn",
+    "techcrunch.com", "theverge.com",
+    "openai.com", "hai.stanford.edu",
+    "huxiu.com", "tmtpost.com", "jiemian.com",
+    "163.com", "sina.com.cn", "qq.com",
+]
+
+SOURCE_NAMES = [
+    "机器之心", "36氪", "量子位", "新智元",
+    "央视网", "新华网", "澎湃新闻",
+    "TechCrunch", "The Verge",
+    "OpenAI", "斯坦福",
+    "虎嗅", "钛媒体", "界面新闻",
+    "财新", "第一财经", "晚点",
 ]
 
 # ============================================================
@@ -79,7 +91,7 @@ def search_news() -> List[Dict[str, Any]]:
                     "query": keyword,
                     "search_depth": "advanced",
                     "include_answer": True,
-                    "include_domains": [],
+                    "include_domains": SOURCE_DOMAINS,
                     "max_results": 10,
                     "time_range": "day",
                 },
@@ -108,7 +120,34 @@ def search_news() -> List[Dict[str, Any]]:
             continue
 
     logger.info(f"搜索完成，共 {len(all_results)} 条结果")
-    return all_results
+
+    # 二次过滤：按域名和名称筛选权威来源
+    filtered = _filter_authoritative_sources(all_results)
+    logger.info(f"来源过滤后剩余 {len(filtered)} 条权威来源结果")
+    return filtered
+
+
+def _filter_authoritative_sources(results: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """按域名和名称白名单过滤权威来源"""
+    def _is_authoritative(item: Dict[str, Any]) -> bool:
+        url = (item.get("url") or "").lower()
+        title = (item.get("title") or "")
+        content = (item.get("content") or "")
+        source = (item.get("source") or "").lower()
+
+        # 检查域名
+        for domain in SOURCE_DOMAINS:
+            if domain in url:
+                return True
+
+        # 检查来源名称
+        for name in SOURCE_NAMES:
+            if name.lower() in title.lower() or name.lower() in content.lower() or name.lower() in source:
+                return True
+
+        return False
+
+    return [item for item in results if _is_authoritative(item)]
 
 
 # ============================================================
@@ -146,17 +185,21 @@ def process_news(search_results: List[Dict[str, Any]]) -> str:
 处理给定的24小时内AI新闻素材，进行去重、来源过滤、分类整理，并输出结构化结果。
 
 # 工作流上下文
-- **Input**：包含多条AI新闻资讯的列表
+- **Input**：包含多条AI新闻资讯的列表（已预过滤为权威来源）
 - **Process**：
   1. **去重**：判断多条资讯是否为同一热点，同一热点仅保留1篇最权威来源
-  2. **来源过滤**：仅保留【机器之心、36氪、新智元、央视网、新华网、TechCrunch、The Verge、斯坦福HAI、OpenAI博客】来源，其余直接剔除
+  2. **来源过滤**：仅保留以下权威来源，**非以下来源的资讯直接剔除，一条都不保留**：
+     - 国内：机器之心、36氪、量子位、新智元、央视网、新华网、澎湃新闻、虎嗅、钛媒体、界面新闻、第一财经、晚点
+     - 国际：TechCrunch、The Verge、OpenAI、斯坦福HAI
   3. **分类**：严格按【技术突破、产业供应链、商业落地、政策监管】4类划分
   4. **输出格式**：每篇资讯固定格式「标题｜权威来源｜原文链接｜一段话50-150字核心总结」
   5. **名词提取**：提取资讯中的AI专业陌生名词，文末附「名词释义库」
   6. **整体总结**：每类资讯结束后加「本类24h核心趋势总结」；最后加「24小时全球AI行业总览总结」
 
 # 约束与规则
+- **来源过滤是硬性要求**：非白名单来源的资讯**一律剔除**，宁缺毋滥
 - 每类最多输出3条，总数不超过12条
+- 如果某类没有符合条件的资讯，直接跳过该类，不要编造
 - 名词释义0-8个/天
 - 禁止添加无关内容、不篡改资讯事实、不重复描述
 - 格式统一整洁
@@ -323,7 +366,7 @@ def generate_html(processed_news: str) -> str:
 <tr><td style="padding:24px;text-align:center;border-top:1px solid #d2d2d7;">
 <div style="font-size:12px;color:#86868b;line-height:1.6;">
 <p style="margin:0 0 4px;">🤖 由 AI 自动生成 · 每日 20:00 推送</p>
-<p style="margin:0;">数据来源：机器之心、36氪、新智元、TechCrunch、The Verge 等</p>
+<p style="margin:0;">数据来源：机器之心、36氪、量子位、TechCrunch、The Verge 等</p>
 </div></td></tr>
 </table></td></tr></table></body></html>"""
 
