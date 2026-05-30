@@ -9,6 +9,8 @@
 环境变量（通过 GitHub Secrets 设置）：
     - TAVILY_API_KEY: Tavily 搜索 API Key
     - DEEPSEEK_API_KEY: DeepSeek API Key
+    - SMTP_SERVER: SMTP 服务器地址（如 smtp.qq.com）
+    - SMTP_PORT: SMTP 端口（如 465）
     - EMAIL_ACCOUNT: 发件人邮箱账号
     - EMAIL_AUTH_CODE: 邮箱授权码
 """
@@ -133,6 +135,8 @@ def search_news() -> List[Dict[str, Any]]:
 
 def _filter_authoritative_sources(results: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     """按域名和名称白名单过滤权威来源"""
+    import re
+
     def _is_authoritative(item: Dict[str, Any]) -> bool:
         url = (item.get("url") or "").lower()
         title = (item.get("title") or "")
@@ -159,14 +163,14 @@ def _filter_authoritative_sources(results: List[Dict[str, Any]]) -> List[Dict[st
 # ============================================================
 
 def process_news(search_results: List[Dict[str, Any]]) -> str:
-    """使用 DeepSeek API 进行去重、分类、总结"""
+    """使用 DeepSeek API 进行去重、分类、总结，返回 JSON 字符串"""
     api_key = os.environ.get("DEEPSEEK_API_KEY", "")
     if not api_key:
         logger.error("DEEPSEEK_API_KEY 未设置")
-        return "今日暂无符合条件的AI新闻资讯。"
+        return '{"categories":[],"glossary":[],"overview":"今日暂无符合条件的AI新闻资讯。"}'
 
     if not search_results:
-        return "今日暂无符合条件的AI新闻资讯。"
+        return '{"categories":[],"glossary":[],"overview":"今日暂无符合条件的AI新闻资讯。"}'
 
     import requests
 
@@ -186,7 +190,7 @@ def process_news(search_results: List[Dict[str, Any]]) -> str:
 你是专业的全球AI热点资讯整理专家，拥有出色的信息去重、分类和总结能力。
 
 # 任务目标
-处理给定的24小时内AI新闻素材，进行去重、来源过滤、分类整理，并输出结构化结果。
+处理给定的24小时内AI新闻素材，进行去重、来源过滤、分类整理，并输出**严格结构化的JSON**。
 
 # 工作流上下文
 - **Input**：包含多条AI新闻资讯的列表（已预过滤为权威来源）
@@ -196,36 +200,47 @@ def process_news(search_results: List[Dict[str, Any]]) -> str:
      - 国内：新华网、人民网、机器之心、36氪、亿欧网、量子位、财新网
      - 国际：MIT Technology Review、VentureBeat、Wired、The Information、SemiAnalysis
   3. **分类**：严格按【技术突破、产业供应链、商业落地、政策监管】4类划分
-  4. **输出格式**：每篇资讯固定格式「标题｜权威来源｜原文链接｜一段话50-150字核心总结」
-  5. **名词提取**：提取资讯中的AI专业陌生名词，文末附「名词释义库」
-  6. **整体总结**：每类资讯结束后加「本类24h核心趋势总结」；最后加「24小时全球AI行业总览总结」
+     - **重要**：4个分类**必须全部输出**，如果有分类没有找到高价值资讯，items 留空数组，trend 写明确标注
+  4. **名词提取**：提取资讯中的AI专业陌生名词，放入 glossary 列表
+  5. **整体总结**：每类资讯生成 trend 趋势总结；生成全局 overview
 
 # 约束与规则
 - **来源过滤是硬性要求**：非白名单来源的资讯**一律剔除**，宁缺毋滥
 - 每类最多输出3条，总数不超过12条
-- 如果某类没有符合条件的资讯，直接跳过该类，不要编造
+- **4个分类必须全部输出**，没有资讯的分类 items 设为 []，trend 写"今日暂无该分类的高价值新闻"
 - 名词释义0-8个/天
 - 禁止添加无关内容、不篡改资讯事实、不重复描述
-- 格式统一整洁
 
 # 输出格式
-严格按以下格式输出：
-
-## 🔬 技术突破
-标题｜来源｜链接｜核心总结
-...
-
-## 🏭 产业供应链
-...
-
-## 💼 商业落地
-...
-
-## 📜 政策监管
-...
-
-## 📖 名词释义库
-【名词1】：一句话通俗解释"""
+**必须**返回以下JSON结构（不要包含任何markdown代码块包裹，纯JSON字符串）：
+{
+  "categories": [
+    {
+      "name": "技术突破",
+      "trend": "本类24h核心趋势一句话总结",
+      "items": [
+        {
+          "title": "资讯标题",
+          "source": "权威来源名称",
+          "link": "原文完整URL",
+          "summary": "一段话50-150字核心总结"
+        }
+      ]
+    },
+    {
+      "name": "产业供应链",
+      "trend": "今日暂无该分类的高价值新闻",
+      "items": []
+    }
+  ],
+  "glossary": [
+    {
+      "term": "名词",
+      "explanation": "一句话通俗解释"
+    }
+  ],
+  "overview": "24小时全球AI行业总览总结"
+}"""
 
     try:
         logger.info("调用 DeepSeek API 处理新闻...")
@@ -248,27 +263,44 @@ def process_news(search_results: List[Dict[str, Any]]) -> str:
         )
         response.raise_for_status()
         data = response.json()
-        content = data["choices"][0]["message"]["content"]
-        logger.info(f"LLM处理完成，输出 {len(content)} 字符")
+        raw_content = data["choices"][0]["message"]["content"]
+        logger.info(f"LLM处理完成，输出 {len(raw_content)} 字符")
+
+        # 解析JSON（兼容LLM用 ```json 代码块包裹的情况）
+        content = raw_content.strip()
+        if content.startswith("```"):
+            content = content.split("\n", 1)[-1] if "\n" in content else content[3:]
+            if "```" in content:
+                content = content.rsplit("```", 1)[0]
+            content = content.strip()
+        json.loads(content)  # 验证是合法JSON
         return content
 
+    except json.JSONDecodeError as e:
+        logger.error(f"LLM未返回合法JSON: {e}，原始输出前200字符: {raw_content[:200]}")
+        return '{"categories":[],"glossary":[],"overview":"今日暂无符合条件的AI新闻资讯。"}'
     except Exception as e:
         logger.error(f"LLM处理失败: {e}")
-        return "今日暂无符合条件的AI新闻资讯。"
+        return '{"categories":[],"glossary":[],"overview":"今日暂无符合条件的AI新闻资讯。"}'
 
 
 # ============================================================
-# 步骤3: 生成HTML
+# 步骤3: 生成HTML（从JSON解析，永不因格式变化失败）
 # ============================================================
 
 def generate_html(processed_news: str) -> str:
-    """生成精美的HTML邮件内容"""
-    if not processed_news or processed_news == "今日暂无符合条件的AI新闻资讯。":
+    """生成精美的HTML邮件内容（从JSON解析）"""
+    if not processed_news:
         return _empty_html()
 
-    sections = _parse_sections(processed_news)
-    glossary = _parse_glossary(processed_news)
-    overview = _parse_overview(processed_news)
+    try:
+        data = json.loads(processed_news)
+    except json.JSONDecodeError:
+        return _empty_html()
+
+    categories = data.get("categories", [])
+    glossary = data.get("glossary", [])
+    overview = data.get("overview", "")
 
     # 构建分类卡片
     cards_html = ""
@@ -279,11 +311,11 @@ def generate_html(processed_news: str) -> str:
         "政策监管": {"icon": "📜", "color": "#FF9500"},
     }
 
-    for section in sections:
-        cat = section.get("category", "")
+    for cat_entry in categories:
+        cat = cat_entry.get("name", "")
         cfg = category_config.get(cat, {"icon": "📰", "color": "#007AFF"})
-        items = section.get("items", [])
-        trend = section.get("trend", "")
+        items = cat_entry.get("items", [])
+        trend = cat_entry.get("trend", "")
 
         items_html = ""
         for item in items:
@@ -301,6 +333,14 @@ def generate_html(processed_news: str) -> str:
                 <a href="{item.get('link', '#')}" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
+            </div>
+            """
+
+        if not items:
+            items_html = """
+            <div style="padding:24px 0;text-align:center;">
+                <div style="font-size:36px;margin-bottom:8px;">📭</div>
+                <div style="font-size:14px;color:#86868b;">今日暂无该分类的高价值新闻</div>
             </div>
             """
 
@@ -329,9 +369,9 @@ def generate_html(processed_news: str) -> str:
     if glossary:
         g_items = "".join(
             f'<div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;">'
-            f'<span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">{t}</span>'
-            f'<span style="font-size:14px;color:#515154;line-height:1.5;">{d}</span></div>'
-            for t, d in glossary
+            f'<span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">{g.get("term", "")}</span>'
+            f'<span style="font-size:14px;color:#515154;line-height:1.5;">{g.get("explanation", "")}</span></div>'
+            for g in glossary if g.get("term")
         )
         glossary_html = f"""
         <div style="margin-top:32px;padding-top:24px;border-top:2px dashed #d2d2d7;">
@@ -390,55 +430,6 @@ def _empty_html() -> str:
 <div style="font-size:20px;font-weight:600;color:#1d1d1f;margin-bottom:8px;">今日暂无新闻</div>
 <div style="font-size:14px;color:#86868b;">{today} 暂无符合条件的AI新闻资讯</div>
 </td></tr></table></td></tr></table></body></html>"""
-
-
-def _parse_sections(text: str) -> list:
-    sections, current_cat, current_items, current_trend = [], None, [], ""
-    cats = ["技术突破", "产业供应链", "商业落地", "政策监管"]
-    for line in text.split("\n"):
-        line = line.strip()
-        if not line:
-            continue
-        for cat in cats:
-            if cat in line and ("##" in line or "🔬" in line or "🏭" in line or "💼" in line or "📜" in line):
-                if current_cat and current_items:
-                    sections.append({"category": current_cat, "items": current_items, "trend": current_trend})
-                current_cat, current_items, current_trend = cat, [], ""
-                break
-        else:
-            if "本类24h核心趋势" in line:
-                current_trend = line.split("】", 1)[-1].strip() if "】" in line else line
-                continue
-            if "｜" in line and not line.startswith("【") and not line.startswith("##"):
-                parts = line.split("｜")
-                if len(parts) >= 4:
-                    current_items.append({"title": parts[0].strip(), "source": parts[1].strip(), "link": parts[2].strip(), "summary": "｜".join(parts[3:]).strip()})
-    if current_cat and current_items:
-        sections.append({"category": current_cat, "items": current_items, "trend": current_trend})
-    return sections
-
-
-def _parse_glossary(text: str) -> list:
-    glossary, in_g = [], False
-    for line in text.split("\n"):
-        line = line.strip()
-        if "名词释义库" in line:
-            in_g = True
-            continue
-        if in_g and line.startswith("【") and "】" in line:
-            t = line[line.find("【") + 1:line.find("】")]
-            d = line[line.find("】") + 1:].strip()
-            if t and d:
-                glossary.append((f"【{t}】", d))
-    return glossary
-
-
-def _parse_overview(text: str) -> str:
-    for line in text.split("\n"):
-        line = line.strip()
-        if "24小时全球AI行业总览总结" in line or "全球AI行业总览" in line:
-            return line.split("】", 1)[-1].strip() if "】" in line else line
-    return ""
 
 
 # ============================================================
