@@ -1,7 +1,4 @@
 # 每日AI新闻推送 - GitHub Actions 独立运行脚本
-"""
-该脚本用于在 GitHub Actions 中独立运行，无需 Coze 环境。
-通过环境变量配置 API Key 和邮箱信息。
 
 使用方法：
     python main.py --email your@qq.com
@@ -40,43 +37,94 @@ logger = logging.getLogger(__name__)
 # 配置
 # ============================================================
 
-# 搜索关键词（固定4个）
-SEARCH_KEYWORDS = [
-    "AI 技术突破 模型迭代 算法创新",
-    "AI 算力 芯片 供应链 产能",
-    "AI 融资 产品发布 商业落地 大厂动态",
-    "AI 政策 监管 安全伦理 治理",
+# 搜索类别（中英文双轨，每类分别搜中文和英文）
+SEARCH_CATEGORIES = [
+    {
+        "name": "模型与算法",
+        "cn": "AI 模型 发布 开源 算法 突破",
+        "en": "AI model release open-source breakthrough paper",
+    },
+    {
+        "name": "产品与商业",
+        "cn": "AI 产品发布 融资 收购 商业合作",
+        "en": "AI product launch funding acquisition partnership enterprise",
+    },
+    {
+        "name": "政策与治理",
+        "cn": "AI 政策 监管 立法 安全伦理",
+        "en": "AI regulation policy legislation safety ethics governance",
+    },
 ]
 
-# 来源白名单（域名 + 名称双维度过滤）
-SOURCE_DOMAINS = [
-    "xinhuanet.com",         # 新华网
-    "people.com.cn",         # 人民网
-    "jiqizhixin.com",        # 机器之心
-    "36kr.com",              # 36氪
-    "iyiou.com",             # 亿欧网
-    "qbitai.com",            # 量子位
-    "caixin.com",            # 财新网
-    "technologyreview.com",  # MIT Technology Review
-    "venturebeat.com",       # VentureBeat AI
-    "wired.com",             # Wired AI
-    "theinformation.com",    # The Information
-    "semianalysis.com",      # SemiAnalysis
+# 来源白名单（三阶梯分级）
+# 核心来源（直接信任，优先采用）
+CORE_DOMAINS = [
+    "xinhuanet.com",           # 新华网
+    "people.com.cn",           # 人民网
+    "caixin.com",              # 财新网
+    "jiqizhixin.com",          # 机器之心
+    "qbitai.com",              # 量子位
+    "reuters.com",             # Reuters
+    "bloomberg.com",           # Bloomberg
+    "techcrunch.com",          # TechCrunch
+    "theinformation.com",      # The Information
+    "technologyreview.com",    # MIT Technology Review
+    "arstechnica.com",         # Ars Technica
 ]
 
+# 一手来源（公司官方博客/公告，直接信任）
+PRIMARY_DOMAINS = [
+    "openai.com",              # OpenAI
+    "anthropic.com",           # Anthropic
+    "mistral.ai",              # Mistral
+    "ai.meta.com",             # Meta AI
+    "blog.google",             # Google AI Blog
+    "deepmind.google",         # DeepMind
+    "blogs.microsoft.com",     # Microsoft AI Blog
+]
+
+# 补充来源（仅当核心/一手来源覆盖不足时使用）
+SUPP_DOMAINS = [
+    "36kr.com",                # 36氪
+    "iyiou.com",               # 亿欧网
+    "venturebeat.com",         # VentureBeat
+    "wired.com",               # Wired
+    "semianalysis.com",        # SemiAnalysis
+]
+
+# 搜索使用的所有域名（Tavily include_domains 用）
+SOURCE_DOMAINS = CORE_DOMAINS + PRIMARY_DOMAINS + SUPP_DOMAINS
+
+# 来源名称白名单（用于标题/内容匹配）
 SOURCE_NAMES = [
-    "新华网", "人民网", "机器之心", "36氪",
-    "亿欧网", "量子位", "财新网",
-    "MIT Technology Review", "VentureBeat", "Wired",
-    "The Information", "SemiAnalysis",
+    "新华网", "人民网", "财新网", "机器之心", "量子位",
+    "Reuters", "Bloomberg", "TechCrunch", "The Information",
+    "MIT Technology Review", "Ars Technica",
+    "OpenAI", "Google AI", "Anthropic", "Meta AI", "Microsoft AI", "Mistral",
+    "36氪", "亿欧", "VentureBeat", "Wired", "SemiAnalysis",
 ]
+
+# 获取来源等级（用于 LLM 优先级判断）
+def _get_source_tier(url: str) -> str:
+    """返回来源等级: core / primary / supp / unknown"""
+    url_lower = url.lower()
+    for d in CORE_DOMAINS:
+        if d in url_lower:
+            return "core"
+    for d in PRIMARY_DOMAINS:
+        if d in url_lower:
+            return "primary"
+    for d in SUPP_DOMAINS:
+        if d in url_lower:
+            return "supp"
+    return "unknown"
 
 # ============================================================
 # 步骤1: 搜索新闻（Tavily API）
 # ============================================================
 
 def search_news() -> List[Dict[str, Any]]:
-    """使用 Tavily API 搜索 AI 新闻"""
+    """使用 Tavily API 搜索 AI 新闻（中英文双轨）"""
     api_key = os.environ.get("TAVILY_API_KEY", "")
     if not api_key:
         logger.error("TAVILY_API_KEY 未设置")
@@ -87,43 +135,49 @@ def search_news() -> List[Dict[str, Any]]:
     all_results: List[Dict[str, Any]] = []
     seen_urls: set = set()
 
-    for keyword in SEARCH_KEYWORDS:
-        try:
-            logger.info(f"搜索关键词: {keyword}")
-            response = requests.post(
-                "https://api.tavily.com/search",
-                json={
-                    "api_key": api_key,
-                    "query": keyword,
-                    "search_depth": "advanced",
-                    "include_answer": True,
-                    "include_domains": SOURCE_DOMAINS,
-                    "max_results": 10,
-                    "time_range": "day",
-                },
-                timeout=30,
-            )
-            response.raise_for_status()
-            data = response.json()
+    for cat in SEARCH_CATEGORIES:
+        cat_name = cat["name"]
+        # 每类搜2次：中文 + 英文
+        for lang, query in [("中文", cat["cn"]), ("英文", cat["en"])]:
+            try:
+                logger.info(f"[{cat_name}] 搜索{lang}: {query}")
+                response = requests.post(
+                    "https://api.tavily.com/search",
+                    json={
+                        "api_key": api_key,
+                        "query": query,
+                        "search_depth": "advanced",
+                        "include_answer": True,
+                        "include_domains": SOURCE_DOMAINS,
+                        "max_results": 10,
+                        "time_range": "day",
+                    },
+                    timeout=30,
+                )
+                response.raise_for_status()
+                data = response.json()
 
-            results = data.get("results", [])
-            for item in results:
-                url = item.get("url", "")
-                if url and url not in seen_urls:
-                    seen_urls.add(url)
-                    all_results.append({
-                        "title": item.get("title", ""),
-                        "url": url,
-                        "content": item.get("content", ""),
-                        "published_date": item.get("published_date", ""),
-                        "keyword": keyword,
-                    })
+                results = data.get("results", [])
+                for item in results:
+                    url = item.get("url", "")
+                    if url and url not in seen_urls:
+                        seen_urls.add(url)
+                        all_results.append({
+                            "title": item.get("title", ""),
+                            "url": url,
+                            "content": item.get("content", ""),
+                            "published_date": item.get("published_date", ""),
+                            "keyword": query,
+                            "category": cat_name,
+                            "lang": lang,
+                            "tier": _get_source_tier(url),
+                        })
 
-            logger.info(f"关键词 '{keyword}' 完成，累计 {len(all_results)} 条")
+                logger.info(f"  [{cat_name}]{lang}完成，累计 {len(all_results)} 条")
 
-        except Exception as e:
-            logger.error(f"搜索 '{keyword}' 失败: {e}")
-            continue
+            except Exception as e:
+                logger.error(f"  [{cat_name}]{lang}搜索失败: {e}")
+                continue
 
     logger.info(f"搜索完成，共 {len(all_results)} 条结果")
 
@@ -134,9 +188,7 @@ def search_news() -> List[Dict[str, Any]]:
 
 
 def _filter_authoritative_sources(results: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-    """按域名和名称白名单过滤权威来源"""
-    import re
-
+    """按域名和名称白名单过滤权威来源（保留全部三阶梯来源）"""
     def _is_authoritative(item: Dict[str, Any]) -> bool:
         url = (item.get("url") or "").lower()
         title = (item.get("title") or "")
@@ -174,65 +226,87 @@ def process_news(search_results: List[Dict[str, Any]]) -> str:
 
     import requests
 
-    # 格式化搜索结果
+    # 格式化搜索结果（含来源等级）
     lines = []
     for i, item in enumerate(search_results, 1):
-        lines.append(f"--- 资讯 {i} ---")
+        tier_label = {"core": "⭐⭐核心", "primary": "⭐⭐一手", "supp": "⭐补充"}.get(item.get("tier", ""), "来源")
+        lines.append(f"--- 资讯 {i} [{tier_label}] ---")
         lines.append(f"标题: {item.get('title', '')}")
         lines.append(f"链接: {item.get('url', '')}")
+        lines.append(f"来源等级: {item.get('tier', 'unknown')}")
         lines.append(f"发布时间: {item.get('published_date', '')}")
+        lines.append(f"所属类别: {item.get('category', '')}")
+        lines.append(f"搜索语言: {item.get('lang', '')}")
         lines.append(f"内容: {item.get('content', '')}")
-        lines.append(f"搜索关键词: {item.get('keyword', '')}")
         lines.append("")
     search_text = "\n".join(lines)
 
     system_prompt = """# 角色定义
-你是专业的全球AI热点资讯整理专家，拥有出色的信息去重、分类和总结能力。
+你是专业的全球AI热点资讯整理专家。你的读者是AI行业从业者，每天时间有限，需要你帮他们筛出真正值得关注的信息。像跟懂行的同事聊天一样输出，不是在写报告。
 
 # 任务目标
-处理给定的24小时内AI新闻素材，进行去重、来源过滤、分类整理，并输出**严格结构化的JSON**。
+处理给定的24小时内AI新闻素材，进行去重、筛选、分类，并输出**严格结构化的JSON**。
 
 # 工作流上下文
-- **Input**：包含多条AI新闻资讯的列表（已预过滤为权威来源）
+- **Input**：包含多条AI新闻资讯的列表，每条标注了来源等级（core=核心/primary=一手/supp=补充）、所属类别、语言
+- **来源选择规则（按优先级）**：
+  1. **核心来源（core）**：直接信任，优先采用。包括新华社、人民网、财新网、机器之心、量子位、Reuters、Bloomberg、TechCrunch、The Information、MIT Tech Review、Ars Technica
+  2. **一手来源（primary）**：公司官方博客/公告，直接信任。包括OpenAI、Google AI、Anthropic、Meta AI、Microsoft AI、Mistral等
+  3. **补充来源（supp）**：仅当核心/一手来源对某个话题覆盖不足时使用。包括36氪、亿欧、VentureBeat、Wired、SemiAnalysis
+  4. **不接受**：自媒体/个人号、PR通稿/软文（无独立观点、全篇引用官方说法）、内容农场/聚合平台、标题党/情绪化标题。如果发现此类内容，直接舍弃
 - **Process**：
-  1. **去重**：判断多条资讯是否为同一热点，同一热点仅保留1篇最权威来源
-  2. **来源过滤**：仅保留以下权威来源，**非以下来源的资讯直接剔除，一条都不保留**：
-     - 国内：新华网、人民网、机器之心、36氪、亿欧网、量子位、财新网
-     - 国际：MIT Technology Review、VentureBeat、Wired、The Information、SemiAnalysis
-  3. **分类**：严格按【技术突破、产业供应链、商业落地、政策监管】4类划分
-     - **重要**：4个分类**必须全部输出**，如果有分类没有找到高价值资讯，items 留空数组，trend 写明确标注
-  4. **名词提取**：提取资讯中的AI专业陌生名词，放入 glossary 列表
-  5. **整体总结**：每类资讯生成 trend 趋势总结；生成全局 overview
+  1. **去重**：
+     - 同一事件只保留1个分类入口，不要跨分类重复
+     - 同一事件优先保留一手来源或最权威的报道
+     - 如果同一事件有不同角度的权威报道（如：技术分析+商业影响），可各保留1篇，但需在总结中说明关联
+     - 纯转载/改写一律去重，只保留原始来源
+  2. **来源过滤**：按上述优先级规则选择，非白名单来源**一律剔除**，宁缺毋滥
+  3. **分类**：严格按【模型与算法、产品与商业、政策与治理】3类划分
+     - 不强制每个分类都输出，没有高价值资讯就跳过，不要凑数
+     - **模型与算法**：AI模型能力层面的变化（新模型发布、开源项目、训练方法突破、基准测试变化）
+       - 不属于此类的：纯学术小众论文、无实际影响的"理论上可能"
+     - **产品与商业**：AI变成产品或产生商业行为（产品上线/更新、融资并购、商业合作、芯片算力动态）
+       - 不属于此类的：纯技术论文、未商业化的研究
+     - **政策与治理**：政府或机构对AI的约束/推动（立法、监管行动、安全事件、行业标准）
+       - 不属于此类的：企业自律声明（归商业类）
+  4. **今日信号**：从上述新闻中挑1-2条最重要的，回答"为什么这两条重要？它会带来什么变化？对谁有影响？"用2-3句话写一段判断，不是总结，是观点。如果没有真正重要的信号，signal字段留空字符串
+  5. **趋势判断**：每类资讯生成 trend，不是"归纳今天出现了哪些新闻"，而是回答：
+     - 这个方向最近在发生什么变化？
+     - 今天的新闻是延续趋势还是出现拐点？
+     - 用1-2句话说清楚，不要列点，要像跟同事聊天一样自然
+  6. **整体总结**：生成全局 overview
+  7. **名词提取**：提取资讯中的AI专业陌生名词，放入 glossary 列表（0-8个/天）
 
 # 约束与规则
-- **来源过滤是硬性要求**：非白名单来源的资讯**一律剔除**，宁缺毋滥
-- 每类最多输出3条，总数不超过12条
-- **4个分类必须全部输出**，没有资讯的分类 items 设为 []，trend 写"今日暂无该分类的高价值新闻"
-- 名词释义0-8个/天
+- **来源过滤是硬性要求**：严格执行三级来源优先级
+- 每类最多输出4条，总数不超过12条
+- **3个分类不强制全输出**，没有高价值资讯的分类 items 设为 []，trend 写"今日无高价值资讯"，不要凑数
 - 禁止添加无关内容、不篡改资讯事实、不重复描述
+
+# 语气要求
+- 像跟懂行的同事聊天，不是在写报告
+- 可以有判断，不要中立到什么都没说
+- 禁止：车轱辘话、PR腔、"标志着""意味着"等空洞转折、堆砌形容词
+- 每条新闻摘要2-3句话，只说它是什么、为什么值得关注
 
 # 输出格式
 **必须**返回以下JSON结构（不要包含任何markdown代码块包裹，纯JSON字符串）：
 {
   "categories": [
     {
-      "name": "技术突破",
-      "trend": "本类24h核心趋势一句话总结",
+      "name": "模型与算法",
+      "trend": "这个方向最近在发生什么变化...",
       "items": [
         {
           "title": "资讯标题",
           "source": "权威来源名称",
           "link": "原文完整URL",
-          "summary": "一段话50-150字核心总结"
+          "summary": "2-3句话，只说什么和为什么值得关注"
         }
       ]
-    },
-    {
-      "name": "产业供应链",
-      "trend": "今日暂无该分类的高价值新闻",
-      "items": []
     }
   ],
+  "signal": "从新闻中挑1-2条最重要的做的判断，2-3句话；无重要信号则留空字符串",
   "glossary": [
     {
       "term": "名词",
@@ -301,14 +375,14 @@ def generate_html(processed_news: str) -> str:
     categories = data.get("categories", [])
     glossary = data.get("glossary", [])
     overview = data.get("overview", "")
+    signal_text = data.get("signal", "")
 
     # 构建分类卡片
     cards_html = ""
     category_config = {
-        "技术突破": {"icon": "🔬", "color": "#5856D6"},
-        "产业供应链": {"icon": "🏭", "color": "#007AFF"},
-        "商业落地": {"icon": "💼", "color": "#34C759"},
-        "政策监管": {"icon": "📜", "color": "#FF9500"},
+        "模型与算法": {"icon": "🧠", "color": "#5856D6"},
+        "产品与商业": {"icon": "💼", "color": "#34C759"},
+        "政策与治理": {"icon": "📜", "color": "#FF9500"},
     }
 
     for cat_entry in categories:
@@ -364,6 +438,19 @@ def generate_html(processed_news: str) -> str:
         </div>
         """
 
+    # 今日信号
+    signal_html = ""
+    if signal_text:
+        signal_html = f"""
+        <div style="background:linear-gradient(135deg,#FFD60A08,#FF950008);border-radius:16px;padding:24px;margin-bottom:20px;border:1px solid #FFD60A30;">
+            <div style="display:flex;align-items:center;margin-bottom:12px;">
+                <span style="font-size:24px;margin-right:10px;">📡</span>
+                <h2 style="font-size:20px;font-weight:700;color:#FF9500;margin:0;">今日信号</h2>
+            </div>
+            <div style="font-size:14px;color:#515154;line-height:1.7;padding-left:4px;">{signal_text}</div>
+        </div>
+        """
+
     # 名词释义
     glossary_html = ""
     if glossary:
@@ -406,10 +493,11 @@ def generate_html(processed_news: str) -> str:
 </td></tr>
 {overview_html}
 <tr><td style="padding:0 0 20px;">{cards_html}</td></tr>
+<tr><td style="padding:0 0 20px;">{signal_html}</td></tr>
 <tr><td style="padding:0 0 20px;">{glossary_html}</td></tr>
 <tr><td style="padding:24px;text-align:center;border-top:1px solid #d2d2d7;">
 <div style="font-size:12px;color:#86868b;line-height:1.6;">
-<p style="margin:0 0 4px;">🤖 由 AI 自动生成 · 每日 20:00 推送</p>
+<p style="margin:0 0 4px;">🤖 由 AI 自动生成 · 每日 20:00 推送 · 中英文双轨搜索</p>
 <p style="margin:0;">数据来源：新华网、人民网、机器之心、36氪、量子位、财新网、亿欧网、MIT Technology Review、VentureBeat、Wired、The Information、SemiAnalysis</p>
 </div></td></tr>
 </table></td></tr></table></body></html>"""
