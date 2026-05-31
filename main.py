@@ -3,7 +3,7 @@
 使用方法：
     python main.py --email your@qq.com
 
-环境变量（通过 GitHub Secrets 设置）：
+环境变量（通过 GitHub Secrets 设置）:
     - TAVILY_API_KEY: Tavily 搜索 API Key
     - DEEPSEEK_API_KEY: DeepSeek API Key
     - SMTP_SERVER: SMTP 服务器地址（如 smtp.qq.com）
