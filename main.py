@@ -1,6 +1,9 @@
 # 每日AI新闻推送 - GitHub Actions 独立运行脚本
+"""
+该脚本用于在 GitHub Actions 中独立运行，无需 Coze 环境。
+通过环境变量配置 API Key 和邮箱信息。
 
-使用方法：
+使用方法:
     python main.py --email your@qq.com
 
 环境变量（通过 GitHub Secrets 设置）:
@@ -137,7 +140,7 @@ def search_news() -> List[Dict[str, Any]]:
 
     for cat in SEARCH_CATEGORIES:
         cat_name = cat["name"]
-        # 每类搜2次：中文 + 英文
+        # 每类搜2次:中文 + 英文
         for lang, query in [("中文", cat["cn"]), ("英文", cat["en"])]:
             try:
                 logger.info(f"[{cat_name}] 搜索{lang}: {query}")
@@ -181,7 +184,7 @@ def search_news() -> List[Dict[str, Any]]:
 
     logger.info(f"搜索完成，共 {len(all_results)} 条结果")
 
-    # 二次过滤：按域名和名称筛选权威来源
+    # 二次过滤:按域名和名称筛选权威来源
     filtered = _filter_authoritative_sources(all_results)
     logger.info(f"来源过滤后剩余 {len(filtered)} 条权威来源结果")
     return filtered
@@ -248,37 +251,37 @@ def process_news(search_results: List[Dict[str, Any]]) -> str:
 处理给定的24小时内AI新闻素材，进行去重、筛选、分类，并输出**严格结构化的JSON**。
 
 # 工作流上下文
-- **Input**：包含多条AI新闻资讯的列表，每条标注了来源等级（core=核心/primary=一手/supp=补充）、所属类别、语言
-- **来源选择规则（按优先级）**：
-  1. **核心来源（core）**：直接信任，优先采用。包括新华社、人民网、财新网、机器之心、量子位、Reuters、Bloomberg、TechCrunch、The Information、MIT Tech Review、Ars Technica
-  2. **一手来源（primary）**：公司官方博客/公告，直接信任。包括OpenAI、Google AI、Anthropic、Meta AI、Microsoft AI、Mistral等
-  3. **补充来源（supp）**：仅当核心/一手来源对某个话题覆盖不足时使用。包括36氪、亿欧、VentureBeat、Wired、SemiAnalysis
-  4. **不接受**：自媒体/个人号、PR通稿/软文（无独立观点、全篇引用官方说法）、内容农场/聚合平台、标题党/情绪化标题。如果发现此类内容，直接舍弃
-- **Process**：
-  1. **去重**：
+- **Input**:包含多条AI新闻资讯的列表，每条标注了来源等级（core=核心/primary=一手/supp=补充）、所属类别、语言
+- **来源选择规则（按优先级）**:
+  1. **核心来源（core）**:直接信任，优先采用。包括新华社、人民网、财新网、机器之心、量子位、Reuters、Bloomberg、TechCrunch、The Information、MIT Tech Review、Ars Technica
+  2. **一手来源（primary）**:公司官方博客/公告，直接信任。包括OpenAI、Google AI、Anthropic、Meta AI、Microsoft AI、Mistral等
+  3. **补充来源（supp）**:仅当核心/一手来源对某个话题覆盖不足时使用。包括36氪、亿欧、VentureBeat、Wired、SemiAnalysis
+  4. **不接受**:自媒体/个人号、PR通稿/软文（无独立观点、全篇引用官方说法）、内容农场/聚合平台、标题党/情绪化标题。如果发现此类内容，直接舍弃
+- **Process**:
+  1. **去重**:
      - 同一事件只保留1个分类入口，不要跨分类重复
      - 同一事件优先保留一手来源或最权威的报道
-     - 如果同一事件有不同角度的权威报道（如：技术分析+商业影响），可各保留1篇，但需在总结中说明关联
+     - 如果同一事件有不同角度的权威报道（如:技术分析+商业影响），可各保留1篇，但需在总结中说明关联
      - 纯转载/改写一律去重，只保留原始来源
-  2. **来源过滤**：按上述优先级规则选择，非白名单来源**一律剔除**，宁缺毋滥
-  3. **分类**：严格按【模型与算法、产品与商业、政策与治理】3类划分
+  2. **来源过滤**:按上述优先级规则选择，非白名单来源**一律剔除**，宁缺毋滥
+  3. **分类**:严格按【模型与算法、产品与商业、政策与治理】3类划分
      - 不强制每个分类都输出，没有高价值资讯就跳过，不要凑数
-     - **模型与算法**：AI模型能力层面的变化（新模型发布、开源项目、训练方法突破、基准测试变化）
-       - 不属于此类的：纯学术小众论文、无实际影响的"理论上可能"
-     - **产品与商业**：AI变成产品或产生商业行为（产品上线/更新、融资并购、商业合作、芯片算力动态）
-       - 不属于此类的：纯技术论文、未商业化的研究
-     - **政策与治理**：政府或机构对AI的约束/推动（立法、监管行动、安全事件、行业标准）
-       - 不属于此类的：企业自律声明（归商业类）
-  4. **今日信号**：从上述新闻中挑1-2条最重要的，回答"为什么这两条重要？它会带来什么变化？对谁有影响？"用2-3句话写一段判断，不是总结，是观点。如果没有真正重要的信号，signal字段留空字符串
-  5. **趋势判断**：每类资讯生成 trend，不是"归纳今天出现了哪些新闻"，而是回答：
+     - **模型与算法**:AI模型能力层面的变化（新模型发布、开源项目、训练方法突破、基准测试变化）
+       - 不属于此类的:纯学术小众论文、无实际影响的"理论上可能"
+     - **产品与商业**:AI变成产品或产生商业行为（产品上线/更新、融资并购、商业合作、芯片算力动态）
+       - 不属于此类的:纯技术论文、未商业化的研究
+     - **政策与治理**:政府或机构对AI的约束/推动（立法、监管行动、安全事件、行业标准）
+       - 不属于此类的:企业自律声明（归商业类）
+  4. **今日信号**:从上述新闻中挑1-2条最重要的，回答"为什么这两条重要？它会带来什么变化？对谁有影响？"用2-3句话写一段判断，不是总结，是观点。如果没有真正重要的信号，signal字段留空字符串
+  5. **趋势判断**:每类资讯生成 trend，不是"归纳今天出现了哪些新闻"，而是回答:
      - 这个方向最近在发生什么变化？
      - 今天的新闻是延续趋势还是出现拐点？
      - 用1-2句话说清楚，不要列点，要像跟同事聊天一样自然
-  6. **整体总结**：生成全局 overview
-  7. **名词提取**：提取资讯中的AI专业陌生名词，放入 glossary 列表（0-8个/天）
+  6. **整体总结**:生成全局 overview
+  7. **名词提取**:提取资讯中的AI专业陌生名词，放入 glossary 列表（0-8个/天）
 
 # 约束与规则
-- **来源过滤是硬性要求**：严格执行三级来源优先级
+- **来源过滤是硬性要求**:严格执行三级来源优先级
 - 每类最多输出4条，总数不超过12条
 - **3个分类不强制全输出**，没有高价值资讯的分类 items 设为 []，trend 写"今日无高价值资讯"，不要凑数
 - 禁止添加无关内容、不篡改资讯事实、不重复描述
@@ -286,11 +289,11 @@ def process_news(search_results: List[Dict[str, Any]]) -> str:
 # 语气要求
 - 像跟懂行的同事聊天，不是在写报告
 - 可以有判断，不要中立到什么都没说
-- 禁止：车轱辘话、PR腔、"标志着""意味着"等空洞转折、堆砌形容词
+- 禁止:车轱辘话、PR腔、"标志着""意味着"等空洞转折、堆砌形容词
 - 每条新闻摘要2-3句话，只说它是什么、为什么值得关注
 
 # 输出格式
-**必须**返回以下JSON结构（不要包含任何markdown代码块包裹，纯JSON字符串）：
+**必须**返回以下JSON结构（不要包含任何markdown代码块包裹，纯JSON字符串）:
 {
   "categories": [
     {
@@ -328,7 +331,7 @@ def process_news(search_results: List[Dict[str, Any]]) -> str:
                 "model": "deepseek-chat",
                 "messages": [
                     {"role": "system", "content": system_prompt},
-                    {"role": "user", "content": f"请处理以下24小时内AI新闻素材：\n\n{search_text}"},
+                    {"role": "user", "content": f"请处理以下24小时内AI新闻素材:\n\n{search_text}"},
                 ],
                 "temperature": 0.1,
                 "max_tokens": 8192,
@@ -498,7 +501,7 @@ def generate_html(processed_news: str) -> str:
 <tr><td style="padding:24px;text-align:center;border-top:1px solid #d2d2d7;">
 <div style="font-size:12px;color:#86868b;line-height:1.6;">
 <p style="margin:0 0 4px;">🤖 由 AI 自动生成 · 每日 20:00 推送 · 中英文双轨搜索</p>
-<p style="margin:0;">数据来源：新华网、人民网、机器之心、36氪、量子位、财新网、亿欧网、MIT Technology Review、VentureBeat、Wired、The Information、SemiAnalysis</p>
+<p style="margin:0;">数据来源:新华网、人民网、机器之心、36氪、量子位、财新网、亿欧网、MIT Technology Review、VentureBeat、Wired、The Information、SemiAnalysis</p>
 </div></td></tr>
 </table></td></tr></table></body></html>"""
 
