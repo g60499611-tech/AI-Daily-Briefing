@@ -8,12 +8,12 @@
 <table width="640" cellpadding="0" cellspacing="0" style="max-width:640px;width:100%;">
 <tr><td style="padding:40px 24px 24px;text-align:center;">
 <div style="font-size:32px;font-weight:800;color:#1d1d1f;letter-spacing:-0.5px;">AI 每日简报</div>
-<div style="font-size:14px;color:#86868b;margin-top:6px;">2026年06月03日 · 全球AI资讯精选</div>
+<div style="font-size:14px;color:#86868b;margin-top:6px;">2026年06月04日 · 全球AI资讯精选</div>
 </td></tr>
 
         <div style="background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);border-radius:16px;padding:24px;margin-bottom:20px;">
             <div style="font-size:16px;font-weight:600;color:#ffffff;margin-bottom:8px;">🌐 24小时全球AI行业总览</div>
-            <div style="font-size:14px;color:rgba(255,255,255,0.9);line-height:1.6;">24小时内，AI行业的核心叙事从'模型能力竞赛'转向'生态与治理竞赛'。微软Build 2026是最大变量：七款自研模型+Agent控制标准+量子芯片，标志着微软正式从OpenAI的'独家云房东'转型为'全栈AI平台商'。与此同时，Anthropic和OpenAI在安全侧同步加码，AI安全正从'可选'变成'必选'。商业层面，Coralogix的2亿美元融资和高盛关于数据中心融资的分析，都指向AI基础设施的下一波机会在'运维和监控'。政策层面，中国出台AI伦理审查细则，美国Shell案则把AI提示词的法律地位推上风口。整体来看，行业正在从'野蛮生长'进入'精细化运营'阶段。</div>
+            <div style="font-size:14px;color:rgba(255,255,255,0.9);line-height:1.6;">24小时内，AI行业在模型、商业和政策三个层面均有重要进展。模型方面，OpenAI发布GPT-5.4强化专业工作能力，Google推出可在笔记本上运行的Gemma 4 12B，同时中国团队在隐空间世界模型和触觉物理交互上取得突破。商业方面，Meta正式进军企业AI Agent市场并探索高额订阅模式，英伟达通过收购Kumo AI锁定企业预测推理场景，AI金融公司Ramp估值飙升至440亿美元。政策方面，OpenAI发布联邦AI治理蓝图，与Anthropic签署生物安全承诺，欧洲央行要求银行应对AI风险。整体来看，AI正从模型能力竞赛转向应用落地和商业变现的深水区。</div>
         </div>
         
 <tr><td style="padding:0 0 20px;">
@@ -25,60 +25,60 @@
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    Microsoft Build 2026: 发布七款自研MAI模型，包括首个推理模型MAI-Thinking-1
+                    OpenAI发布GPT-5.4，面向专业工作场景
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
-                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">Microsoft Blog</span>
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">OpenAI</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    微软在Build 2026上推出七款自研模型，包括推理模型MAI-Thinking-1（350亿活跃参数）、代码模型MAI-Code-1（SWE Bench Pro 51.2%）、图像/语音/转录模型。微软强调MAI-Thinking-1是从零训练、未使用第三方数据。这标志着微软正式从依赖OpenAI转向自主可控的模型生态，直接对标Anthropic的企业级路线。
+                    GPT-5.4是OpenAI最新的旗舰模型，专为专业工作设计，在推理、编码、工具使用和可操控性上均有提升。它首次在通用模型中原生支持计算机使用能力，并支持100万token上下文，是当前最token高效的推理模型。
                 </div>
-                <a href="https://blogs.microsoft.com/blog/2026/06/02/microsoft-build-2026-be-yourself-at-work" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://openai.com/pa-IN/index/introducing-gpt-5-4" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    微软发布Agent Control Specification (ACS) 开源标准，统一AI代理行为控制
+                    Google发布Gemma 4 12B：可在16GB内存笔记本上运行的多模态模型
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
-                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">TechCrunch</span>
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">Ars Technica</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    微软推出开源Agent Control Specification (ACS)，允许开发者以标准化方式定义AI代理的权限边界、输入输出分类器和策略规则。ACS支持LangChain、OpenAI Agents SDK、Anthropic Agents SDK等主流框架。这是企业大规模部署AI代理的关键基础设施——没有统一的安全策略，代理根本不敢放出去干活。
+                    Gemma 4 12B填补了Gemma 4系列的中端空白，采用无编码器的统一多模态架构，可直接处理文本、音频和图像输入，降低延迟和内存占用。这意味着高性能本地AI推理正在走向普通消费级硬件。
                 </div>
-                <a href="https://techcrunch.com/2026/06/02/microsoft-offers-devs-a-better-way-to-control-ai-agent-behavior" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://arstechnica.com/google/2026/06/googles-new-gemma-4-open-ai-model-is-sized-for-your-laptop" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    Anthropic将Mythos访问权限扩大四倍至约200家Glasswing合作伙伴
+                    LeCun押注的隐空间世界模型，视启未来已提前布局
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
-                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">Reuters</span>
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">量子位</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    Anthropic宣布将Mythos级模型的访问权限扩大至约200家安全合作伙伴，并推出实时网络防御机制。Anthropic估计，大规模攻击可能影响超1亿人，而Mythos级能力将在6-12个月内被其他厂商掌握。这是AI安全从'研究论文'走向'实战部署'的关键一步。
+                    视启未来（Grounding DINO、DINO-X团队）宣布押注隐空间世界模型，该路线不同于预测下一帧画面，而是在抽象表征空间学习因果规律。团队同时发布EgoTwin引擎，将人类操作视频转化为机器人训练数据，效率是行业方案的3.75倍。
                 </div>
-                <a href="https://www.reuters.com/technology/anthropic-mythos-access-grow-four-fold-about-200-glasswing-partners-2026-06-02" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://www.qbitai.com/2026/06/428790.html" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    OpenAI发布网络安全防御框架，为GPT-5.4-Cyber等模型提供可信访问
+                    戴盟机器人完成亿元融资，攻关物理世界模型
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
-                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">OpenAI Blog</span>
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">量子位</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    OpenAI发布网络安全防御框架，为即将发布的模型（包括GPT-5.4-Cyber）提供可信访问机制。OpenAI承认现有模型已可被用于发现漏洞和推理代码库，威胁行为者正在利用更多测试时计算来增强能力。安全不能等到'某个未来阈值'再行动——这是OpenAI对AI安全紧迫性的明确表态。
+                    戴盟机器人获汇川技术、中国电信联合投资，其核心路线是构建含触觉的物理世界模型，实现毫秒级触觉伺服与多步前瞻协同。团队联合发布RobOmni评测基准，试图为触觉Scaling Law建立行业标尺。
                 </div>
-                <a href="https://openai.com/so-DJ/index/scaling-trusted-access-for-cyber-defense" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://www.qbitai.com/2026/06/428778.html" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
@@ -86,7 +86,7 @@
             
             <div style="margin-top:16px;padding:12px 16px;background:#5856D608;border-left:3px solid #5856D6;border-radius:6px;">
                 <div style="font-size:13px;color:#5856D6;font-weight:600;margin-bottom:4px;">📊 本类24h核心趋势</div>
-                <div style="font-size:14px;color:#515154;line-height:1.5;">今天最核心的信号是微软在Build 2026上正式亮出自研模型矩阵，标志着AI军备竞赛从'谁有最好的模型'转向'谁有最完整的模型生态'。微软不再满足于做OpenAI的云房东，而是直接下场跟Anthropic、OpenAI抢企业客户。同时，Anthropic和OpenAI在安全侧的动作也在加速，AI安全正从'事后补救'变成'产品发布前的标配'。</div>
+                <div style="font-size:14px;color:#515154;line-height:1.5;">模型层竞争进入深水区：一边是OpenAI、Google等巨头持续迭代旗舰模型（GPT-5.4、Gemma 4 12B），另一边是DeepSeek、视启未来等团队在架构创新和世界模型上寻求差异化突破。今天的新闻延续了‘性能竞赛+开源生态+垂直场景’的三线并行趋势，没有出现颠覆性拐点，但隐空间世界模型和触觉物理交互的进展值得关注。</div>
             </div>
             
         </div>
@@ -99,60 +99,60 @@
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    Coralogix融资2亿美元，押注AI代理监控层
+                    Meta推出面向企业的AI Agent，并计划对消费版Agent收费高达200美元/月
+                </div>
+                <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">Reuters</span>
+                </div>
+                <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
+                    Meta正式发布企业AI Agent，帮助客户处理日常运营；同时内部文件显示，其消费版Agent工具‘Hatch’月费可能高达200美元。这表明Meta正加速将AI能力货币化，从社交广告向企业服务市场扩张。
+                </div>
+                <a href="https://www.reuters.com/video/watch/idRW576203062026RP1" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                    阅读原文 →
+                </a>
+            </div>
+            
+            <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
+                <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
+                    英伟达以4亿美元收购预测性AI公司Kumo AI
+                </div>
+                <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">36氪</span>
+                </div>
+                <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
+                    英伟达收购Kumo AI，后者专注于让AI直接分析企业关系型数据库，无需传统特征工程。Kumo的模型可处理5000亿行数据，客户包括Databricks、DoorDash等。这笔交易本质是英伟达通过绑定企业预测推理场景来扩大GPU需求。
+                </div>
+                <a href="https://m.36kr.com/p/3838785209698566" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                    阅读原文 →
+                </a>
+            </div>
+            
+            <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
+                <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
+                    AI驱动的金融科技公司Ramp估值飙升至440亿美元
+                </div>
+                <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">Reuters</span>
+                </div>
+                <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
+                    Ramp完成新一轮融资，估值达440亿美元，由ICONIQ、GIC等领投。其增长核心是AI驱动的企业支出管理平台，证明AI在垂直金融场景的变现能力正在被资本市场重估。
+                </div>
+                <a href="https://www.reuters.com/legal/transactional/fintech-firm-ramps-valuation-surges-44-billion-ai-driven-growth-2026-06-04" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                    阅读原文 →
+                </a>
+            </div>
+            
+            <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
+                <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
+                    Lovable与Google Cloud签署多年协议，AI Agent使用量预计增长5倍
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
                     <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">TechCrunch</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    软件监控初创公司Coralogix完成2亿美元F轮融资，估值16亿美元，距上一轮仅11个月。公司押注AI代理的普及将催生新一代监控、故障排除和管理工具。当AI代理开始自主执行任务，'谁来盯着它们'就成了刚需——这是基础设施层最确定的机会。
+                    AI Agent初创公司Lovable与Google Cloud达成合作，通过Google Marketplace销售其Agent产品。Lovable年化收入已超4亿美元，拥有146名员工，超过一半的财富500强企业使用其产品。这显示了AI Agent在企业端的快速渗透。
                 </div>
-                <a href="https://techcrunch.com/2026/06/03/coralogix-raises-200m-in-race-to-build-the-monitoring-layer-for-ai-agents" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
-                    阅读原文 →
-                </a>
-            </div>
-            
-            <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
-                <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    Goldman Sachs：私人基础设施和房地产资本将在AI数据中心融资中扮演更大角色
-                </div>
-                <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
-                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">Reuters</span>
-                </div>
-                <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    高盛指出，随着AI数据中心建设热潮持续，企业正从传统融资方式转向私人基础设施和房地产资本。这意味着AI基础设施的融资模式正在成熟，从'风险投资赌未来'转向'长期资本吃租金'——这是行业走向成熟的重要信号。
-                </div>
-                <a href="https://www.reuters.com/business/finance/private-infra-real-estate-capital-play-larger-financing-role-ai-data-center-boom-2026-06-03" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
-                    阅读原文 →
-                </a>
-            </div>
-            
-            <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
-                <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    Alphabet投资者演示：75%云客户使用AI产品，企业AI首次成为云主要增长驱动力
-                </div>
-                <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
-                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">Google Blog</span>
-                </div>
-                <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    Alphabet在投资者演示中披露，75%的云客户正在使用其AI产品，Q1新客户获取量翻倍，1亿至10亿美元级别交易数量同比翻番。企业AI解决方案首次成为云业务的主要增长驱动力。这印证了AI正在从'实验'变成'核心业务'。
-                </div>
-                <a href="https://blog.google/alphabet/investor-presentation-june-2026" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
-                    阅读原文 →
-                </a>
-            </div>
-            
-            <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
-                <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    Reuters：企业AI成本冲击将迫使行业自律，OpenAI预计2030年前无法盈利
-                </div>
-                <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
-                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">Reuters</span>
-                </div>
-                <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    路透分析指出，尽管芯片和硬件成本持续下降，但企业AI支出正面临'标价冲击'。OpenAI预计到2030年才能实现盈亏平衡，而云浪费在五年内首次回升，部分原因是AI。企业将被迫采用更便宜的模型（如阿里开源模型）并实施预算管控——类似当年云计算成本控制的故事正在重演。
-                </div>
-                <a href="https://www.reuters.com/commentary/breakingviews/corporate-ai-sticker-shock-will-force-restraint-2026-06-02" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://techcrunch.com/2026/06/03/lovable-signs-multi-year-deal-with-google-cloud-to-up-usage-5x-source-says" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
@@ -160,7 +160,7 @@
             
             <div style="margin-top:16px;padding:12px 16px;background:#34C75908;border-left:3px solid #34C759;border-radius:6px;">
                 <div style="font-size:13px;color:#34C759;font-weight:600;margin-bottom:4px;">📊 本类24h核心趋势</div>
-                <div style="font-size:14px;color:#515154;line-height:1.5;">AI基础设施投资正在从'模型军备竞赛'转向'监控与治理'。Coralogix的2亿美元融资和Goldman Sachs关于私人资本涌入数据中心的分析，都指向同一个方向：AI部署的下一波瓶颈不是模型能力，而是运维、监控和融资能力。同时，OpenAI和Anthropic的IPO进程加速，正在重塑整个产业链的权力结构。</div>
+                <div style="font-size:14px;color:#515154;line-height:1.5;">AI商业化进入‘平台绑定+垂直深耕’阶段：Meta、Google等巨头通过AI Agent直接切入企业服务市场，英伟达则通过收购Kumo AI锁定企业预测推理的GPU需求。同时，AI硬件（智能戒指、仿生机器人）和AI+金融（Ramp估值飙升）等垂直领域持续获得资本追捧，市场正在从‘模型军备赛’转向‘应用变现赛’。</div>
             </div>
             
         </div>
@@ -173,30 +173,60 @@
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    中国发布《人工智能科技伦理审查办法》，构建全生命周期伦理治理体系
+                    OpenAI发布前沿AI民主治理蓝图
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
-                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">新华网</span>
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">OpenAI</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    新华网报道，中国出台《人工智能科技伦理审查办法》，将伦理治理从原则性要求转化为具体操作规则。办法明确六大审查维度（增进人类福祉、公平公正、可控可信等），建立分级分类审查和动态跟踪机制，高风险活动需专家复核。这是中国AI治理从'倡导'到'强制'的关键一步。
+                    OpenAI发布联邦AI治理蓝图，提出三部分策略：建立国家框架、强化CAISI作为主要监管机构、动员政府层面的韧性计划。这是OpenAI首次系统性地提出对联邦AI监管的具体架构建议。
                 </div>
-                <a href="http://lw.xinhuanet.com/20260603/dd1bd5322f0c4b7899268d691caf2ceb/c.html" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://openai.com/index/frontier-safety-blueprint" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    Shell在气候诉讼中要求披露AI提示词，引发法律争议
+                    OpenAI与Anthropic签署防止AI开发生物武器的承诺书
+                </div>
+                <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">WIRED</span>
+                </div>
+                <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
+                    两家领先AI公司联合签署承诺，加强基因合成订单筛查，防止AI被用于开发生物武器。此举呼应了美国联邦指南和参议院两党法案，标志着行业在生物安全领域的自律行动正在加速。
+                </div>
+                <a href="https://www.wired.com/story/openai-anthropic-letter-ai-biological-weapons" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                    阅读原文 →
+                </a>
+            </div>
+            
+            <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
+                <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
+                    欧洲央行要求银行针对AI风险采取针对性措施
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
                     <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">Reuters</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    Shell在气候诉讼中要求对方专家披露用于文档筛选的AI提示词，以评估是否存在偏见。原告方律师反驳称这等同于要求披露'思考过程'。此案可能开创先例：AI辅助的法律工作是否应接受更高标准的审查？这对所有使用AI进行法律研究的机构都有深远影响。
+                    欧洲央行要求银行制定针对性措施以应对AI风险，这是金融监管机构首次对AI在金融系统的应用提出具体风控要求。
                 </div>
-                <a href="https://www.reuters.com/legal/litigation/group-fights-shell-oil-bid-ai-prompts-used-climate-lawsuit-2026-06-02" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://www.reuters.com/technology/cybersecurity" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                    阅读原文 →
+                </a>
+            </div>
+            
+            <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
+                <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
+                    韩国获得Anthropic的Mythos AI模型访问权
+                </div>
+                <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">Reuters</span>
+                </div>
+                <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
+                    韩国科学部宣布已确保对Anthropic的Mythos AI模型的安全访问，这是主权AI战略的一部分，旨在建立专属AI体系。
+                </div>
+                <a href="https://www.reuters.com/technology/cybersecurity" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
@@ -204,7 +234,7 @@
             
             <div style="margin-top:16px;padding:12px 16px;background:#FF950008;border-left:3px solid #FF9500;border-radius:6px;">
                 <div style="font-size:13px;color:#FF9500;font-weight:600;margin-bottom:4px;">📊 本类24h核心趋势</div>
-                <div style="font-size:14px;color:#515154;line-height:1.5;">中国在AI伦理治理上正在从'顶层设计'走向'落地执行'。新华网报道的《人工智能科技伦理审查办法》将伦理审查细化为可操作清单，并建立全生命周期管理机制。同时，路透报道的Shell案中，AI提示词是否应被披露成为法律争议焦点——AI在司法和监管中的角色正在被重新定义。</div>
+                <div style="font-size:14px;color:#515154;line-height:1.5;">全球AI监管进入‘框架落地+国际合作’阶段：美国联邦层面开始要求AI企业自愿提交模型进行网络安全测试，欧盟AI法案实践持续推进，韩国等国家通过双边协议获取前沿模型访问权。今天的新闻显示，监管焦点正从‘原则讨论’转向‘具体执行’，包括生物安全筛查、金融AI风险等细分领域。</div>
             </div>
             
         </div>
@@ -215,13 +245,13 @@
                 <span style="font-size:24px;margin-right:10px;">📡</span>
                 <h2 style="font-size:20px;font-weight:700;color:#FF9500;margin:0;">今日信号</h2>
             </div>
-            <div style="font-size:14px;color:#515154;line-height:1.7;padding-left:4px;">微软Build 2026是今天最重要的信号。微软一口气推出七款自研模型，从依赖OpenAI转向自主可控，同时发布Agent Control Specification开源标准。这意味着AI竞争从'谁的模型最强'进入'谁的生态最完整'阶段——微软正在用企业基础设施（身份、合规、安全）锁定客户，而不是靠模型本身。对AI从业者来说，'模型能力'的重要性正在下降，'部署、治理、监控'的能力正在成为新的护城河。</div>
+            <div style="font-size:14px;color:#515154;line-height:1.7;padding-left:4px;">今天最重要的信号是Meta正式推出企业AI Agent并计划对消费版收费高达200美元/月，以及英伟达收购Kumo AI。前者意味着AI Agent的商业化从‘免费尝鲜’进入‘高价值订阅’阶段，将直接冲击企业SaaS市场格局；后者则表明英伟达正从卖芯片转向卖‘推理服务’，通过收购应用层公司锁定GPU的长期需求。对AI从业者来说，企业级AI Agent的定价模式和英伟达的生态扩张策略值得密切关注。</div>
         </div>
         </td></tr>
 <tr><td style="padding:0 0 20px;">
         <div style="margin-top:32px;padding-top:24px;border-top:2px dashed #d2d2d7;">
             <h3 style="font-size:18px;font-weight:700;color:#1d1d1f;margin-bottom:16px;">📖 名词释义库</h3>
-            <div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">Agent Control Specification (ACS)</span><span style="font-size:14px;color:#515154;line-height:1.5;">微软推出的开源标准，用于统一定义AI代理的行为边界和权限控制，让代理在不同框架和环境中都能遵守相同的安全策略。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">Mythos</span><span style="font-size:14px;color:#515154;line-height:1.5;">Anthropic开发的顶级AI模型系列，具备高级网络攻击能力，目前仅向经过严格筛选的安全合作伙伴开放。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">Glasswing</span><span style="font-size:14px;color:#515154;line-height:1.5;">Anthropic的网络安全项目，旨在研究最强大模型的攻击能力，并在模型公开发布前设计防御措施。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">SWE Bench Pro</span><span style="font-size:14px;color:#515154;line-height:1.5;">评估AI模型解决真实软件工程问题能力的基准测试，包括代码修复、功能实现等任务。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">推理模型 (Reasoning Model)</span><span style="font-size:14px;color:#515154;line-height:1.5;">专门设计用于处理复杂多步骤推理任务的AI模型，如逻辑分析、长文档理解和代码生成，区别于简单的问答模型。</span></div>
+            <div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">隐空间世界模型</span><span style="font-size:14px;color:#515154;line-height:1.5;">一种不直接预测像素画面，而是在抽象表征空间学习动作与状态因果关系的世界模型，更接近人类对物理世界的理解方式。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">触觉伺服</span><span style="font-size:14px;color:#515154;line-height:1.5;">机器人利用触觉传感器在毫秒级时间内完成感知、判断与动作修正的闭环控制机制，类似人类的脊髓反射。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">混合专家模型（MoE）</span><span style="font-size:14px;color:#515154;line-height:1.5;">一种模型架构，将任务分配给多个专门的‘专家’子网络处理，只激活部分参数，从而在保持性能的同时降低计算成本。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">无编码器多模态模型</span><span style="font-size:14px;color:#515154;line-height:1.5;">一种直接处理文本、图像、音频等多种输入的统一模型，无需为每种模态配备独立的编码器，从而降低延迟和内存占用。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">CAISI</span><span style="font-size:14px;color:#515154;line-height:1.5;">美国人工智能安全研究所，负责制定前沿AI系统的安全标准和评估框架。</span></div>
         </div>
         </td></tr>
 <tr><td style="padding:24px;text-align:center;border-top:1px solid #d2d2d7;">
