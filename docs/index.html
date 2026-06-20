@@ -8,12 +8,12 @@
 <table width="640" cellpadding="0" cellspacing="0" style="max-width:640px;width:100%;">
 <tr><td style="padding:40px 24px 24px;text-align:center;">
 <div style="font-size:32px;font-weight:800;color:#1d1d1f;letter-spacing:-0.5px;">AI 每日简报</div>
-<div style="font-size:14px;color:#86868b;margin-top:6px;">2026年06月19日 · 全球AI资讯精选</div>
+<div style="font-size:14px;color:#86868b;margin-top:6px;">2026年06月20日 · 全球AI资讯精选</div>
 </td></tr>
 
         <div style="background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);border-radius:16px;padding:24px;margin-bottom:20px;">
             <div style="font-size:16px;font-weight:600;color:#ffffff;margin-bottom:8px;">🌐 24小时全球AI行业总览</div>
-            <div style="font-size:14px;color:rgba(255,255,255,0.9);line-height:1.6;">24小时内，AI行业呈现三个清晰趋势：模型层面，世界模型和AI自我进化正在从论文走向工程落地，LeCun团队把世界模型做到单GPU可跑，MiniMax展示了AI自动迭代代码的能力；商业层面，AI基础设施的资本化进入高潮，三巨头同时冲击IPO，推理公司估值飙升，芯片设计、电源管理等上下游环节都在被AI重塑；治理层面，各国正在加速构建具体规则，从内容溯源到广告透明度，监管框架正在从原则走向条款。整体来看，AI行业正在从'模型军备竞赛'进入'基础设施和商业化全面铺开'的新阶段。</div>
+            <div style="font-size:14px;color:rgba(255,255,255,0.9);line-height:1.6;">24小时内，AI行业呈现三个清晰信号：人才从大厂向创业公司加速外流（Jumper、Shazeer），中国模型凭借成本优势在全球开发者市场攻城略地（Token调用量首超美国），以及AI基础设施从'堆卡'转向'用卡'的效率竞赛（xAI利用率仅11%）。政策层面，美国对Anthropic的禁令出现摇摆，而Langflow大规模攻击事件则敲响了AI安全警钟。整体来看，行业正从模型军备竞赛进入系统级优化和商业落地的深水区。</div>
         </div>
         
 <tr><td style="padding:0 0 20px;">
@@ -25,60 +25,60 @@
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    OpenAI发布Beneficial RL论文：用强化学习训练模型长期保持有益行为
+                    US scientist John Jumper to leave Google DeepMind for Anthropic
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
-                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">OpenAI</span>
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">Reuters</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    OpenAI发布新论文，用强化学习在15个有益特质（诚实、可纠正、公平等）上训练模型，发现这种训练不仅能提升对齐表现，还能泛化到未见过的领域。最关键的发现是：只在医疗领域训练有益行为，模型在其他领域（如代码、金融）的对齐表现也显著提升。这为AI安全提供了一条可操作的训练路径。
+                    诺贝尔奖得主、AlphaFold之父John Jumper宣布离开Google DeepMind加入Anthropic，这是继Noam Shazeer转投OpenAI后，谷歌AI部门一周内流失的第二位核心人物。人才争夺战已白热化，Anthropic在生物计算和前沿模型上的野心进一步明确。
                 </div>
-                <a href="https://alignment.openai.com/beneficial-rl" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://www.reuters.com/technology/us-scientist-john-jumper-leave-google-deepmind-anthropic-2026-06-19" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    Subquadratic声称突破Transformer注意力瓶颈，但证据不足引发质疑
+                    2月井喷，中国AI调用量首超美国，四款大模型霸榜全球前五
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
-                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">MIT Technology Review</span>
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">36氪</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    初创公司Subquadratic宣称其SubQ模型解决了Transformer的二次注意力瓶颈，在编码等任务上性能匹敌Google、OpenAI、Anthropic的顶级模型。但问题在于：它只提供了自测分数，且复用了Qwen的权重而非从头训练。社区反应两极，有人称之为'Transformer以来最大突破'，也有人说是'AI版Theranos'。值得关注，但需要更多验证。
+                    a16z与OpenRouter联合报告显示，中国模型Token调用量已超越美国，DeepSeek以14.37万亿Token位居全球第一。Kimi K2.5、GLM-5等模型凭借MoE架构和极致成本（仅为Claude Opus的1/10）快速占领开发者市场，硅谷80%的AI初创公司路演核心模型使用中国开源模型。
                 </div>
-                <a href="https://www.technologyreview.com/2026/06/19/1139313/a-startup-claims-it-broke-through-a-bottleneck-thats-holding-back-llms" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://m.36kr.com/p/3700980530851712" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    LeCun世界模型LeWorldModel开源：单GPU可跑，1500万参数实现1秒规划
+                    Fine-tuning forgets. RAG leaks context. Hypernetworks build the model your agent needs on demand
+                </div>
+                <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">VentureBeat</span>
+                </div>
+                <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
+                    Hypernetwork技术正在成为Agent落地的新范式——用一个模型实时生成另一个模型的参数适配器，避免微调的遗忘问题和RAG的上下文泄露。Nace.AI已获2150万美元种子轮，Sakana AI的Text-to-LoRA和SHINE系统展示了这一方向的前景，但校准和规模化仍是待解难题。
+                </div>
+                <a href="https://venturebeat.com/orchestration/fine-tuning-forgets-rag-leaks-context-hypernetworks-build-the-model-your-agent-needs-on-demand" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                    阅读原文 →
+                </a>
+            </div>
+            
+            <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
+                <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
+                    撸猫撸出SOTA！3个00后2个月，造出史上最快流式音视频社交模型
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
                     <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">量子位</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    LeCun团队开源了极简世界模型训练方案LeWorldModel，基于JEPA架构，仅1500万参数，单张L40S显卡几小时就能训完。规划速度比大模型方案快48倍，1秒内完成。模型能理解物理规律，对'物体瞬移'这类违规事件会感到'意外'。这意味着世界模型的门槛大幅降低，更多团队可以参与研究。
+                    Catnip团队仅用2个月、3名核心研究员，全AI Native方式训练出MaineCoon模型，实现流式音视频实时生成。团队提出'社交世界模型'概念，以人为中心模拟社交行为，已获红杉、明势等头部VC投资。这是下一代社交平台底层引擎的早期信号。
                 </div>
-                <a href="https://m.36kr.com/p/3736478187274500" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
-                    阅读原文 →
-                </a>
-            </div>
-            
-            <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
-                <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    MiniMax M2.7实测：AI开始学会自我进化，Kaggle竞赛24小时拿9金
-                </div>
-                <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
-                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">APPSO</span>
-                </div>
-                <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    MiniMax M2.7展示了AI自我迭代的能力：它能分析自己的失败轨迹，自动修改代码并验证效果，最终让评测集效果提升30%。在Kaggle MLE Lite测试中，24小时内拿下9枚金牌，得牌率66.6%，仅次于Opus-4.6和GPT-5.4。更值得关注的是，它能1人4天零人工编码搭建完整的Agent系统，AI研发正在进入自动化阶段。
-                </div>
-                <a href="https://m.36kr.com/p/3730709502411015" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://www.qbitai.com/2026/06/436996.html" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
@@ -86,7 +86,7 @@
             
             <div style="margin-top:16px;padding:12px 16px;background:#5856D608;border-left:3px solid #5856D6;border-radius:6px;">
                 <div style="font-size:13px;color:#5856D6;font-weight:600;margin-bottom:4px;">📊 本类24h核心趋势</div>
-                <div style="font-size:14px;color:#515154;line-height:1.5;">世界模型和AI自我进化是今天最值得关注的两个方向。LeCun团队把世界模型做到单GPU可跑，极佳视界拿到10亿融资，说明世界模型正在从学术概念走向工程落地。同时，MiniMax M2.7展示的AI自我迭代能力，以及Subquadratic声称突破Transformer注意力瓶颈，都在指向同一个趋势：模型能力的提升不再只靠堆算力，架构创新和训练范式的改变正在成为新的突破口。</div>
+                <div style="font-size:14px;color:#515154;line-height:1.5;">人才流动加速，顶尖科学家从大厂流向创业公司已成常态。AlphaFold之父Jumper转投Anthropic，加上此前谷歌多位核心人物出走，说明前沿研究的主导权正在从巨头实验室向资金充裕的初创公司转移。同时，中国模型在调用量和成本上的优势开始被量化，MoE架构和垂直整合带来的成本差距正在重塑全球开发者的选择。</div>
             </div>
             
         </div>
@@ -99,60 +99,60 @@
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    SpaceX、Anthropic、OpenAI三巨头同时冲击IPO，合计估值超4万亿美元
+                    大型挂机现场：马斯克的55万英伟达GPU，利用率才11%
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
-                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">新浪科技</span>
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">36氪</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    SpaceX以1.77万亿美元估值启动IPO，Anthropic秘密提交S-1草案估值近1万亿美元，OpenAI计划9月上市估值超1万亿美元。三家公司合计融资预计超1500亿美元，这是美股历史上最大规模的IPO潮。值得注意的是，Anthropic每年向SpaceX支付150亿美元算力租赁费，说明AI公司的算力依赖正在重塑产业链关系。
+                    The Information报道，xAI的GPU算力利用率仅11%，远低于Meta的43%和谷歌的46%。问题出在超大规模集群的通信瓶颈和软件栈调度能力不足，xAI已设50%利用率目标并计划自研芯片。这揭示了AI军备竞赛的下半场：不是买卡，而是用卡。
                 </div>
-                <a href="https://m.36kr.com/p/3840171971348998" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://m.36kr.com/p/3795874564250627" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    ADI以15亿美元收购电源芯片公司Empower，AI数据中心电源成新战场
-                </div>
-                <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
-                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">EEWorld</span>
-                </div>
-                <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    ADI宣布以15亿美元全现金收购电源芯片公司Empower Semiconductor，后者拥有垂直供电（VPD）和集成电压调节器（IVR）等关键技术。在AI芯片功耗持续攀升的背景下，电源管理已经变得和GPU、HBM同样重要。这笔收购说明，AI基础设施的竞争正在从芯片本身延伸到供电架构。
-                </div>
-                <a href="https://m.36kr.com/p/3819705979834505" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
-                    阅读原文 →
-                </a>
-            </div>
-            
-            <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
-                <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    AI推理公司Baseten半年估值翻三倍，正以130亿美元估值融资15亿美元
+                    Billionaire Ambani wants AI in every call, app, and home
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
                     <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">TechCrunch</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    AI推理公司Baseten即将完成15亿美元融资，估值达130亿美元，较5个月前翻了三倍。但值得注意的是，这是一轮分拆定价的融资，部分投资者以130亿估值进入，部分以110亿进入。推理层的资本热度正在快速升温，但分拆定价也暗示市场对高估值的分歧。
+                    印度Reliance宣布投资1100亿美元建设AI基础设施，并与Meta合作在古吉拉特邦建立AI数据中心。Anthropic模型被禁事件加剧了印度对海外AI依赖的担忧，Reliance、Tata等巨头正加速自建AI栈，这标志着全球AI供应链的区域化重构。
                 </div>
-                <a href="https://techcrunch.com/2026/06/18/ai-inference-startup-baseten-reportedly-raising-1-5b-months-after-its-last-mega-round" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://techcrunch.com/2026/06/19/billionaire-ambani-wants-ai-in-every-call-app-and-home" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    Architect Labs获2400万美元种子轮，用AI加速定制芯片设计
+                    Silicon Valley's Most Sought-After New Job Position Emerges
+                </div>
+                <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">36氪</span>
+                </div>
+                <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
+                    FDE（现场部署工程师）年薪30-50万美元，成为硅谷最抢手职位。Anthropic和OpenAI分别成立15亿和40亿美元的部署合资公司，核心角色就是FDE。这反映了AI行业从'技术突破'到'组织落地'的转折——最大的障碍不是技术，而是如何让企业信任并使用AI。
+                </div>
+                <a href="https://eu.36kr.com/en/p/3859434968185734" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                    阅读原文 →
+                </a>
+            </div>
+            
+            <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
+                <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
+                    Abu Dhabi's MGX weighs multi-billion deal for data center operator DayOne
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
                     <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">Reuters</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    Architect Labs完成2400万美元种子轮融资，目标是利用AI将定制芯片设计周期从两年缩短到更短、成本从数亿美元降低。投资方包括Google DeepMind首席科学家Jeff Dean、OpenAI和Nvidia高管。AI正在渗透芯片设计这个传统上高度依赖人工经验的领域，这可能改变整个半导体产业链的格局。
+                    阿布扎比AI投资者MGX正考虑收购新加坡数据中心运营商DayOne，这是其亚洲首笔收购。MGX目标管理超1000亿美元AI资产，已投资xAI、OpenAI、Anthropic及TikTok美国业务。主权基金正在全球范围内争夺AI基础设施控制权。
                 </div>
-                <a href="https://www.reuters.com/business/retail-consumer/architect-labs-raises-24-million-take-broadcom-marvell-custom-chip-business-2026-06-18" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://www.reuters.com/world/asia-pacific/abu-dhabis-mgx-weighs-multi-billion-deal-data-centre-operator-dayone-sources-say-2026-06-19" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
@@ -160,7 +160,7 @@
             
             <div style="margin-top:16px;padding:12px 16px;background:#34C75908;border-left:3px solid #34C759;border-radius:6px;">
                 <div style="font-size:13px;color:#34C759;font-weight:600;margin-bottom:4px;">📊 本类24h核心趋势</div>
-                <div style="font-size:14px;color:#515154;line-height:1.5;">AI基础设施的军备竞赛正在从模型层延伸到芯片设计、电源管理和推理部署。ADI 15亿美元收购电源芯片公司、Architect Labs用AI做芯片设计、Baseten半年估值翻三倍，都说明算力供应链的每个环节都在被AI重塑。同时，SpaceX、Anthropic、OpenAI三巨头同时冲击IPO，合计估值超4万亿美元，AI产业的资本化正在进入一个前所未有的密集期。</div>
+                <div style="font-size:14px;color:#515154;line-height:1.5;">AI基础设施的军备竞赛进入'效率为王'阶段。xAI 55万块GPU利用率仅11%的案例说明，堆算力不再是护城河，软件栈优化和垂直整合才是关键。同时，AI落地从模型层向应用层加速，Reliance、Go等区域巨头开始自建AI栈，FDE（现场部署工程师）成为硅谷最抢手的新职位，说明行业正在从'卖模型'转向'交付价值'。</div>
             </div>
             
         </div>
@@ -173,45 +173,30 @@
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    欧盟零售协会呼吁AI生成广告应豁免透明度规则
+                    Trump tells Axios he no longer views Anthropic as national security threat
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
                     <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">Reuters</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    欧洲零售协会向欧盟提出，AI生成的广告应豁免于即将出台的AI透明度规则。他们认为，广告属于商业表达而非信息传播，过度标注会影响广告效果。这反映了AI监管中的一个核心矛盾：如何在保护消费者权益和不增加企业负担之间找到平衡。
+                    特朗普在Axios采访中改口，称不再将Anthropic视为国家安全威胁。此前他下令Anthropic禁止外国用户访问Fable 5和Mythos 5模型，导致公司全球禁用。这场博弈暴露了美国AI出口管制政策的执行困境——禁令可能伤及自身生态。
                 </div>
-                <a href="https://www.reuters.com/legal/litigation/ai-generated-ads-should-be-exempt-eu-transparency-rules-retail-association-says-2026-06-19" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://www.reuters.com/world/us/trump-tells-axios-he-no-longer-views-anthropic-national-security-threat-2026-06-19" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    新华社发文：AI时代需要大国责任与治理合作
+                    7,000 Langflow servers are under attack. LangGraph and LangChain have the same holes
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
-                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">新华社</span>
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">VentureBeat</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    新华社发表评论文章，强调AI时代需要大国承担治理责任，呼吁建立新的国际规范来约束AI在军事等领域的应用。文章提到中美正在讨论AI安全护栏，防止恐怖组织和黑客获取先进模型。这是中国官方媒体对AI全球治理的最新表态，信号明确。
+                    超过7000台Langflow服务器遭攻击，攻击者利用文件上传漏洞获取shell权限，可窃取OpenAI密钥、数据库凭证等全部凭据。此前CVE-2025-34291已被伊朗黑客组织利用。AI框架的安全治理严重滞后于部署速度，'影子AI'正在成为新的安全黑洞。
                 </div>
-                <a href="http://www.xinhuanet.com/english/20260619/ac448e48f96445c4829c514a218002ac/c.html" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
-                    阅读原文 →
-                </a>
-            </div>
-            
-            <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
-                <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    OpenAI支持欧盟AI内容溯源标准，加入C2PA指导委员会
-                </div>
-                <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
-                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">OpenAI</span>
-                </div>
-                <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    OpenAI宣布支持欧盟的可信AI生态系统建设，包括继续采用C2PA内容溯源标准、改进AI生成内容的标记和检测方法。自2024年起，OpenAI已在DALL-E 3中加入C2PA元数据。这是OpenAI主动配合监管的举措，也说明内容溯源正在成为AI行业的标配。
-                </div>
-                <a href="https://openai.com/hu-HU/index/supporting-eu-trustworthy-ai-ecosystem" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://venturebeat.com/security/7000-langflow-servers-under-attack-langgraph-langchain-same-holes" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
@@ -219,7 +204,7 @@
             
             <div style="margin-top:16px;padding:12px 16px;background:#FF950008;border-left:3px solid #FF9500;border-radius:6px;">
                 <div style="font-size:13px;color:#FF9500;font-weight:600;margin-bottom:4px;">📊 本类24h核心趋势</div>
-                <div style="font-size:14px;color:#515154;line-height:1.5;">AI治理正在从原则讨论进入具体规则制定阶段。欧盟在讨论AI广告是否应豁免透明度规则，OpenAI在支持欧盟的内容溯源标准，新华社发文呼吁大国在AI安全上合作。这些信号表明，各国政府和国际组织正在加速构建AI监管框架，但具体条款的博弈才刚刚开始。</div>
+                <div style="font-size:14px;color:#515154;line-height:1.5;">AI地缘政治博弈进入实操阶段。美国政府对Anthropic模型的禁令虽然引发争议，但特朗普随后改口称不再视Anthropic为威胁，说明政策在执行层面存在摇摆和博弈空间。同时，Langflow等AI框架遭大规模攻击的事件提醒行业：AI安全已从理论讨论进入实战，7000台服务器被攻破不是演习。</div>
             </div>
             
         </div>
@@ -230,13 +215,13 @@
                 <span style="font-size:24px;margin-right:10px;">📡</span>
                 <h2 style="font-size:20px;font-weight:700;color:#FF9500;margin:0;">今日信号</h2>
             </div>
-            <div style="font-size:14px;color:#515154;line-height:1.7;padding-left:4px;">今天最重要的信号是AI基础设施的资本化正在加速。SpaceX、Anthropic、OpenAI三巨头同时冲击IPO，合计估值超4万亿美元，这意味着AI产业正在从私募市场的'故事'走向公开市场的'财报检验'。同时，Baseten半年估值翻三倍、ADI 15亿美元收购电源芯片公司，说明资本正在从模型层向推理和基础设施层蔓延。对从业者来说，接下来的关键问题是：当这些公司上市后，季报压力会不会改变它们的研发节奏？</div>
+            <div style="font-size:14px;color:#515154;line-height:1.7;padding-left:4px;">两件事值得关注：一是Jumper离开DeepMind加入Anthropic，这不仅是人才流动，更意味着Anthropic正在构建从基础研究（AlphaFold）到应用部署（FDE合资公司）的完整闭环，IPO前的布局意图明显。二是xAI 55万GPU利用率仅11%，这打破了'算力=实力'的简单叙事，接下来行业会从堆卡转向优化软件栈和垂直整合，自研芯片和系统级优化将成为新战场。</div>
         </div>
         </td></tr>
 <tr><td style="padding:0 0 20px;">
         <div style="margin-top:32px;padding-top:24px;border-top:2px dashed #d2d2d7;">
             <h3 style="font-size:18px;font-weight:700;color:#1d1d1f;margin-bottom:16px;">📖 名词释义库</h3>
-            <div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">JEPA</span><span style="font-size:14px;color:#515154;line-height:1.5;">联合嵌入预测架构，一种让AI通过预测未来状态来理解世界的模型架构，不需要标注数据就能学习物理规律。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">IVR</span><span style="font-size:14px;color:#515154;line-height:1.5;">集成电压调节器，将电源管理功能集成到芯片内部，减少电力传输损耗，是解决AI芯片功耗问题的关键技术。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">VPD</span><span style="font-size:14px;color:#515154;line-height:1.5;">垂直供电架构，通过从芯片下方垂直供电来缩短电力传输距离，降低损耗，适用于高功耗AI芯片。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">C2PA</span><span style="font-size:14px;color:#515154;line-height:1.5;">内容来源与真实性联盟制定的技术标准，用于在AI生成内容中添加可验证的来源信息，帮助识别内容是否由AI生成。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">MoE</span><span style="font-size:14px;color:#515154;line-height:1.5;">混合专家模型，一种模型架构，每次只激活部分参数进行计算，能大幅降低推理成本，是中国AI模型成本优势的技术基础。</span></div>
+            <div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">MoE（混合专家模型）</span><span style="font-size:14px;color:#515154;line-height:1.5;">将大模型拆分为多个'专家'子网络，每次只激活部分专家参与计算，大幅降低推理成本和显存占用，是中国模型实现成本优势的核心技术。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">Hypernetwork</span><span style="font-size:14px;color:#515154;line-height:1.5;">一种能实时生成另一个模型参数适配器的网络，避免微调的遗忘问题和RAG的上下文泄露，让小型模型按需适配特定任务。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">FDE（现场部署工程师）</span><span style="font-size:14px;color:#515154;line-height:1.5;">负责将AI模型落地到企业实际场景的复合型工程师，需同时具备产品、技术、项目管理能力，年薪30-50万美元，是当前硅谷最抢手的新职位。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">MFU（模型算力利用率）</span><span style="font-size:14px;color:#515154;line-height:1.5;">衡量GPU在训练或推理时实际有效计算占比的指标，xAI的11%意味着55万块GPU中只有约6万块在真正干活。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">社交世界模型</span><span style="font-size:14px;color:#515154;line-height:1.5;">Catnip团队提出的新概念，以人为中心模拟社交行为，实时感知用户情绪并生成音视频回应，区别于模拟物理世界的传统世界模型。</span></div>
         </div>
         </td></tr>
 <tr><td style="padding:24px;text-align:center;border-top:1px solid #d2d2d7;">
