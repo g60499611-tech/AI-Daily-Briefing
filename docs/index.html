@@ -8,12 +8,12 @@
 <table width="640" cellpadding="0" cellspacing="0" style="max-width:640px;width:100%;">
 <tr><td style="padding:40px 24px 24px;text-align:center;">
 <div style="font-size:32px;font-weight:800;color:#1d1d1f;letter-spacing:-0.5px;">AI 每日简报</div>
-<div style="font-size:14px;color:#86868b;margin-top:6px;">2026年07月05日 · 全球AI资讯精选</div>
+<div style="font-size:14px;color:#86868b;margin-top:6px;">2026年07月06日 · 全球AI资讯精选</div>
 </td></tr>
 
         <div style="background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);border-radius:16px;padding:24px;margin-bottom:20px;">
             <div style="font-size:16px;font-weight:600;color:#ffffff;margin-bottom:8px;">🌐 24小时全球AI行业总览</div>
-            <div style="font-size:14px;color:rgba(255,255,255,0.9);line-height:1.6;">24小时内，AI行业的核心叙事从'模型竞赛'转向了'基础设施和商业化落地'。Foxconn的强劲财报和韩国30年芯片战略印证了硬件需求依然旺盛；近90家新独角兽中AI工具链和垂直应用公司占主导，资本正在从赌模型转向赌生态。Mistral预告夏季开源模型，延续了开源阵营差异化追赶的策略。政策层面，Midjourney与好莱坞的版权诉讼进入关键阶段，可能定义AI训练数据的合理使用边界；OpenAI向美国政府出让股份的提议则开创了科技公司与政府股权绑定的先例。整体来看，行业正在从'技术突破期'进入'商业落地期'，基础设施和工具层的价值正在被重新定价。</div>
+            <div style="font-size:14px;color:rgba(255,255,255,0.9);line-height:1.6;">24小时内，AI行业呈现‘技术深化+商业加速+监管落地’的三线并行格局。技术上，后Scaling时代的范式转型成为共识，扩散模型和长期记忆架构取得突破；商业上，字节Seedance打入好莱坞、三星利润暴增、消费巨头用AI重构研发，AI的变现路径更加清晰；监管上，中国网信办和联合国同步推进治理行动，合规压力上升。整体来看，行业正从‘拼模型’转向‘拼落地’，谁能把技术转化为可规模化的产品和服务，谁就能在下一阶段占据优势。</div>
         </div>
         
 <tr><td style="padding:0 0 20px;">
@@ -25,15 +25,45 @@
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    Mistral AI 全面解读：开源策略、新模型预告与欧洲算力布局
+                    极简方案刷新扩散模型推理纪录，阿里清华论文入选ICML杰出论文
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
-                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">TechCrunch</span>
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">量子位</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    TechCrunch 对 Mistral 做了全景式梳理。核心信息：CEO Mensch 预告今年夏天将发布一个重磅开源模型，7月开放早期访问；同时声称在语音、视觉、文档处理等'计算约束较小'的领域已达SOTA。此外，Mistral 正在推进欧洲AI算力平台 Mistral Compute（2026年上线），并与ASML达成合作。值得关注的是，Mistral 在开源和闭源之间走了一条务实路线——不是所有模型都开源，但关键模型（如代码Agent Leanstral）选择开源，这比Meta的完全开源和OpenAI的完全闭源都更灵活。
+                    阿里与清华合作的论文发现，扩散语言模型（dLLM）的任意顺序生成在推理任务中反而是‘陷阱’，提出强制从左到右生成的JustGRPO方案，在GSM8K上达到89.1%准确率。这篇论文入选ICML杰出论文（获奖率千分之一），意味着学术界开始重新审视dLLM的生成范式，对下一代语言模型架构设计有直接影响。
                 </div>
-                <a href="https://techcrunch.com/2026/07/04/what-is-mistral-ai-everything-to-know-about-the-openai-competitor" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://www.qbitai.com/2026/07/444721.html" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                    阅读原文 →
+                </a>
+            </div>
+            
+            <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
+                <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
+                    征程赶超｜WAIC 2026模型与智能体：后Scaling时代范式重构
+                </div>
+                <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">量子位</span>
+                </div>
+                <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
+                    WAIC 2026提出后Scaling时代的三维缩放范式（预训练+后训练+推理时计算），并发布记忆张量（MemTensor）开源操作系统MemOS，相比OpenAI全局记忆方案准确率提升38.97%、Token成本降低60.95%。这标志着中国AI社区正从‘堆参数’转向‘记忆革新+工程赋能’的差异化路径，长期记忆架构成为智能体竞争的新壁垒。
+                </div>
+                <a href="https://www.qbitai.com/2026/07/443399.html" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                    阅读原文 →
+                </a>
+            </div>
+            
+            <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
+                <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
+                    清华特奖获得者顾煜贤，加入DeepSeek
+                </div>
+                <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">36氪</span>
+                </div>
+                <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
+                    清华博士生顾煜贤（论文引用近5000）正式加入DeepSeek，其主导的MiniLLM知识蒸馏方法和Jet-Nemotron高效架构已被谷歌、阿里、英伟达采用。DeepSeek V4即将上线，顾煜贤的加入强化了其在高效模型架构和知识蒸馏方向的技术储备，也反映了顶尖人才从大厂向明星创业公司流动的趋势。
+                </div>
+                <a href="https://m.36kr.com/p/3882258646544647" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
@@ -41,7 +71,7 @@
             
             <div style="margin-top:16px;padding:12px 16px;background:#5856D608;border-left:3px solid #5856D6;border-radius:6px;">
                 <div style="font-size:13px;color:#5856D6;font-weight:600;margin-bottom:4px;">📊 本类24h核心趋势</div>
-                <div style="font-size:14px;color:#515154;line-height:1.5;">今天模型层的新闻不多，但有一条值得注意：Mistral 在开源和闭源之间找到了自己的节奏，一边放话夏天要发重磅开源模型，一边在语音、视觉等垂直领域宣称已达SOTA。这延续了开源模型阵营'用差异化能力追赶头部'的策略，而非在通用语言模型上硬碰GPT-5。</div>
+                <div style="font-size:14px;color:#515154;line-height:1.5;">后Scaling时代，行业共识从堆算力转向多维缩放，扩散模型和长期记忆架构成为新焦点。今天的新闻延续了这一趋势，阿里清华的扩散模型研究（ICML杰出论文）和WAIC上提出的记忆张量架构，都在推动模型从‘更大’转向‘更聪明、更高效’。</div>
             </div>
             
         </div>
@@ -54,60 +84,60 @@
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    Foxconn Q2营收同比增40%，AI服务器需求强劲但警告地缘政治风险
+                    字节Seedance，正在占领好莱坞
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
-                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">Reuters</span>
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">量子位</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    全球最大电子代工厂富士康公布Q2营收2.513万亿新台币（约787亿美元），同比增长39.8%，超市场预期。Nvidia最大服务器制造商和苹果最大iPhone组装商的双重身份，让Foxconn成为AI硬件需求的直接受益者。但公司同时警告'全球政治波动'，这可能是对中美科技脱钩和地缘风险的谨慎表态。
+                    字节跳动的视频生成模型Seedance 2.0已被好莱坞独立电影制作人用于长片制作，95分钟长片《Hell Grind》由15人团队两周完成，AI剧集《骸骨编年史》单集观看量达300万。Seedance甚至向大型制片厂报价200万美元提供特殊访问权限，说明中国AI视频模型在影视工业级应用上已具备竞争力，正在挑战美国玩家。
                 </div>
-                <a href="https://www.reuters.com/world/asia-pacific/foxconn-second-quarter-revenue-jumps-40-yy-2026-07-05" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://www.qbitai.com/2026/07/443665.html" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    今年已有近90家新独角兽诞生，AI基础设施和工具公司占主导
+                    Smart glasses maker Even Realities hits $1B valuation with $150M funding led by Meituan, Tencent
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
                     <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">TechCrunch</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    TechCrunch 盘点了今年新晋独角兽，AI公司占据显著位置。值得关注的包括：human&（AI研究实验室，估值45亿美元，种子轮4.8亿）、webAI（私有企业模型平台，25亿美元）、Rhoda AI（机器人基础模型，17亿美元，A轮4.5亿）、Goodfire（AI可解释性工具，13亿美元）。这些公司的共同特点是：不直接做通用大模型，而是聚焦AI基础设施、工具链或垂直应用。资本正在从'赌模型'转向'赌生态'。
+                    深圳智能眼镜初创公司Even Realities完成1.5亿美元融资，估值达10亿美元，由美团和腾讯领投。与Meta、Snap的摄像头+AI路线不同，Even Realities主打‘显示优先’（信息直投视野），强调隐私保护。这轮融资表明资本对AI可穿戴设备赛道持续看好，且差异化技术路线（显示vs.拍摄）正在形成细分市场。
                 </div>
-                <a href="https://techcrunch.com/2026/07/05/almost-40-new-unicorns-have-been-minted-so-far-this-year-here-they-are" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://techcrunch.com/2026/07/06/smart-glasses-maker-even-realities-hits-1b-valuation-with-150m-funding-led-by-meituan-tencent" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    韩国公布30年芯片+AI战略：三星、SK海力士等投入数千亿美元
+                    Samsung likely to post 18-fold jump in profit on surging AI demand for memory
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
                     <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">Reuters</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    韩国总理韩淑成宣布将半导体、物理AI、数据中心三大产业作为30年国家战略，三星、SK海力士及政府机构将投入数千亿美元。计划包括在全国建设三个大型产业园区，旨在强化韩国在芯片和AI领域的领导地位，同时促进首尔以外地区的经济增长。这是继美国《芯片法案》和欧盟《芯片法案》之后，又一个国家级AI基础设施投资计划，标志着算力竞争已进入国家战略层面。
+                    三星预计Q2利润同比增长18倍，DRAM和NAND价格环比分别涨44%和53%，AI智能体（Agentic AI）对内存的额外需求成为新增长点。同时SK Hynix启动280亿美元美国上市计划。这组数据说明AI对存储芯片的需求已从训练阶段扩展到推理阶段，且‘智能体’类应用正在成为内存消耗的新引擎。
                 </div>
-                <a href="https://www.reuters.com/world/asia-pacific/south-korea-create-future-fund-chip-windfall-spur-growth-tackle-inequality-2026-07-05" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://www.reuters.com/world/asia-pacific/samsung-likely-post-18-fold-jump-profit-surging-ai-demand-memory-2026-07-05" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    OpenAI CEO提议向美国政府出让5%股份以缓解政治压力
+                    From shampoo to cookies, consumer products get an AI makeover
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
-                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">亿欧</span>
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">Reuters</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    OpenAI CEO Sam Altman 提议向美国政府出让5%股份，旨在缓解监管压力并分享AI产业发展收益。该方案引发广泛讨论：支持者认为AI财富应重新分配，反对者担心此举会损害市场竞争。这可能是AI行业从'野蛮生长'转向'与政府共治'的一个标志性事件，如果成行，将开创科技公司与政府股权绑定的先例。
+                    欧莱雅、亿滋、雀巢等消费巨头正用AI加速产品创新：欧莱雅用AI识别分子将护肤品成分复用到洗发水，产品开发速度提升4倍；亿滋用AI生成‘跳出框框’的食谱。这标志着AI从‘数字原生’行业渗透到传统快消领域，产品研发的‘AI化’正在成为消费品公司降本增效的新标配。
                 </div>
-                <a href="https://www.iyiou.com/data/202607051134503" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://www.reuters.com/business/shampoo-cookies-consumer-products-get-an-ai-makeover-2026-07-06" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
@@ -115,7 +145,7 @@
             
             <div style="margin-top:16px;padding:12px 16px;background:#34C75908;border-left:3px solid #34C759;border-radius:6px;">
                 <div style="font-size:13px;color:#34C759;font-weight:600;margin-bottom:4px;">📊 本类24h核心趋势</div>
-                <div style="font-size:14px;color:#515154;line-height:1.5;">AI商业化的信号今天很密集。一方面，硬件需求依然强劲——Foxconn Q2营收同比增40%，AI服务器是主要驱动力；另一方面，资本正在疯狂涌入AI基础设施和工具层，今年已诞生近90家独角兽，其中AI占比极高。这说明市场对AI的'淘金热'已经从模型层转向了'卖铲子'的算力和工具层。韩国30年芯片+AI战略更是把这种国家层面的算力军备竞赛推到了新高度。</div>
+                <div style="font-size:14px;color:#515154;line-height:1.5;">AI商业化进入‘落地验证’阶段，从芯片到消费品的全产业链都在加速。今天的新闻显示，AI硬件（内存、智能眼镜）和AI应用（视频生成、智能驾驶）的资本化进程明显提速，同时传统消费巨头（欧莱雅、亿滋）开始用AI重构产品研发流程，AI正从‘技术概念’变成‘生产力工具’。</div>
             </div>
             
         </div>
@@ -128,15 +158,30 @@
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    Midjourney要求好莱坞披露内部AI使用细节，版权诉讼进入关键阶段
+                    中央网信办深入开展“清朗·整治AI应用乱象”专项行动第一阶段工作
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
-                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">TechCrunch</span>
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">新华网</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    Midjourney 在最新法庭文件中要求法院推翻此前限制，让好莱坞制片厂披露所有生成式AI使用情况——包括内部用于故事板、创意构思的AI模型。Midjourney 的逻辑很犀利：如果制片厂自己也在用未授权数据训练AI做内部工具，那就证明这是'行业惯例'，不能只起诉别人。这个案子如果Midjourney胜诉，将极大扩展AI公司合理使用抗辩的空间。
+                    中央网信办公布‘清朗·整治AI应用乱象’第一阶段成果：累计处置违规AI产品1.4万余款，清理违法违规信息600余万条，下架违规AI商品1300余个。华为、阿里、智谱、DeepSeek等平台被点名配合整改。第二阶段将聚焦AI虚假信息、网络水军等问题。这是中国AI监管从‘发文’到‘动真格’的标志性节点，对AI应用开发者有直接合规压力。
                 </div>
-                <a href="https://techcrunch.com/2026/07/04/midjourney-wants-hollywood-studios-to-reveal-the-details-of-their-ai-usage" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://www.xinhuanet.com/politics/20260706/4ce1356eb1b34e878c3fa1e2d9e5da1f/c.html" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                    阅读原文 →
+                </a>
+            </div>
+            
+            <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
+                <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
+                    UN's Guterres warns AI outpacing oversight, urges global rules to reduce risks
+                </div>
+                <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">Reuters</span>
+                </div>
+                <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
+                    联合国秘书长古特雷斯在日内瓦首届全球AI治理对话上警告‘AI发展速度超过任何人的监管能力’，呼吁制定全球协调规则。会议讨论了由40位专家完成的全球首份独立AI科学评估报告。虽然本次会议不旨在达成条约，但标志着AI治理从‘国家层面’向‘全球协调’迈出实质性一步。
+                </div>
+                <a href="https://www.reuters.com/technology/un-chief-warns-ai-is-developing-faster-than-rules-can-keep-up-2026-07-06" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
@@ -144,7 +189,7 @@
             
             <div style="margin-top:16px;padding:12px 16px;background:#FF950008;border-left:3px solid #FF9500;border-radius:6px;">
                 <div style="font-size:13px;color:#FF9500;font-weight:600;margin-bottom:4px;">📊 本类24h核心趋势</div>
-                <div style="font-size:14px;color:#515154;line-height:1.5;">今天政策层面的信号比较分散。Midjourney与好莱坞的版权诉讼进入关键阶段——Midjourney要求法院扩大证据开示范围，试图证明好莱坞自己也在用未授权数据训练AI。这个案子的走向可能定义'AI训练数据合理使用'的边界。另外，美国司法部在xAI诉讼中声称其'对国家安全至关重要'，这延续了AI公司以国家安全为由争取政策豁免的趋势。</div>
+                <div style="font-size:14px;color:#515154;line-height:1.5;">全球AI治理进入‘行动阶段’，从联合国层面的规则讨论到中国的专项整治，监管正在从‘呼吁’转向‘执行’。今天的新闻显示，中国网信办已处置1.4万余款违规AI产品，联合国首次全球AI治理对话在日内瓦召开，监管的‘落地感’明显增强。</div>
             </div>
             
         </div>
@@ -155,13 +200,13 @@
                 <span style="font-size:24px;margin-right:10px;">📡</span>
                 <h2 style="font-size:20px;font-weight:700;color:#FF9500;margin:0;">今日信号</h2>
             </div>
-            <div style="font-size:14px;color:#515154;line-height:1.7;padding-left:4px;">今天最重要的信号是资本和产业正在从'赌模型'转向'赌基础设施'。今年近90家新独角兽中，AI工具链、机器人基础模型、企业私有模型平台占了主流，而Foxconn 40%的营收增长和韩国30年芯片战略则说明硬件需求依然供不应求。这意味着：如果你还在纠结哪个大模型最好，可能已经晚了——真正的机会在让这些模型跑起来的算力、工具和垂直应用上。</div>
+            <div style="font-size:14px;color:#515154;line-height:1.7;padding-left:4px;">字节Seedance进入好莱坞长片制作，以及三星利润暴增18倍，这两条放在一起看，说明AI的商业化正在从‘技术演示’进入‘真金白银’阶段。Seedance证明中国AI视频模型在影视工业级场景中已具备竞争力，三星的业绩则表明AI对硬件（尤其是存储芯片）的需求已从训练扩展到推理，且智能体类应用正在成为新的增长引擎。对从业者来说，这意味着AI产业链的‘变现闭环’正在形成，但竞争焦点也从模型能力转向了场景落地和供应链把控。</div>
         </div>
         </td></tr>
 <tr><td style="padding:0 0 20px;">
         <div style="margin-top:32px;padding-top:24px;border-top:2px dashed #d2d2d7;">
             <h3 style="font-size:18px;font-weight:700;color:#1d1d1f;margin-bottom:16px;">📖 名词释义库</h3>
-            <div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">物理AI</span><span style="font-size:14px;color:#515154;line-height:1.5;">指能够与物理世界交互的AI系统，如机器人、自动驾驶等，区别于只处理数字信息的传统AI。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">合理使用</span><span style="font-size:14px;color:#515154;line-height:1.5;">美国版权法中的一项原则，允许在特定条件下（如研究、评论）未经授权使用受版权保护的材料，是AI训练数据争议的核心法律概念。</span></div>
+            <div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">dLLM</span><span style="font-size:14px;color:#515154;line-height:1.5;">扩散大语言模型，一种不按固定顺序生成文本的模型架构，理论上更灵活，但阿里清华的研究发现它在推理任务中反而有‘灵活性陷阱’。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">JustGRPO</span><span style="font-size:14px;color:#515154;line-height:1.5;">一种强化学习训练方法，强制扩散模型从左到右生成文本，简化了训练流程并提升了推理准确率。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">MemTensor</span><span style="font-size:14px;color:#515154;line-height:1.5;">记忆张量，一种用于构建AI长期记忆的开源架构，能让智能体记住并持续学习用户信息，而非每次对话都‘从头开始’。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">Agentic AI</span><span style="font-size:14px;color:#515154;line-height:1.5;">智能体AI，能自主执行多步骤复杂任务的AI系统，相比传统AI需要更多内存和存储来保留和检索推理过程中的数据。</span></div>
         </div>
         </td></tr>
 <tr><td style="padding:24px;text-align:center;border-top:1px solid #d2d2d7;">
