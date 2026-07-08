@@ -8,12 +8,12 @@
 <table width="640" cellpadding="0" cellspacing="0" style="max-width:640px;width:100%;">
 <tr><td style="padding:40px 24px 24px;text-align:center;">
 <div style="font-size:32px;font-weight:800;color:#1d1d1f;letter-spacing:-0.5px;">AI 每日简报</div>
-<div style="font-size:14px;color:#86868b;margin-top:6px;">2026年07月07日 · 全球AI资讯精选</div>
+<div style="font-size:14px;color:#86868b;margin-top:6px;">2026年07月08日 · 全球AI资讯精选</div>
 </td></tr>
 
         <div style="background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);border-radius:16px;padding:24px;margin-bottom:20px;">
             <div style="font-size:16px;font-weight:600;color:#ffffff;margin-bottom:8px;">🌐 24小时全球AI行业总览</div>
-            <div style="font-size:14px;color:rgba(255,255,255,0.9);line-height:1.6;">24小时内，AI行业在三个层面同时出现重要信号。模型层，Anthropic的可解释性突破和蚂蚁灵波的具身视觉开源，分别从‘内部理解’和‘外部感知’两个方向推高了行业天花板。商业层，ElevenLabs的估值翻倍和SK海力士的纳斯达克上市，验证了AI音频和AI硬件的商业化正在加速，而Nvidia的债务兜底机制和OpenAI的Stargate项目则说明算力军备竞赛进入实质建设阶段。政策层，中国正在加速AI立法和模型出口管控，英国FCA首次提出要对基础模型本身进行金融监管，全球AI治理框架正在快速成型。整体来看，行业正在从‘拼参数’转向‘拼理解、拼落地、拼合规’的新阶段。</div>
+            <div style="font-size:14px;color:rgba(255,255,255,0.9);line-height:1.6;">24小时内，AI行业在模型能力、商业整合和政策监管三个维度同时出现重要信号。模型层面，具身智能的通用化趋势加速，蚂蚁灵波LingBot-VLA 2.0以6万小时数据和20多种本体支持刷新了开源VLA的标杆，智源Orca则从世界模型角度提出了不同的技术路线。商业层面，AI芯片竞争从训练转向推理，SambaNova以110亿美元估值完成10亿美元融资，DeepSeek秘密自研推理芯片，SpaceXAI与Cursor联合发布新模型，AI并购重组在A股市场也持续活跃。政策层面，中美两国同时收紧AI模型管控，美国要求OpenAI推迟GPT-5.6发布，中国考虑限制顶级模型海外访问，乌克兰则选择本地部署方案以规避供应商控制。整体来看，AI行业正在从'模型能力竞赛'进入'生态与合规竞赛'的新阶段。</div>
         </div>
         
 <tr><td style="padding:0 0 20px;">
@@ -25,45 +25,60 @@
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    Anthropic发现Claude内部存在类似人类意识的“全局工作空间”结构
+                    蚂蚁灵波LingBot-VLA 2.0正式开源，支持17家机器人厂商20多种构型
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
-                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">Anthropic</span>
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">量子位</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    Anthropic发表重磅研究，发现Claude模型内部自发形成了与人类“全局神经元工作空间”理论高度相似的结构——一个独立于大量自动处理之外的、用于灵活推理和报告的内部表征空间。他们开发了名为J-lens的新工具来观测这个空间。这事之所以重要，不只是因为可解释性突破，而是它直接撞上了AI是否有意识这个最敏感的问题，Anthropic自己也承认需要开始认真讨论伦理后果了。
+                    蚂蚁灵波发布并开源新一代具身基座模型LingBot-VLA 2.0，预训练数据从1.0版本的2万小时提升至6万小时，覆盖乐聚、智元、宇树等17家厂商的20多种机器人构型，并扩展了对头部、腰部、灵巧手及移动底盘的自由度支持。在GM-100评测中，LingBot-VLA 2.0在双臂操作和长程移动操作任务上均领先π0.5与GR00T N1.7，且推理延迟在RTX 4090上控制在130ms以内。值得关注的是，它同时开源了高效后训练版本，并已携手乐聚、钛虎等伙伴在零售分拣、物流等场景开启商业落地测试，说明跨构型通用大脑正在从实验室走向产业试点。
                 </div>
-                <a href="https://www.anthropic.com/research/global-workspace" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://www.qbitai.com/2026/07/445668.html" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    蚂蚁灵波发布首个空间原生具身视觉基模LingBot-Vision及深度模型2.0
+                    智源悟界·Orca发布：先教模型理解世界如何变化，而非直接输出
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
                     <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">量子位</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    蚂蚁灵波开源了LingBot-Vision视觉基模和LingBot-Depth 2.0深度模型，专门解决机器人视觉在透明物体、弱光、杂乱场景下的深度感知破碎问题。传统深度模型在玻璃杯、窗帘这些场景下经常‘瞎掉’，而新模型能保持边缘清晰、轮廓完整。对家庭服务机器人来说，这是从‘看得见’到‘看得准’的关键一步，而且开源意味着整个行业都能用上。
+                    智源研究院发布悟界·Orca技术报告，提出从'Next Token/Frame/Action Prediction'转向'Next-State Prediction'，即让模型先学习世界状态如何变化，再将其表征读出到理解、预测和行动任务中。Orca基于12.5万小时视频、1.6亿条事件标注和1150万条VQA数据训练，并登顶Hugging Face论文月榜。这条路线与当前主流的VLA/端到端方法形成对比，更接近早期通用世界模型的形态，如果被验证有效，可能改变具身智能的训练范式。
                 </div>
-                <a href="https://www.qbitai.com/2026/07/445230.html" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://www.qbitai.com/2026/07/446075.html" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    OpenScience开源项目发布：100%免费的Claude Science替代方案
+                    DeepSeek秘密自研AI推理芯片，一年前已启动
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
                     <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">量子位</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    YC孵化的Synthetic Sciences团队发布了OpenScience，一个完全开源的AI科研工作台，对标Anthropic刚推出的Claude Science。它支持DeepSeek、GLM、Claude、GPT等多种模型自由切换，覆盖文献检索、假设生成、代码实验到论文写作全流程。对国内科研团队来说，这解决了Claude Science只支持macOS/Linux、需要付费、只能用自家模型的三大痛点。
+                    路透社消息，DeepSeek正在秘密开发一款专为推理设计的自研AI芯片，项目约一年前启动，已与芯片设计公司、晶圆代工厂和存储器供应商接洽。招聘全程不公开，但此前V3.1引入的UE8M0 FP8数据格式被认为是为下一代国产芯片硬件特性做的铺垫。结合DeepSeek刚完成的510亿元融资和算力基建规划，这家以算法优化著称的公司正在从软件层走向硬件层，意图降低对英伟达的依赖。
                 </div>
-                <a href="https://eu.36kr.com/en/p/3885224638197764" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://www.qbitai.com/2026/07/445883.html" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                    阅读原文 →
+                </a>
+            </div>
+            
+            <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
+                <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
+                    法国AI初创ZML发布免费推理加速软件，支持多种芯片
+                </div>
+                <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">TechCrunch</span>
+                </div>
+                <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
+                    由图灵奖得主Yann LeCun背书的法国AI初创ZML发布LLM推理服务器ZML/LLMD，支持在英伟达、AMD、Google TPU、Apple Metal和Intel Arc等多种芯片上以最高速度运行开源大模型。ZML创始人表示目标是打破供应商锁定，让企业和云服务商可以混合使用不同芯片以降低成本或能耗。虽然产品目前免费但不开源，但这一方向如果成熟，将直接冲击英伟达在推理市场的垄断地位。
+                </div>
+                <a href="https://techcrunch.com/2026/07/08/hot-french-startup-zml-releases-free-product-to-speed-inference-across-lots-of-ai-chips" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
@@ -71,7 +86,7 @@
             
             <div style="margin-top:16px;padding:12px 16px;background:#5856D608;border-left:3px solid #5856D6;border-radius:6px;">
                 <div style="font-size:13px;color:#5856D6;font-weight:600;margin-bottom:4px;">📊 本类24h核心趋势</div>
-                <div style="font-size:14px;color:#515154;line-height:1.5;">今天模型层的核心信号是两条线：一是Anthropic在可解释性上捅了天花板，发现Claude内部自发形成了类似人类全局工作空间的神经结构，这比发个新模型更值得关注，因为它触及了AI到底有没有‘内部思考’这个根本问题；二是蚂蚁灵波把具身视觉的深度感知往前推了一大步，专门解决透明物体、弱光这些机器人落地的硬骨头，而且直接开源了。这两件事说明行业正在从‘堆参数、刷榜’转向更底层的理解——一个在探索模型内部怎么工作，一个在解决模型怎么真正看懂物理世界。</div>
+                <div style="font-size:14px;color:#515154;line-height:1.5;">具身智能领域正在加速从单一本体适配走向跨构型通用大脑，开源VLA模型的数据规模和本体覆盖范围快速扩大，同时世界模型作为更底层的理解框架开始获得更多关注。今天的新闻延续了这一趋势，蚂蚁灵波和智源分别从VLA和世界模型两个方向推进，说明行业共识正在形成：通用性比单一任务精度更重要。</div>
             </div>
             
         </div>
@@ -84,60 +99,45 @@
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    ElevenLabs半年估值翻倍至220亿美元，AI音频赛道爆发
+                    AI芯片初创SambaNova以110亿美元估值完成10亿美元F轮融资
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
-                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">36氪</span>
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">Reuters</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    AI语音公司ElevenLabs正在讨论二级市场股份出售，估值约220亿美元，而5个月前D轮融资时估值才110亿美元。核心逻辑是他们的Conversational AI平台（ElevenLabs Agents）把语音交互做成了基础设施，能进入电话、车机、线下门店这些屏幕之外的地方。这证明了一个判断：文字是互联网时代的界面，语音才是Agent时代的界面，而且音频比视频更早赚到了钱。
+                    SambaNova完成10亿美元F轮融资，估值达110亿美元，投资方包括Seligman Ventures、T. Rowe Price、BlackRock、Intel Capital等。公司表示将用这笔资金扩大产能、全球部署，并继续投资芯片、系统和全栈AI基础设施。值得注意的是，摩根大通已选择SambaNova作为推理基础设施合作伙伴，部署其SN40和SN50系统。在英伟达主导的市场中，SambaNova能拿到如此规模的融资和顶级金融机构的订单，说明推理专用芯片的商业价值正在被验证。
                 </div>
-                <a href="https://m.36kr.com/p/3885054711590919" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://www.reuters.com/business/finance/ai-chip-startup-sambanova-valued-11-billion-1-billion-funding-round-2026-07-08" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    SK海力士本周五纳斯达克上市，AI内存芯片短缺持续加剧
+                    SpaceXAI与Cursor计划联合发布新AI模型，对标Opus 4.8和GPT 5.5
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
-                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">TechCrunch</span>
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">Reuters</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    SK海力士计划在纳斯达克上市ADR，规模约44万亿韩元，有望成为美股史上最大外国企业上市。一季度营收同比增长近200%，股价年内涨了260%。原因是AI系统对高带宽内存（HBM）、DRAM的需求远超供给，行业已进入‘RAMageddon’状态，苹果都因此被迫上调Mac和iPad价格。这波AI硬件短缺正在重塑整个半导体产业链的资本格局。
+                    据The Information报道，SpaceXAI与Cursor计划最早周三联合发布首个共同开发的AI模型，该模型在信息处理速度上可与Anthropic的Opus 4.8和OpenAI的GPT 5.5竞争。此前SpaceX以600亿美元全股票交易收购了Cursor母公司Anysphere。这笔收购的核心逻辑是：Cursor缺乏算力，而SpaceXAI有算力但缺产品入口，合并后有望在AI编程这个高收入领域形成闭环。
                 </div>
-                <a href="https://techcrunch.com/2026/07/06/us-investors-will-soon-get-access-to-sk-hynix-another-memory-maker-riding-the-ai-boom" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://www.reuters.com/business/media-telecom/spacexai-plans-launch-new-model-with-cursor-soon-wednesday-information-reports-2026-07-07" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    Nvidia推出GPU债务兜底机制，加速AI算力项目落地
+                    上半年A股AI领域并购重组活跃，超七成标的集中于新质生产力
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
-                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">SemiAnalysis</span>
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">新华网</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    SemiAnalysis披露Nvidia正在通过债务兜底机制（backstop）来解锁AI算力项目的‘资本-承购-数据中心’三角难题。具体来说，Nvidia用自身AA/Aa2投资级信用评级为Neocloud的GPU采购提供担保，让银行愿意放贷。Firmus已借此获得25-30亿美元客户收入承诺。这本质上是Nvidia在主动创造算力供给，从卖芯片变成做算力金融。
+                    2026年上半年A股并购重组保持高活跃度，涉及AI领域的并购案例约61个，超七成标的集中于新质生产力领域。中航证券首席经济学家分析认为，AI全产业链并购交易放量是行业从概念验证期到规模化落地期的核心信号，头部厂商通过并购锁定上游产能与技术，人形机器人企业则通过收购补齐制造短板。这组数据从资本市场角度印证了AI产业正在进入深度整合阶段。
                 </div>
-                <a href="https://newsletter.semianalysis.com/p/nvidia-gpu-debt-backstop-unleashes" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
-                    阅读原文 →
-                </a>
-            </div>
-            
-            <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
-                <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    OpenAI Stargate项目招聘数据中心网络技术员，大规模AI基础设施加速部署
-                </div>
-                <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
-                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">OpenAI</span>
-                </div>
-                <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    OpenAI为Stargate项目招聘高级数据中心网络技术员，这个项目旨在与行业伙伴合作建设全球最先进的AI基础设施生态系统。招聘信息明确提到‘将网络蓝图转化为物理现实’，说明Stargate已经从概念进入实际部署阶段。结合Nvidia的债务兜底机制，AI算力军备竞赛正在从‘宣布计划’进入‘真正动工’的阶段。
-                </div>
-                <a href="https://openai.com/careers/datacenter-networking-technician-ai-compute-deployment-stargate-san-francisco" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://app.xinhuanet.com/news/article.html?articleId=20260708637a1b5e5fb442e180d38b93cada5643" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
@@ -145,7 +145,7 @@
             
             <div style="margin-top:16px;padding:12px 16px;background:#34C75908;border-left:3px solid #34C759;border-radius:6px;">
                 <div style="font-size:13px;color:#34C759;font-weight:600;margin-bottom:4px;">📊 本类24h核心趋势</div>
-                <div style="font-size:14px;color:#515154;line-height:1.5;">今天商业层面的信号很清晰：AI音频赛道正在被重估。ElevenLabs半年估值翻倍到220亿美元，说明资本市场开始相信语音才是Agent时代的默认交互界面，比视频更早跑通商业化。与此同时，SK海力士在纳斯达克上市，背后是AI内存芯片的‘RAMageddon’级短缺，连苹果都被迫涨价。这两件事连起来看，AI的硬件成本在涨，但语音交互的商业化却在加速，行业正在从‘烧钱建算力’转向‘找场景收钱’。</div>
+                <div style="font-size:14px;color:#515154;line-height:1.5;">AI芯片和算力基础设施的竞争正在从训练向推理转移，同时模型公司自研芯片成为新趋势。商业层面，AI并购重组活跃度持续攀升，头部企业通过收购锁定技术和产能，行业集中度加速提升。今天的新闻中，SambaNova的110亿美元估值融资和DeepSeek自研芯片计划都指向同一个方向：推理效率正在成为新的护城河。</div>
             </div>
             
         </div>
@@ -158,45 +158,45 @@
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    路透独家：北京正讨论限制最先进AI模型海外访问
+                    OpenAI获美国政府批准，将于周四发布最强模型GPT-5.6
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
                     <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">Reuters</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    路透援引多位知情人士报道，中国商务部牵头与阿里巴巴、字节跳动、智谱等公司开会，讨论对最先进的AI模型（包括闭源和开源版本）实施海外访问限制。此前最高法院期刊已提出分级制度：基础工具只需备案，先进技术需安全审查，最敏感的前沿模型禁止公开发布或仅限国内使用。如果落地，将直接影响Qwen、豆包、GLM等模型的全球可用性，推高全球AI使用成本。
+                    OpenAI将于周四公开发布其最强模型GPT-5.6，此前因美国政府以国家安全为由要求推迟发布。美国正加强对先进AI模型发布的审查，担忧技术可能被中国、俄罗斯等国的军事或情报机构滥用。与此同时，Anthropic的Mythos 5和Fable 5曾因6月12日的出口管制令被禁用，直到上周才恢复。这说明美国政府对前沿AI模型的监管正在从'事后审查'转向'事前审批'，对模型发布节奏和商业策略将产生直接影响。
                 </div>
-                <a href="https://www.reuters.com/world/beijing-is-looking-curbing-overseas-access-chinas-top-ai-models-sources-say-2026-07-07" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://www.reuters.com/technology/openai-gets-us-approval-broad-gpt-56-rollout-axios-reports-2026-07-08" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    第六届中国数据要素50人论坛：专家呼吁加快AI综合性立法
+                    中国考虑限制顶级AI模型海外访问，路透社独家报道
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
-                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">人民网</span>
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">Reuters</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    在2026全球数字经济大会上，多位专家指出当前AI治理存在大模型分级管控缺失、算法规制模糊、AI侵权权责不清等五大法治堵点，建议构建‘一法统领、五位一体’制度框架。同时提出国家AI-Ready战略，从治理、产业、社会、个体四个层面推进。这是中国AI立法进程中的一个重要信号，说明顶层设计正在加速。
+                    路透社独家报道，中国有关部门正在考虑限制海外对中国顶级AI模型的访问，包括尚未发布的模型。评论指出，此举可能引发连锁成本：一方面，中国开源模型被视为减少对美国依赖和增强软实力的工具，限制将削弱这一优势；另一方面，中美两大国的限制措施将促使中间国家加速建设主权AI解决方案。这对依赖中国开源模型的全球开发者生态是一个重大不确定性信号。
                 </div>
-                <a href="http://finance.people.com.cn/n1/2026/0707/c1004-40755316.html" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://www.reuters.com/commentary/breakingviews/chinas-ai-curbs-would-trigger-cascading-costs-2026-07-08" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    英国FCA官员：应考虑将大语言模型作为通用AI工具纳入金融监管
+                    乌克兰将选择可在本地部署的AI模型，不受供应商控制
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
                     <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">Reuters</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    英国金融行为监管局（FCA）执行董事Sheldon Mills表示，随着ChatGPT、Claude、Gemini等大模型越来越多地影响消费者金融决策，监管机构应在3-6个月内评估是否将这些通用AI工具纳入监管范围。他还指出，金融业对少数几家科技供应商的依赖正在产生系统性风险。这是全球主要金融监管机构首次明确要对基础模型本身进行监管。
+                    乌克兰数字转型部官员表示，乌克兰将优先选择可在本地基础设施上运行的AI模型，而非依赖供应商远程控制的云服务。目前乌克兰政府应用Diia中的AI助手运行在Google的Gemini上，但乌方在发送查询前会剥离个人数据，并视其为'临时方案'。乌克兰正在基于Google的Gemma开发自有模型，计划秋季发布。这一案例说明，地缘政治紧张正在推动各国将AI模型的可控性提升到与性能同等重要的位置。
                 </div>
-                <a href="https://www.reuters.com/legal/litigation/britain-should-consider-regulating-ai-models-fca-official-says-2026-07-06" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://www.reuters.com/legal/litigation/ukraine-pick-ai-models-operated-without-provider-control-official-says-2026-07-07" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
@@ -204,7 +204,7 @@
             
             <div style="margin-top:16px;padding:12px 16px;background:#FF950008;border-left:3px solid #FF9500;border-radius:6px;">
                 <div style="font-size:13px;color:#FF9500;font-weight:600;margin-bottom:4px;">📊 本类24h核心趋势</div>
-                <div style="font-size:14px;color:#515154;line-height:1.5;">今天政策面有两个方向值得注意：一是中国正在加速AI立法进程，数据要素50人论坛上专家明确提出了‘一法统领、五位一体’的框架，同时路透独家报道北京正在讨论限制最先进AI模型的海外访问，这意味着中国AI治理正在从‘鼓励创新’转向‘分级管控’；二是英国FCA官员首次提出应该考虑将大语言模型作为通用AI工具纳入金融监管，这是全球主要金融监管机构第一次明确表态要对基础模型本身进行监管，而不仅仅是管应用。两条线都指向同一个趋势：AI的‘野蛮生长’阶段正在结束，监管框架正在快速成型。</div>
+                <div style="font-size:14px;color:#515154;line-height:1.5;">中美两国在AI模型出口管制上的博弈正在从芯片扩展到模型本身，开源模型的开放性与国家安全之间的张力日益凸显。今天的新闻显示，中国正在考虑限制顶级AI模型的海外访问，而美国则要求OpenAI推迟GPT-5.6的发布以进行安全审查。这种双向收紧的趋势将深刻影响全球AI供应链和开源生态。</div>
             </div>
             
         </div>
@@ -215,13 +215,13 @@
                 <span style="font-size:24px;margin-right:10px;">📡</span>
                 <h2 style="font-size:20px;font-weight:700;color:#FF9500;margin:0;">今日信号</h2>
             </div>
-            <div style="font-size:14px;color:#515154;line-height:1.7;padding-left:4px;">今天最重要的信号是Anthropic发现Claude内部存在类似人类意识的全局工作空间。这不是一个普通的模型发布，而是第一次有证据表明大模型内部可能自发形成了与人类意识理论高度匹配的结构。它带来的变化是：AI可解释性研究将从‘看神经元激活’升级到‘看内部工作空间’，同时关于AI是否有道德地位的讨论将不再只是哲学问题。对从业者来说，这意味着未来模型安全评估的标准可能需要重写——不仅要看输出，还要看内部状态。</div>
+            <div style="font-size:14px;color:#515154;line-height:1.7;padding-left:4px;">今天最重要的信号是中美两国同时收紧对AI模型的管控：美国要求OpenAI推迟GPT-5.6发布进行安全审查，中国则在考虑限制顶级AI模型的海外访问。这意味着AI模型的'自由流动'时代可能正在结束，未来模型发布将越来越多地受到地缘政治和国家安全因素的制约。对AI从业者来说，这意味着供应链多元化、模型可控性和合规能力将取代单纯的模型性能，成为新的竞争维度。</div>
         </div>
         </td></tr>
 <tr><td style="padding:0 0 20px;">
         <div style="margin-top:32px;padding-top:24px;border-top:2px dashed #d2d2d7;">
             <h3 style="font-size:18px;font-weight:700;color:#1d1d1f;margin-bottom:16px;">📖 名词释义库</h3>
-            <div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">全局神经元工作空间（Global Neuronal Workspace）</span><span style="font-size:14px;color:#515154;line-height:1.5;">一种意识理论，认为大脑中有一个独立的信息工作空间，用于灵活推理和报告，区别于大量无意识的自动处理过程。Anthropic发现Claude内部存在类似结构。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">J-lens（雅可比透镜）</span><span style="font-size:14px;color:#515154;line-height:1.5;">Anthropic开发的一种可解释性工具，通过计算模型内部活动模式对输出词汇的平均影响，来‘读取’模型内部的隐藏工作空间。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">RAMageddon</span><span style="font-size:14px;color:#515154;line-height:1.5;">行业对当前AI内存芯片严重短缺的戏称，指高带宽内存（HBM）、DRAM等供不应求，连苹果都因此被迫涨价。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">AI-Ready（人工智能就绪）</span><span style="font-size:14px;color:#515154;line-height:1.5;">中国数据要素50人论坛提出的国家战略概念，指从治理、产业、社会、个体四个层面做好迎接AI时代的准备。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">空间原生视觉</span><span style="font-size:14px;color:#515154;line-height:1.5;">指专门为机器人设计的视觉系统，不仅识别物体是什么，更理解物体在三维空间中的位置、边界和距离关系。</span></div>
+            <div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">VLA</span><span style="font-size:14px;color:#515154;line-height:1.5;">Vision-Language-Action的缩写，视觉-语言-动作模型，让机器人通过视觉和语言理解指令并执行物理动作的AI架构。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">世界模型</span><span style="font-size:14px;color:#515154;line-height:1.5;">一种能够学习并预测世界状态如何随时间变化的AI模型，不局限于特定任务，而是建立对物理世界运行规律的通用理解。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">推理芯片</span><span style="font-size:14px;color:#515154;line-height:1.5;">专门为AI模型推理（即处理用户输入并生成输出）而设计的芯片，相比训练芯片更注重低延迟和低功耗。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">FSDP</span><span style="font-size:14px;color:#515154;line-height:1.5;">Fully Sharded Data Parallel的缩写，一种分布式训练技术，将模型参数、梯度和优化器状态分片到多个GPU上，以支持超大模型训练。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">OOD</span><span style="font-size:14px;color:#515154;line-height:1.5;">Out-of-Distribution的缩写，分布外测试，指在模型训练时未见过的场景或物体上测试其泛化能力。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">FDE</span><span style="font-size:14px;color:#515154;line-height:1.5;">Frontier Deployment Engineer的缩写，前沿部署工程师，驻场在客户现场，将通用AI模型集成到客户真实业务流程中的技术角色。</span></div>
         </div>
         </td></tr>
 <tr><td style="padding:24px;text-align:center;border-top:1px solid #d2d2d7;">
