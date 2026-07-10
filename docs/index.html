@@ -8,12 +8,12 @@
 <table width="640" cellpadding="0" cellspacing="0" style="max-width:640px;width:100%;">
 <tr><td style="padding:40px 24px 24px;text-align:center;">
 <div style="font-size:32px;font-weight:800;color:#1d1d1f;letter-spacing:-0.5px;">AI 每日简报</div>
-<div style="font-size:14px;color:#86868b;margin-top:6px;">2026年07月09日 · 全球AI资讯精选</div>
+<div style="font-size:14px;color:#86868b;margin-top:6px;">2026年07月10日 · 全球AI资讯精选</div>
 </td></tr>
 
         <div style="background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);border-radius:16px;padding:24px;margin-bottom:20px;">
             <div style="font-size:16px;font-weight:600;color:#ffffff;margin-bottom:8px;">🌐 24小时全球AI行业总览</div>
-            <div style="font-size:14px;color:rgba(255,255,255,0.9);line-height:1.6;">24小时内，AI行业在模型能力、商业化和监管三个维度同时加速。模型侧，蚂蚁灵波连发两个开源模型（世界模型和具身视频模型），将实时交互和物理模拟推进到实用阶段；OpenAI和Meta分别更新语音和编码模型，竞争焦点从'谁更强'转向'谁更易用、更便宜'。商业侧，SpaceXAI以半价策略冲击编码市场，智谱AI融资40亿美元，Ollama和SambaNova获得资本重注，显示AI基础设施和工具层正在成为投资热点。监管侧，中国即将实施全球首个拟人化AI法规，美国出现AI生成儿童色情的重大诉讼，智能体国家标准发布——各国都在加速划定AI应用的边界。整体来看，行业正从'技术竞赛'进入'工程落地+商业变现+合规约束'的多线程阶段。</div>
+            <div style="font-size:14px;color:rgba(255,255,255,0.9);line-height:1.6;">24小时内，AI行业迎来密集发布：OpenAI推出GPT-5.6家族并开源部分模型，Meta发布Muse Spark 1.1并首次开放API，Anthropic则展示了可解释性研究进展。模型竞赛已从技术指标转向定价和生态争夺。商业层面，AI智能体在工业、政务等领域规模化落地，AI眼镜成为新硬件爆发点，OpenAI加速向企业市场渗透。政策方面，联合国呼吁儿童AI安全承诺，美国政府的前沿模型审查机制仍不透明，Anthropic通过引入伯南克强化治理架构。整体看，行业正从'模型竞争'全面转向'公司竞争'，商业化能力和合规能力成为新门槛。</div>
         </div>
         
 <tr><td style="padding:0 0 20px;">
@@ -25,60 +25,45 @@
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    蚂蚁灵波开源LingBot-World 2.0：世界模型首次实现小时级实时生成，支持多人交互
-                </div>
-                <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
-                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">量子位</span>
-                </div>
-                <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    蚂蚁灵波开源了新一代实时交互世界模型LingBot-World 2.0，支持720p/60fps高清实时输出、小时级连续生成，并首次引入Agent机制驱动场景动态演化。用户可进行攻击、射箭、施法等交互，支持多人同时在线探索。这标志着世界模型从'可观看'迈入'可互动、可演化'阶段，对游戏、影视预演、具身智能训练等场景有直接价值。
-                </div>
-                <a href="https://www.qbitai.com/2026/07/446548.html" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
-                    阅读原文 →
-                </a>
-            </div>
-            
-            <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
-                <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    全球首个具身专属MoE视频模型LingBot-Video开源
-                </div>
-                <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
-                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">量子位</span>
-                </div>
-                <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    蚂蚁灵波开源了LingBot-Video，这是全球首个面向具身智能的大规模MoE视频基础模型，30B参数但推理时仅激活3B。模型专门学习物理规律而非视觉美感，在RBench上超越通用视频生成标杆。它证明了视频模型正在从内容生产工具向物理世界模拟器演进，对机器人训练意义重大。
-                </div>
-                <a href="https://www.qbitai.com/2026/07/446568.html" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
-                    阅读原文 →
-                </a>
-            </div>
-            
-            <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
-                <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    OpenAI发布GPT-Live全双工语音模型，ChatGPT语音体验升级
+                    OpenAI发布GPT-5.6模型家族，包含Sol、Terra、Luna三个版本
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
                     <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">OpenAI</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    OpenAI推出GPT-Live系列语音模型，采用全双工架构实现同时听说，支持自然打断、实时翻译。GPT-Live-1 mini成为ChatGPT免费版默认语音模型，付费用户可用更大版本。这是语音交互从'轮询式'向'对话式'的关键跨越，但OpenAI强调不将其定位为AI伴侣。
+                    OpenAI推出了GPT-5.6系列，旗舰版Sol在编码基准上超越Anthropic的Fable 5，且成本和时间减半。同时发布了开源推理模型gpt-oss-120b和gpt-oss-20b。这是OpenAI首次在发布前沿模型的同时，提供可自部署的开源版本，策略上开始兼顾封闭生态和开源社区。
                 </div>
-                <a href="https://openai.com/index/introducing-gpt-live" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://openai.com/index/gpt-5-6" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    Meta发布Muse Spark 1.1，开放开发者API预览
+                    Meta发布Muse Spark 1.1，扎克伯格三年来首次发帖宣传
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
-                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">Reuters</span>
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">TechCrunch</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    Meta发布Muse Spark 1.1，号称其最强编码和Agent模型，并首次开放API给开发者，直接与Anthropic和OpenAI的商业模式竞争。模型支持多模态理解、复杂多步任务。Meta正在加速从社交平台向AI平台转型，但API定价和生态建设仍是未知数。
+                    Meta正式向开发者开放Muse Spark 1.1的API，主打低价的智能体编码能力。扎克伯格亲自下场宣传，标志着Meta从纯开源路线转向商业化。结合其正在训练的代号'Watermelon'的模型，Meta在算力、数据和人才上的储备使其成为追赶OpenAI/Anthropic的最强挑战者。
                 </div>
-                <a href="https://www.reuters.com/business/meta-debuts-muse-spark-11-with-preview-open-developers-2026-07-09" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://techcrunch.com/2026/07/09/meta-enters-the-crowded-ai-coding-battle-with-muse-spark-1-1" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                    阅读原文 →
+                </a>
+            </div>
+            
+            <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
+                <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
+                    Anthropic发现Claude内部存在一个'概念思考空间'
+                </div>
+                <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">MIT Technology Review</span>
+                </div>
+                <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
+                    Anthropic的研究揭示了LLM内部一个隐藏的'概念空间'，模型在此进行抽象推理。这项可解释性研究对理解模型内部工作机制、提升安全性和可控性有潜在价值，是AI安全领域的重要进展。
+                </div>
+                <a href="https://www.technologyreview.com/2026/07/09/1140293/anthropic-found-a-hidden-space-where-claude-puzzles-over-concepts" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
@@ -86,7 +71,7 @@
             
             <div style="margin-top:16px;padding:12px 16px;background:#5856D608;border-left:3px solid #5856D6;border-radius:6px;">
                 <div style="font-size:13px;color:#5856D6;font-weight:600;margin-bottom:4px;">📊 本类24h核心趋势</div>
-                <div style="font-size:14px;color:#515154;line-height:1.5;">世界模型和具身智能视频模型正在从实验室走向实用化，开源成为主流策略。今天蚂蚁灵波连发两个开源模型（LingBot-World 2.0和LingBot-Video），一个把世界模型从分钟级推进到小时级实时生成，另一个是首个面向具身的MoE视频模型。这标志着视频生成模型正在从内容创作工具向物理世界模拟器转型，开源降低了行业门槛，但竞争焦点也从模型能力转向了工程落地和生态构建。</div>
+                <div style="font-size:14px;color:#515154;line-height:1.5;">模型发布进入密集期，竞争焦点从单纯的基准分数转向了编码能力和智能体任务执行。OpenAI、Meta、Anthropic几乎同时出手，但策略分化明显：OpenAI用GPT-5.6家族覆盖从高成本旗舰到低成本推理的全价位段，Meta则用Muse Spark 1.1打价格战并首次开放API商业化。这不再是技术竞赛，而是定价权和开发者生态的争夺。</div>
             </div>
             
         </div>
@@ -99,60 +84,60 @@
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    SpaceXAI与Cursor联合发布Grok 4.5，定价仅为竞品一半
+                    AI智能体加速落地：从'技术可用'到'商业可赚'
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
-                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">Bloomberg</span>
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">新华网</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    SpaceXAI与Cursor联合发布Grok 4.5，专为编码、金融和法律任务优化，定价仅为Anthropic和OpenAI同类模型的一半。这是SpaceX收购Cursor后的首个产品，整合了从训练算力到分发渠道的完整栈。半价策略可能引发AI编码市场的价格战，对依赖API收入的模型厂商构成直接压力。
+                    新华社报道指出，AI智能体已越过技术验证门槛，进入规模化推广阶段。首钢集团用AI智能体将热轧产线计划审核从1小时缩短至秒级，CSDN预测未来一两年99%的代码将由AI生成。成本下降是关键驱动力，京东云称推理优化后成本从2700元降至10元。
                 </div>
-                <a href="https://www.bloomberg.com/news/articles/2026-07-08/spacexai-cursor-unveil-grok-ai-model-for-legal-finance-tasks" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://www.xinhuanet.com/20260710/8cde6a84f0144a99aa578158cc81d094/c.html" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    智谱AI在港股融资40亿美元，中国AI模型厂商加速资本化
+                    AI眼镜爆发：深圳成全球制造中心，逸文科技跻身独角兽
+                </div>
+                <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">新华网</span>
+                </div>
+                <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
+                    逸文科技完成1.5亿美元Pre-B轮融资，估值超10亿美元。其G2智能眼镜售价超1000美元，海外销量达数十万台。数据显示全球每卖出2副AI眼镜就有1副出自深圳，AI眼镜正成为继智能手机后的新一代普及型智能终端。
+                </div>
+                <a href="http://www3.xinhuanet.com/fashion/20260710/5e810c60b143451fa5dd44c9a29ebb0f/c.html" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                    阅读原文 →
+                </a>
+            </div>
+            
+            <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
+                <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
+                    OpenAI推出ChatGPT Work，进军企业办公市场
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
                     <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">Reuters</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    智谱AI通过港股配售融资40亿美元，用于研发、算力和并购。作为中国头部AI模型厂商，智谱被视为OpenAI的挑战者。这笔融资发生在北京考虑收紧AI技术出口管控的背景下，显示中国AI企业正在加速通过资本市场获取弹药。
+                    OpenAI发布ChatGPT Work，定位为企业团队的办公助手，可处理文档、表格和演示文稿。同时，OpenAI正在大规模招聘企业销售和GTM岗位，覆盖油气、银行、初创公司等垂直行业，显示其正全力从API提供商向企业级解决方案商转型。
                 </div>
-                <a href="https://www.reuters.com/world/asia-pacific/chinas-zhipu-ai-launches-4-billion-hong-kong-shares-offering-term-sheet-shows-2026-07-08" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://www.reuters.com/business/openai-launches-chatgpt-work-2026-07-09" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    开源AI工具Ollama融资6500万美元，月活用户近900万
+                    沙特Humain与加拿大Cohere合作建设AI算力基础设施
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
-                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">TechCrunch</span>
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">Reuters</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    Ollama完成6500万美元融资，累计融资8800万美元，月活开发者达890万，覆盖85%的财富500强企业。Ollama让开发者能在本地快速运行开源模型，其增长印证了企业对开源模型推理成本优势的追求。Benchmark合伙人认为，高推理成本正推动企业从闭源转向开源模型。
+                    沙特公司Humain与加拿大Cohere宣布合作，部署大规模加速计算基础设施，并共同开发主权AI模型（包括阿拉伯语模型）。这是中东国家加速AI基础设施建设、寻求算力自主的最新案例，也反映了AI地缘政治中'算力联盟'的形成。
                 </div>
-                <a href="https://techcrunch.com/2026/07/09/popular-open-source-ai-developer-tool-ollama-raises-65m-grows-to-nearly-9m-users" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
-                    阅读原文 →
-                </a>
-            </div>
-            
-            <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
-                <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    SambaNova融资68亿人民币，摩根大通成为推理基础设施客户
-                </div>
-                <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
-                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">36氪</span>
-                </div>
-                <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    AI芯片公司SambaNova完成68亿人民币融资，并拿下摩根大通作为推理基础设施客户。其RDU芯片面向Agentic AI推理，与英特尔合作提供企业级本地部署方案。这反映了AI推理市场正在分化：大企业需要安全、可控的本地推理方案，而非全部上公有云。
-                </div>
-                <a href="https://eu.36kr.com/zh/p/3887943700412932" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://www.reuters.com/world/americas/saudi-arabias-humain-canadas-cohere-work-together-ai-compute-sovereign-ai-models-2026-07-09" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
@@ -160,7 +145,7 @@
             
             <div style="margin-top:16px;padding:12px 16px;background:#34C75908;border-left:3px solid #34C759;border-radius:6px;">
                 <div style="font-size:13px;color:#34C759;font-weight:600;margin-bottom:4px;">📊 本类24h核心趋势</div>
-                <div style="font-size:14px;color:#515154;line-height:1.5;">AI商业化的两条主线清晰：一是模型公司通过API和产品直接变现（OpenAI、Meta、SpaceXAI），二是AI基础设施和工具层获得资本重注（Ollama、SambaNova）。今天最值得关注的是SpaceXAI+Cursor的Grok 4.5以半价策略冲击编码市场，以及智谱AI在港股融资40亿美元——前者是价格战，后者是资本战，都指向同一个结论：AI应用层的竞争正在从'谁更强'转向'谁更便宜、谁更易用'。</div>
+                <div style="font-size:14px;color:#515154;line-height:1.5;">AI商业化进入深水区，从'技术可用'到'商业可赚'的验证正在加速。一方面，AI智能体在工业、政务、内容生产等场景开始规模化落地，降本增效数据亮眼；另一方面，AI眼镜、AI潮玩等新硬件品类爆发，深圳已成为全球AI眼镜制造中心。资本对AI公司的估值逻辑也在分化，能证明营收和用户留存的公司才能获得二级市场认可。</div>
             </div>
             
         </div>
@@ -173,45 +158,45 @@
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    中国即将实施全球首个拟人化AI监管法规，禁止AI恋爱关系
+                    联合国秘书长呼吁制定AI儿童安全承诺
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
-                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">Bloomberg</span>
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">新华网</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    中国将于下周生效全球首部针对拟人化AI的综合性法规，旨在遏制AI恋爱关系带来的社会风险。在结婚率和生育率持续下降的背景下，北京认为AI伴侣可能加剧社会问题。这是全球首个针对AI情感关系的硬性监管，可能为其他国家提供参考。
+                    古特雷斯在日内瓦AI治理全球对话上警告，AI正以比安全措施更快的速度触及儿童。他呼吁制定AI儿童安全承诺，要求企业在面向儿童的系统上线前进行儿童专项测试和独立监督，并对性虐待内容零容忍。
                 </div>
-                <a href="https://www.bloomberg.com/opinion/articles/2026-07-08/china-is-right-to-kill-the-ai-romance" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="http://www.xinhuanet.com/english/europe/20260709/8ed349268a6a43c59088f0f65edc72ea/c.html" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    男子用Grok生成7000张儿童色情图片后自杀，xAI和Stability AI被起诉
+                    美国政府如何决定OpenAI前沿模型可以安全发布？
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
-                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">Ars Technica</span>
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">TechCrunch</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    一起诉讼指控xAI和Stability AI的模型被用于生成大量儿童色情内容，一名男子用Grok制作了7000张继女的性化图片后自杀。原告律师称，模型允许生成任何性内容就无法防止涉及未成年人的滥用。此案可能推动AI公司对模型安全策略进行根本性调整。
+                    文章揭示了GPT-5.6发布前的政府审查过程，目前仍缺乏统一的模型审查标准和负责机构，审查过程是'临时性的'。相比之下，Anthropic的Fable模型曾因政府担忧而被限制外国用户访问。这种依赖个人关系的监管方式引发了行业对不确定性的担忧。
                 </div>
-                <a href="https://arstechnica.com/tech-policy/2026/07/lawsuit-grok-user-made-7k-child-sex-images-xai-only-reported-one-gang-rape-prompt" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://techcrunch.com/2026/07/09/how-did-the-government-decide-openais-frontier-model-was-safe-to-release" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    智能体全生命周期系列国家标准发布
+                    前美联储主席伯南克加入Anthropic长期利益信托
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
-                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">人民网</span>
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">Anthropic</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    国内首套覆盖智能体全生命周期的国家标准发布，涵盖身份标识、可信管理、能力描述、工具调用等七部分。标准旨在解决不同厂商智能体无法互联互通的'智能孤岛'问题，为跨平台协同提供统一技术依据。这对智能体规模化商用是重要的基础设施。
+                    Anthropic任命本·伯南克为其长期利益信托成员，该信托负责监督公司的治理结构，确保AI的长期利益。此举是Anthropic独特治理架构的延续，旨在通过引入外部权威人士来增强其安全承诺的可信度。
                 </div>
-                <a href="http://finance.people.com.cn/n1/2026/0709/c1004-40757059.html" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://www.anthropic.com/news/ben-bernanke" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
@@ -219,7 +204,7 @@
             
             <div style="margin-top:16px;padding:12px 16px;background:#FF950008;border-left:3px solid #FF9500;border-radius:6px;">
                 <div style="font-size:13px;color:#FF9500;font-weight:600;margin-bottom:4px;">📊 本类24h核心趋势</div>
-                <div style="font-size:14px;color:#515154;line-height:1.5;">AI治理进入'硬约束'阶段：中国即将实施全球首个针对拟人化AI的法规（禁止AI男友），美国出现AI生成儿童色情内容的重大诉讼，欧盟持续推动AI安全标准。今天的新闻显示，监管焦点正在从'原则性讨论'转向'具体场景的执法和立法'，尤其是对未成年人保护和国家安全领域的AI滥用，各国都在加速划定红线。</div>
+                <div style="font-size:14px;color:#515154;line-height:1.5;">AI治理从原则讨论进入具体规则制定阶段。联合国秘书长呼吁对面向儿童的AI实施严格安全测试，美国政府在GPT-5.6发布前进行了安全审查，Anthropic则任命前美联储主席伯南克进入其长期利益信托。监管框架正在快速成型，但各国路径差异明显，企业面临的不确定性依然很高。</div>
             </div>
             
         </div>
@@ -230,13 +215,13 @@
                 <span style="font-size:24px;margin-right:10px;">📡</span>
                 <h2 style="font-size:20px;font-weight:700;color:#FF9500;margin:0;">今日信号</h2>
             </div>
-            <div style="font-size:14px;color:#515154;line-height:1.7;padding-left:4px;">今天最值得关注的信号是SpaceXAI以半价推出Grok 4.5，直接冲击Anthropic和OpenAI的定价体系。这不是简单的价格战——SpaceX通过收购Cursor整合了从训练算力到开发者分发渠道的完整栈，成本结构优于纯模型公司。如果Grok 4.5在编码场景获得开发者认可，将迫使其他模型厂商要么降价，要么在垂直场景上建立不可替代的壁垒。对AI应用开发者来说，这意味着模型选择权正在扩大，但'用哪家模型'的决策将更多取决于成本和生态，而非单纯的能力排名。</div>
+            <div style="font-size:14px;color:#515154;line-height:1.7;padding-left:4px;">GPT-5.6和Muse Spark 1.1在同一天发布，标志着AI编码竞赛进入'价格战'阶段。OpenAI的Sol在性能上超越Anthropic Fable 5的同时成本更低，Meta则用更激进的定价策略直接冲击市场。这对开发者是利好，但对靠API高价盈利的初创公司是直接挤压——大厂正在用规模优势清洗市场。</div>
         </div>
         </td></tr>
 <tr><td style="padding:0 0 20px;">
         <div style="margin-top:32px;padding-top:24px;border-top:2px dashed #d2d2d7;">
             <h3 style="font-size:18px;font-weight:700;color:#1d1d1f;margin-bottom:16px;">📖 名词释义库</h3>
-            <div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">世界模型</span><span style="font-size:14px;color:#515154;line-height:1.5;">能模拟物理规律、持续演化、与用户实时交互的AI系统，不同于生成固定内容的传统AI，它生成的是可探索、可互动的动态世界。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">MoE（混合专家模型）</span><span style="font-size:14px;color:#515154;line-height:1.5;">一种模型架构，将模型拆分为多个'专家'子网络，每次推理只激活部分专家，在保持大模型能力的同时降低计算成本。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">全双工语音</span><span style="font-size:14px;color:#515154;line-height:1.5;">通信双方可以同时说话和收听，像真人对话一样自然，而不是传统的'你说完我再说'的半双工模式。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">RDU（可重构数据流处理器）</span><span style="font-size:14px;color:#515154;line-height:1.5;">SambaNova自研的AI推理芯片，通过让数据在芯片上像流水线一样移动来减少内存搬运，降低推理延迟和功耗。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">智能体全生命周期标准</span><span style="font-size:14px;color:#515154;line-height:1.5;">覆盖AI智能体从创建、身份认证、能力描述到跨平台协作、工具调用的完整技术规范，解决不同厂商智能体无法互通的问题。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">拟人化AI监管</span><span style="font-size:14px;color:#515154;line-height:1.5;">针对AI产品模仿人类情感、建立拟人关系的监管法规，中国即将实施全球首部此类法规，主要限制AI恋爱伴侣等应用。</span></div>
+            <div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">Co-Design</span><span style="font-size:14px;color:#515154;line-height:1.5;">协同设计，指将硬件、软件、算法等多个层面放在一起联合优化，而非各自独立设计，英伟达通过此方法构建了强大的护城河。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">尾部风险</span><span style="font-size:14px;color:#515154;line-height:1.5;">指发生概率极低但一旦发生会造成巨大损失的风险，在自动驾驶中常指极端场景下的安全事故。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">Agentic OS</span><span style="font-size:14px;color:#515154;line-height:1.5;">智能体操作系统，指将AI智能体能力深度集成到操作系统底层，使其能主动理解用户意图、规划任务并跨应用执行。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">MaaS</span><span style="font-size:14px;color:#515154;line-height:1.5;">模型即服务，指通过API按量计费的方式提供AI模型能力，是当前AI商业化的主流模式之一。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">NAMs</span><span style="font-size:14px;color:#515154;line-height:1.5;">新型替代方法，指用类器官、器官芯片、AI预测模型等替代传统动物实验进行药物安全性和有效性评估的技术体系。</span></div>
         </div>
         </td></tr>
 <tr><td style="padding:24px;text-align:center;border-top:1px solid #d2d2d7;">
