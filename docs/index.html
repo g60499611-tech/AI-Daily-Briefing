@@ -8,12 +8,12 @@
 <table width="640" cellpadding="0" cellspacing="0" style="max-width:640px;width:100%;">
 <tr><td style="padding:40px 24px 24px;text-align:center;">
 <div style="font-size:32px;font-weight:800;color:#1d1d1f;letter-spacing:-0.5px;">AI 每日简报</div>
-<div style="font-size:14px;color:#86868b;margin-top:6px;">2026年08月16日 · 全球AI资讯精选</div>
+<div style="font-size:14px;color:#86868b;margin-top:6px;">2026年08月17日 · 全球AI资讯精选</div>
 </td></tr>
 
         <div style="background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);border-radius:16px;padding:24px;margin-bottom:20px;">
             <div style="font-size:16px;font-weight:600;color:#ffffff;margin-bottom:8px;">🌐 24小时全球AI行业总览</div>
-            <div style="font-size:14px;color:rgba(255,255,255,0.9);line-height:1.6;">24小时内全球AI行业的核心叙事围绕'资本狂热'与'工具变革'展开。Anthropic 以 2 万亿美元估值冲刺 IPO 成为绝对焦点，其营收暴涨 14 倍、Claude Code 成为增长引擎，但高估值与算力成本高企的争议并存。与此同时，AI 编程工具领域正经历深刻变革：Warp 开源转向'代理优先'平台，OpenClaw 从巅峰跌落暴露开源社区治理难题，Claude Code 的功能膨胀引发对可控性的反思。政策层面，加州 SB 53 的签署为 AI 监管提供了'监管与创新共存'的范本，但联邦层面仍缺乏统一法案。整体来看，行业正处于从'技术竞赛'向'商业兑现'过渡的关键期，资本市场的定价逻辑正在重塑 AI 产业的竞争格局。</div>
+            <div style="font-size:14px;color:rgba(255,255,255,0.9);line-height:1.6;">24小时内全球AI行业最显著的变化是开源格局的重塑：Hugging Face报告确认中国开源模型在参数规模和生态建设上全面领先，美国开源主力从Meta、谷歌转向英伟达、AMD等芯片厂商，Meta和英伟达也重新入场发布约300亿参数的本地部署模型。模型能力提升的重心明显从预训练转向后训练强化学习，智谱GLM-5.3和DeepSeek V4 Pro都验证了这条路径。商业层面，智能体进入规模化落地阶段，支付宝发布全栈智能体商业底座，Stripe以70亿美元收购OpenRouter切入AI推理层；中美科技公司形成新的协作关系，IBM为DeepSeek进入美国企业市场提供信任背书。定价权开始转移，DeepSeek大幅涨价标志价格战时代结束。政策层面，美国科技巨头联合反对过早限制开源模型，Anthropic CEO承认行业信任危机，监管与创新的平衡仍是核心议题。</div>
         </div>
         
 <tr><td style="padding:0 0 20px;">
@@ -25,45 +25,60 @@
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    Altman 投的 Agent 终端 Warp 开源了，15小时 Star 数飙到 3.5 万
+                    Hugging Face报告：中国开源模型规模领先，美国转向“抄作业”
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
                     <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">36氪</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    由 Sam Altman 支持的现代终端 Warp 宣布全面开源（AGPL 许可证），并推出由云代理平台 Oz 管理的'代理优先'协作流，OpenAI 成为创始赞助商。这标志着 AI 编程工具从单一工具转向开放平台，通过社区协作对抗闭源竞争对手，是 AI 开发工具领域的一个重要分水岭。
+                    Hugging Face最新报告显示，2026年以来中国实验室发布的月度最大开源模型参数规模持续领先美国（7540亿至2.78万亿 vs 多数低于1300亿），且美国千亿级开源模型中多数基于中国模型微调。开源模型的主导权正在从Meta、谷歌等传统实验室转向英伟达、AMD等芯片厂商，模型成为硬件性能的展示。
                 </div>
-                <a href="https://m.36kr.com/p/3787635096329472" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://www.36kr.com/p/3943282225691781" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    OpenClaw，崩了
+                    HelixWorld：24FPS画面+48kHz立体声实时生成的世界模型将开源
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
-                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">36氪</span>
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">量子位</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    曾被誉为'个人AI操作系统'的开源项目 OpenClaw 在短短五周内从巅峰跌落，面临下载量腰斩、维护者路线之争、企业用户不敢升级等困境。这个案例暴露了开源 AI Agent 项目在快速迭代与稳定性之间的根本矛盾，对依赖开源 Agent 的开发者有直接警示意义。
+                    Noiz AI发布HelixWorld 1.0，实现音视频联合实时生成，通过因果化、轨迹蒸馏+DMD等四步技术跨越实时门槛，权重和代码将在数周内完全开源。这是世界模型首次同时解决实时性和音频生成问题，开源策略可能加速该领域生态发展。
                 </div>
-                <a href="https://m.36kr.com/p/3779305258259465" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://www.qbitai.com/2026/08/474334.html" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    写了17年开源代码，我为什么认为Coding Agents堆功能是在瞎折腾？
+                    智谱发布GLM-5.3：7430亿参数，能力提升全部来自后训练强化学习
+                </div>
+                <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">量子位</span>
+                </div>
+                <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
+                    智谱GLM-5.3与5.2共用同一7430亿参数基座，所有能力提升来自后训练强化学习，编程能力提升50%，在Terminal-Bench 3.0位列开源第一。同日范式PhanRouter完成适配并开放调用，实现“发布即上线”，降低企业采用最新模型的门槛。
+                </div>
+                <a href="https://www.qbitai.com/2026/08/474361.html" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                    阅读原文 →
+                </a>
+            </div>
+            
+            <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
+                <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
+                    Qwen3.8-27B开源后社区生态迅速成型，下载量破百万
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
                     <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">36氪</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    libGDX 创始人 Mario Zechner 批评 Claude Code 等 AI 编程工具陷入功能堆叠陷阱，导致工具变得不可预测、难以掌控。他主张 Coding Agents 应适应开发者工作流而非反之，这一观点在 AI 编程工具功能竞赛白热化的当下，提供了难得的冷静反思。
+                    Qwen3.8-27B开源不到12小时进入Hugging Face历史最受欢迎TOP 4，两天下载超100万次，社区贡献约500个量化版本。NVIDIA、AMD、平头哥等芯片厂商迅速完成适配，vLLM、SGLang等推理工具第一时间跟进，体现开源模型的生命力在于工程生态而非榜单排名。
                 </div>
-                <a href="https://m.36kr.com/p/3784634069277961" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://www.36kr.com/p/3943218675383689" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
@@ -71,7 +86,7 @@
             
             <div style="margin-top:16px;padding:12px 16px;background:#5856D608;border-left:3px solid #5856D6;border-radius:6px;">
                 <div style="font-size:13px;color:#5856D6;font-weight:600;margin-bottom:4px;">📊 本类24h核心趋势</div>
-                <div style="font-size:14px;color:#515154;line-height:1.5;">AI编程工具正从'辅助编码'向'代理式开发环境'演进，开源与闭源路线之争加剧。Warp开源、OpenClaw社区动荡、Claude Code功能膨胀，都指向同一个问题：当AI Agent成为开发主力，工具链的稳定性和可控性反而成为稀缺资源。</div>
+                <div style="font-size:14px;color:#515154;line-height:1.5;">开源模型的主导权正在从美国实验室向中国和芯片厂商转移，Hugging Face报告显示中国模型在参数规模和生态上领先，而英伟达、AMD等硬件厂商成为美国开源的主要推动者。同时，模型能力提升的重心从预训练转向后训练强化学习，智谱GLM-5.3和DeepSeek V4 Pro都验证了这条路径。</div>
             </div>
             
         </div>
@@ -84,60 +99,60 @@
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    EXCLUSIVE: Anthropic IPO valuation hinges on $190-200 billion 2028 revenue forecast, sources say
+                    支付宝发布全栈智能体商业底座，智能体将大规模进入生活服务场景
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
-                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">Reuters</span>
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">新华网</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    路透独家报道，Anthropic 内部预测 2028 年营收将达 1900 亿至 2000 亿美元，华尔街正基于这一远期预测为其可能高达 2 万亿美元的 IPO 估值定价。这一估值方式极为激进，直接跳过 2026、2027 年，将定价锚点放在两年后，反映出市场对 AI 头部公司增长潜力的极度乐观，但也暗藏巨大风险。
+                    支付宝在首个AI生态大会上发布全栈智能体商业底座，超级服务智能体“阿宝”已完成万余项服务AI化接入，联合千问、华为、比亚迪等20余家企业共建智能体互联生态。蚂蚁CEO韩歆毅判断智能体商业将在未来6-12个月爆发，这是智能体从概念验证走向规模化落地的重要信号。
                 </div>
-                <a href="https://www.reuters.com/business/anthropic-ipo-valuation-hinges-190-200-billion-2028-revenue-forecast-sources-say-2026-08-15" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://app.xinhuanet.com/news/article.html?articleId=202608174b2fd4ffea614be584b8bcc5c3eb5186" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    牛来！A社营收暴涨1400%，最新季度入账115亿美元
-                </div>
-                <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
-                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">量子位</span>
-                </div>
-                <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    Anthropic 第二季度营收超 115 亿美元，同比增长逾 14 倍，调整后营业利润首次转正，年化收入已超 470 亿美元。但量子位分析指出，其与 SpaceX 的长期算力合同每月高达 12.5 亿美元，且营收统计口径与 OpenAI 存在差异，'营收逃逸速度'是否真正实现仍需观察。
-                </div>
-                <a href="https://www.qbitai.com/2026/08/473947.html" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
-                    阅读原文 →
-                </a>
-            </div>
-            
-            <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
-                <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    2万亿美元，AI史上最大IPO进入倒计时
+                    Stripe以70亿美元收购OpenRouter，切入AI推理调用层
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
                     <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">36氪</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    Anthropic 正以超 2 万亿美元估值冲刺 IPO，若成行将超越 SpaceX 成为史上上市估值最高的公司。其增长核心是 Claude Code 产品线，年化收入五个月从 5 亿美元冲到 25 亿，贡献总营收近两成，但高估值对应约 43 倍市销率，投资人是在提前买断未来数年的高增长。
+                    Stripe收购模型路由平台OpenRouter，估值70亿美元，3个月内估值增长5倍。OpenRouter掌握模型选择、调用和Token消耗数据，Stripe借此将支付基础设施延伸到AI推理层，成为连接开发者、模型厂商和AI支出的中间层。
                 </div>
-                <a href="https://m.36kr.com/p/3941650963348873" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://eu.36kr.com/en/p/3943086671903881" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    OpenRouter 的悖论
+                    字节成微软最大AI客户之一，IBM为DeepSeek进入美国企业市场背书
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
                     <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">36氪</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    OpenRouter 年化收入一年半翻 50 倍至 5000 万美元，估值达 13 亿美元，但文章指出其繁荣建立在模型碎片化之上，而碎片化正走向商品化。当五家厂商以低于每百万 token 1 美元提供接近前沿的性能时，路由器存在的理由本身在缩小，这一悖论对整个 AI 基础设施层有深远影响。
+                    微软因字节跳动等中国公司的AI和云服务订单（字节年支出近10亿美元）决定保留中国业务；同时IBM与Together AI签署2.4亿美元协议，计划在IBM云上部署DeepSeek等中国开源模型。中美科技公司围绕AI形成新的协作关系，IBM的企业信任背书可能帮助中国模型突破中大型企业市场壁垒。
                 </div>
-                <a href="https://m.36kr.com/p/3835541445686657" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://www.36kr.com/p/3943354686406025" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                    阅读原文 →
+                </a>
+            </div>
+            
+            <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
+                <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
+                    DeepSeek大幅涨价，行业从价格战转向价值定价
+                </div>
+                <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">36氪</span>
+                </div>
+                <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
+                    DeepSeek从8月17日起全面引入峰谷分时定价，全计费项涨幅50%-1100%，标志以低价换规模的阶段落幕。摩根士丹利分析师认为这是行业定价纪律改善的积极信号，行业正从价格竞争转向以智能能力驱动的商业化，定价权开始从OpenAI向中国模型转移。
+                </div>
+                <a href="https://www.36kr.com/p/3943340156376707" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
@@ -145,7 +160,7 @@
             
             <div style="margin-top:16px;padding:12px 16px;background:#34C75908;border-left:3px solid #34C759;border-radius:6px;">
                 <div style="font-size:13px;color:#34C759;font-weight:600;margin-bottom:4px;">📊 本类24h核心趋势</div>
-                <div style="font-size:14px;color:#515154;line-height:1.5;">AI 资本市场的叙事正在被'超级增长'主导，Anthropic 的 IPO 估值和营收增速成为焦点，但高估值背后是算力成本高企和统计口径争议。与此同时，AI 编程工具（Claude Code）已成为拉动营收的核心引擎，商业变现路径愈发清晰。</div>
+                <div style="font-size:14px;color:#515154;line-height:1.5;">AI商业化进入深水区：智能体从概念走向规模化落地，支付宝发布全栈智能体商业底座；同时中美科技公司围绕AI形成新的协作关系，微软因字节订单留在中国，IBM为DeepSeek等中国模型提供企业信任背书。定价权开始从OpenAI向中国模型转移，行业从价格战转向价值定价。</div>
             </div>
             
         </div>
@@ -158,30 +173,30 @@
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    California’s new AI safety law shows regulation and innovation don’t have to clash
+                    英伟达、微软等20余家公司联名信，反对过早限制开源AI模型
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
-                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">TechCrunch</span>
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">Bloomberg</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    加州州长纽森签署 AI 安全与透明度法案 SB 53，被视为监管与创新可以共存的例证。该法案通过行业与政策制定者协作达成，可强制企业兑现其安全承诺，防止在竞争压力下削减安全标准，为其他州的 AI 立法提供了参考模板。
+                    英伟达、微软、Meta、Hugging Face等20多家公司联名致信华盛顿，警告不要对开源权重AI模型实施“过早”限制。Anthropic和OpenAI缺席，反映闭源实验室与开源阵营在监管问题上的根本分歧。
                 </div>
-                <a href="https://techcrunch.com/2025/10/01/californias-new-ai-safety-law-shows-regulation-and-innovation-dont-have-to-clash" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://www.bloomberg.com/news/newsletters/2026-08-17/china-s-open-weight-ai-models-are-prompting-us-players-to-reconsider-their-strategy" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    How new regulation is driving the AI governance market
+                    Anthropic CEO承认AI行业正遭遇信任危机
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
-                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">VentureBeat</span>
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">36氪</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    全球范围内新的 AI 治理法规正在终结'自我监管'时代，欧盟算法框架和阿姆斯特丹等城市的'AI 注册表'正推动企业主动采用治理解决方案。KPMG 报告显示 94% 的 IT 决策者认为企业需更关注 AI 伦理，治理正从合规负担转变为商业价值来源。
+                    Anthropic联合创始人兼CEO达里奥·阿莫代伊承认行业存在信任难题，指出公众对AI存在非此即彼的错误认知。他支持约束前沿AI企业发展速度、为小型竞争对手创造优势的政策，反映头部AI实验室对监管态度的微妙转变。
                 </div>
-                <a href="https://venturebeat.com/ai/how-new-regulation-is-driving-the-ai-governance-market" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://www.36kr.com/newsflashes/3942802014256256" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
@@ -189,7 +204,7 @@
             
             <div style="margin-top:16px;padding:12px 16px;background:#FF950008;border-left:3px solid #FF9500;border-radius:6px;">
                 <div style="font-size:13px;color:#FF9500;font-weight:600;margin-bottom:4px;">📊 本类24h核心趋势</div>
-                <div style="font-size:14px;color:#515154;line-height:1.5;">AI 治理正从'要不要监管'的争论转向'如何监管'的实操阶段，加州 SB 53 的签署被视为监管与创新可以共存的例证。但联邦层面仍缺乏统一法案，各州'拼凑式'监管带来的不确定性，正促使企业主动拥抱治理工具以应对合规压力。</div>
+                <div style="font-size:14px;color:#515154;line-height:1.5;">AI治理进入从原则到实践的关键阶段，美国科技巨头联合反对过早限制开源模型，而Anthropic CEO承认行业存在信任危机。监管与创新的平衡成为核心议题，加州SB 53等法案证明监管不一定阻碍创新。</div>
             </div>
             
         </div>
@@ -200,13 +215,13 @@
                 <span style="font-size:24px;margin-right:10px;">📡</span>
                 <h2 style="font-size:20px;font-weight:700;color:#FF9500;margin:0;">今日信号</h2>
             </div>
-            <div style="font-size:14px;color:#515154;line-height:1.7;padding-left:4px;">Anthropic 以 2 万亿美元估值冲刺 IPO 是本周最重磅的信号。这不仅是 AI 行业最大规模的资本事件，更关键的是其估值锚定在 2028 年 1900-2000 亿美元的营收预测上，意味着市场已接受用'未来两年的增长'为当前定价。对从业者而言，这验证了 AI 编程工具（Claude Code）作为营收引擎的商业化路径，但也将整个行业的估值预期推高到一个需要持续兑现的极端水平——一旦增长不及预期，回调将非常剧烈。</div>
+            <div style="font-size:14px;color:#515154;line-height:1.7;padding-left:4px;">Hugging Face报告揭示了一个关键拐点：中国开源模型不仅在参数规模上领先，更成为美国千亿级模型的底座，开源生态的主导权正在发生结构性转移。与此同时，DeepSeek大幅涨价和OpenAI Luna降价同时发生，说明中国模型已从价格挑战者变成定价规则的制定者之一。对从业者而言，这意味着模型选型和商业策略都需要重新评估——中国开源模型的生态价值已不容忽视，而单纯的价格战时代正在结束。</div>
         </div>
         </td></tr>
 <tr><td style="padding:0 0 20px;">
         <div style="margin-top:32px;padding-top:24px;border-top:2px dashed #d2d2d7;">
             <h3 style="font-size:18px;font-weight:700;color:#1d1d1f;margin-bottom:16px;">📖 名词释义库</h3>
-            <div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">AGPL</span><span style="font-size:14px;color:#515154;line-height:1.5;">一种开源许可证，要求基于其修改的网络服务也必须开源，比 MIT/Apache 更严格，常用于防止闭源商用。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">MCP (Model Context Protocol)</span><span style="font-size:14px;color:#515154;line-height:1.5;">一种开放协议，让 AI 模型能安全地连接外部工具和数据源，实现读写操作，是构建 AI Agent 应用的关键标准。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">Agent-first</span><span style="font-size:14px;color:#515154;line-height:1.5;">一种产品设计理念，将 AI 智能体（Agent）作为核心执行单元，人类从执行者转变为管理者和决策者。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">Token</span><span style="font-size:14px;color:#515154;line-height:1.5;">AI 模型处理文本的基本单位，可以是单词、字符或子词，API 按 token 数量计费。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">市销率 (PS)</span><span style="font-size:14px;color:#515154;line-height:1.5;">公司估值与年营收的比值，用于评估高增长但尚未盈利的科技公司，Anthropic 的 PS 约 43 倍。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">物理交互脑</span><span style="font-size:14px;color:#515154;line-height:1.5;">具身智能领域的概念，指赋予机器人理解物理世界（如触觉、力、形变）并据此决策的 AI 模型。</span></div>
+            <div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">后训练强化学习</span><span style="font-size:14px;color:#515154;line-height:1.5;">在预训练完成后，通过强化学习让模型在特定任务上进一步提升能力的方法，智谱GLM-5.3和DeepSeek V4 Pro的能力提升都主要来自这一阶段。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">MoE（混合专家架构）</span><span style="font-size:14px;color:#515154;line-height:1.5;">一种模型架构，每个token只激活部分参数，相比稠密模型计算效率更高，英伟达Nemotron 3.5 Lightning和DeepSeek V4都采用此架构。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">GGUF</span><span style="font-size:14px;color:#515154;line-height:1.5;">一种适合本地运行的模型文件格式，经过量化后减少运行所需内存，配合llama.cpp等工具可部署到本地设备。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">MCP（模型上下文协议）</span><span style="font-size:14px;color:#515154;line-height:1.5;">一种标准化协议，让AI模型能够调用外部工具和服务，支付宝智能体底座将其作为商家服务AI化接入的标准。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">KV Cache</span><span style="font-size:14px;color:#515154;line-height:1.5;">Transformer推理时缓存历史token的键值对以加速生成的技术，HelixWorld通过因果化KV Cache实现实时音视频生成。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">DMD（分布匹配蒸馏）</span><span style="font-size:14px;color:#515154;line-height:1.5;">一种模型蒸馏方法，让少步生成模型匹配教师模型的输出分布，HelixWorld将其与轨迹蒸馏结合实现实时生成。</span></div>
         </div>
         </td></tr>
 <tr><td style="padding:24px;text-align:center;border-top:1px solid #d2d2d7;">
