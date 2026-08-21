@@ -8,12 +8,12 @@
 <table width="640" cellpadding="0" cellspacing="0" style="max-width:640px;width:100%;">
 <tr><td style="padding:40px 24px 24px;text-align:center;">
 <div style="font-size:32px;font-weight:800;color:#1d1d1f;letter-spacing:-0.5px;">AI 每日简报</div>
-<div style="font-size:14px;color:#86868b;margin-top:6px;">2026年08月20日 · 全球AI资讯精选</div>
+<div style="font-size:14px;color:#86868b;margin-top:6px;">2026年08月21日 · 全球AI资讯精选</div>
 </td></tr>
 
         <div style="background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);border-radius:16px;padding:24px;margin-bottom:20px;">
             <div style="font-size:16px;font-weight:600;color:#ffffff;margin-bottom:8px;">🌐 24小时全球AI行业总览</div>
-            <div style="font-size:14px;color:rgba(255,255,255,0.9);line-height:1.6;">24小时内全球AI行业的核心动态集中在三个方向：一是开源模型在Coding和网络安全能力上持续逼近闭源旗舰，智谱GLM 5.3与Kimi K3的竞争将国产开源模型推到全球前沿，同时'AI开发AI'的自主科研路径被验证可行；二是AI商业化的基础设施化趋势明显，Stripe收购OpenRouter、SpaceX争夺AI编程资产、英伟达推出5000亿美金算力融资平台，标志着Token经济和算力金融化的加速成型；三是AI监管进入落地分化期，美国加州SB 53法案通过、中国探索垂直行业嵌入式监管，而一项研究揭示AI公司尚无法有效控制已部署系统，为监管必要性提供了新论据。整体来看，行业正从模型能力竞争转向基础设施和分发网络竞争，中美差距缩小的判断得到更多数据支撑。</div>
+            <div style="font-size:14px;color:rgba(255,255,255,0.9);line-height:1.6;">24小时内全球AI行业最显著的变化是竞争焦点从模型层向Agent框架层转移。OpenAI开源Codex Harness、DeepSeek Harness快速迭代，加上Generalist在具身智能上的'物理提示'突破，说明行业正在从'模型有多强'转向'如何用框架把模型编排成真正能干活的产品'。商业层面，博通为Anthropic融资600亿美元、阿里云MaaS收入爆发、AT&T用开源模型压价，都指向算力、模型、应用的垂直整合成为新的竞争壁垒。政策层面，Anthropic调整数据保留政策、OpenAI推出网络安全信任访问机制、巴西启动AI超算建设，各方力量都在加速争夺AI规则制定的话语权。整体来看，AI行业正从技术验证期进入商业落地和规则博弈期。</div>
         </div>
         
 <tr><td style="padding:0 0 20px;">
@@ -25,45 +25,60 @@
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    智谱发布GLM-5.3，Coding与网络安全能力追平海外闭源前沿
+                    OpenAI全面开源Codex Harness，将Agent执行框架免费开放
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
-                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">人民网</span>
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">36氪</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    智谱新一代基座模型GLM-5.3在代码生成和网络安全能力上实现突破，部分安全任务追平甚至超过海外闭源模型，并同步启动'开源的盾'计划对开源项目进行安全审计。这是国产开源模型首次把网络安全作为核心能力来打，意味着开源模型竞争从拼参数转向拼高阶工程能力。
+                    OpenAI将驱动Codex的底层Agent执行框架Harness以Apache-2.0协议开源，包含CLI、SDK和app-server三大组件。关键数据是仅调整Harness的推理保留与上下文压缩，GPT-5.6 Sol在ARC-AGI-3上的得分就从13.3%飙升至38.3%，同时Token输出减少6倍——这直接证明了Agent框架设计对模型表现的巨大影响，也意味着Agent开发的门槛被大幅拉低。
                 </div>
-                <a href="http://finance.people.com.cn/n1/2026/0820/c1004-40782831.html" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://www.36kr.com/p/3948952877661575" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    闭源RSI的严父：18个Agent自主科研，Kimi K3靠Harness逼近Opus 5
+                    DeepSeek Harness一周三更：把Claude Code和Codex收编成子代理
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
-                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">量子位</span>
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">36氪</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    Prime Intellect用多智能体Harness让18个前沿模型自主进行nanoGPT优化器实验，开源模型Kimi K3的成绩超过GPT-5.6 Sol，逼近Claude Opus 5。实验证明'AI开发AI'的路径可行，且开源模型可以靠更高的试错吞吐量弥补模型能力差距，这对'赢家通吃'的叙事是个直接挑战。
+                    DeepSeek Harness在开源一周内更新至RC.8，新增将Claude Code和Codex作为子代理调度的能力，并支持原生看图和多查询并发。这本质上是把竞对产品变成自己生态的零件，走'卖水人'路线卡位Agent时代的调度层，对Anthropic和OpenAI的生态位构成直接挤压。
                 </div>
-                <a href="https://www.qbitai.com/2026/08/476199.html" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://www.36kr.com/p/3947852851664512" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    US Lead in the AI Race With China Is Rapidly Narrowing
+                    Generalist发布GEN-1.5具身基座模型：物理AI接近GPT-3时刻
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
-                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">Bloomberg</span>
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">36氪</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    Bloomberg通过OpenRouter token使用数据和Vals.ai测试发现，中国AI模型在受欢迎程度和实际性能上正快速逼近美国，阿里开源模型下载量半年超30亿次成为全球第一，Airbnb、DoorDash等美国公司也在采用中国模型。这篇文章把'中美AI差距缩小'从感觉变成了有数据支撑的判断，同时点出蒸馏争议和潜在制裁风险。
+                    GEN-1.5展示了'物理提示'能力——机器人看一次3-12秒的示范就能执行新任务，无需微调参数，10项新任务平均成功率59%；用5分钟数据调整10次参数后可提升至83%。研究者将其类比为机器人领域的GPT-3时刻，说明具身智能正从'训练特定任务'转向'基座模型+提示'的范式。
                 </div>
-                <a href="https://www.bloomberg.com/graphics/2026-us-china-ai-race" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://www.36kr.com/p/3948968465268103" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                    阅读原文 →
+                </a>
+            </div>
+            
+            <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
+                <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
+                    ACE Robotics CEO：机器人大脑将在2027年底迎来'ChatGPT时刻'
+                </div>
+                <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">Reuters</span>
+                </div>
+                <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
+                    ACE Robotics开源的世界模型Kairos-4B以40亿参数在公开基准上超越Nvidia Cosmos 3等更大模型，排名全球第一。公司计划一年内部署至少1000家无人零售店，两年扩至10000家，并已获蚂蚁集团和商汤支持、融资超1亿美元，是具身智能商业化落地的重要信号。
+                </div>
+                <a href="https://www.reuters.com/technology/ace-robotics-ceo-says-robot-brains-will-have-chatgpt-moment-by-end-2027-2026-08-21" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
@@ -71,7 +86,7 @@
             
             <div style="margin-top:16px;padding:12px 16px;background:#5856D608;border-left:3px solid #5856D6;border-radius:6px;">
                 <div style="font-size:13px;color:#5856D6;font-weight:600;margin-bottom:4px;">📊 本类24h核心趋势</div>
-                <div style="font-size:14px;color:#515154;line-height:1.5;">开源模型在Coding能力上正与闭源旗舰正面交锋，智谱GLM 5.3和Kimi K3轮番登顶开源SOTA，且开始把网络安全这类高阶能力作为差异化卖点。同时，'AI开发AI'从概念走向实证，Prime Intellect用开源模型+Harness在自主科研任务上逼近甚至超过顶级闭源模型，说明模型能力不再是唯一胜负手，编排框架和试错效率开始成为新的竞争维度。</div>
+                <div style="font-size:14px;color:#515154;line-height:1.5;">Agent框架的竞争正在取代模型竞赛成为新的焦点。OpenAI开源Codex Harness、DeepSeek Harness一周三更，加上具身智能模型在物理提示等能力上的突破，说明行业重心正从'模型有多强'转向'如何用框架把模型编排成真正能干活的产品'。</div>
             </div>
             
         </div>
@@ -84,60 +99,60 @@
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    Stripe拟超80亿美元收购OpenRouter，押注Token成为新货币
+                    博通寻求超600亿美元AI债务融资，Anthropic等公司将受益
+                </div>
+                <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">Reuters</span>
+                </div>
+                <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
+                    博通正与贷款机构洽谈筹集超600亿美元债务用于AI芯片融资交易，可能包含约300亿美元次级债，Blackstone和Apollo也在参与谈判。这笔交易将直接惠及Anthropic等AI公司，是AI算力军备竞赛金融化的又一标志性事件，也反映出头部AI公司的算力成本压力正在向资本市场传导。
+                </div>
+                <a href="https://www.reuters.com/technology/broadcom-seeks-more-than-60-billion-latest-ai-debt-deal-bloomberg-news-reports-2026-08-20" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                    阅读原文 →
+                </a>
+            </div>
+            
+            <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
+                <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
+                    Ramp推出自研AI模型路由器Router，支持多模型智能调度
+                </div>
+                <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">TechCrunch</span>
+                </div>
+                <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
+                    企业支出管理公司Ramp发布模型路由器Router，支持OpenAI、Anthropic、DeepSeek、Moonshot等多家模型，可根据基准测试或成本偏好自动路由请求。这延续了OpenRouter被Stripe以70亿美元收购所验证的赛道热度，也说明模型路由正成为企业AI基础设施的标配层。
+                </div>
+                <a href="https://techcrunch.com/2026/08/20/ramp-launches-its-own-ai-model-router-called-router" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                    阅读原文 →
+                </a>
+            </div>
+            
+            <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
+                <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
+                    AT&T用开源模型控制Anthropic账单，OpenAI模型支出趋于平稳
+                </div>
+                <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">The Information</span>
+                </div>
+                <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
+                    AT&T副总裁透露，公司通过更多使用Nvidia Nemotron等开源模型来控制Anthropic的API支出，预计未来几年OpenAI模型支出也将保持平稳。这是大型企业客户用开源模型对冲闭源API成本压力的典型案例，对闭源模型厂商的定价权构成实质性挑战。
+                </div>
+                <a href="https://www.theinformation.com/newsletters/applied-ai/t-using-open-source-models-curb-anthropic-bills" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                    阅读原文 →
+                </a>
+            </div>
+            
+            <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
+                <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
+                    阿里Q2财报：AI云收入484亿元增45%，MaaS平台ARR达160亿元
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
                     <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">36氪</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    支付巨头Stripe宣布收购全球最大AI模型分发入口OpenRouter，后者每天处理超10万亿Token，服务超1000万开发者。这笔交易把'智能分发'和'支付结算'绑在一起，a16z合伙人称之为'Intelligence Network'，意味着AI时代的金融基础设施正在成形。
+                    阿里将云智能与平头哥合并为'AI云与算力服务'分部，Q2收入484.37亿元同比增长45%，其中AI相关产品收入123.76亿元连续12个季度三位数增长，MaaS平台ARR已达160亿元。吴泳铭给出'三年回本、五年释放利润'的算力投资模型，是观察中国AI基础设施商业化进程的关键样本。
                 </div>
-                <a href="http://www.36kr.com/p/3947211193154952" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
-                    阅读原文 →
-                </a>
-            </div>
-            
-            <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
-                <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    SpaceX Attempted to Acquire AI Coding Startup Cognition
-                </div>
-                <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
-                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">Bloomberg</span>
-                </div>
-                <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    SpaceX曾试图收购AI编程公司Cognition（Devin开发者）但被拒绝，双方转而洽谈算力合作。继Cursor被60亿美金收购后，AI编程资产再次成为巨头争夺焦点，连SpaceX都下场，说明AI Coding工具的战略价值已被抬到基础设施级别。
-                </div>
-                <a href="https://www.bloomberg.com/news/articles/2026-08-19/spacex-attempted-to-acquire-ai-coding-startup-cognition" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
-                    阅读原文 →
-                </a>
-            </div>
-            
-            <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
-                <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    The Big Short vs Jensen Huang: Is $500B AI Industry Financing a Time Bomb?
-                </div>
-                <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
-                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">36氪</span>
-                </div>
-                <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    英伟达联合Apollo、BlackRock等六家机构推出5000亿美金算力融资平台，以AI芯片为底层资产向养老金和主权基金发债，黄仁勋称GPU是'可产生收入的资产'。但Michael Burry直接称其为'Enron 2.0'，这场关于AI算力是否被过度金融化的争论，将直接影响整个行业的资本结构。
-                </div>
-                <a href="https://eu.36kr.com/en/p/3947342181465223" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
-                    阅读原文 →
-                </a>
-            </div>
-            
-            <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
-                <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    Tesla integrates Chinese Doubao AI model for in-vehicle systems
-                </div>
-                <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
-                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">新华社</span>
-                </div>
-                <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    特斯拉在中国大陆销售的电动车接入字节跳动豆包大模型，支持闲聊、唱歌、角色扮演等语音交互功能。这是继奔驰之后又一家国际车企采用中国大模型，中国AI模型的出海路径从开发者市场延伸到了全球车企的供应链。
-                </div>
-                <a href="http://xinhuanet.com/english/20260820/570b54df3b7c46919ae6c32cf454b99d/c.html" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://www.36kr.com/p/3948856093441161" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
@@ -145,7 +160,7 @@
             
             <div style="margin-top:16px;padding:12px 16px;background:#34C75908;border-left:3px solid #34C759;border-radius:6px;">
                 <div style="font-size:13px;color:#34C759;font-weight:600;margin-bottom:4px;">📊 本类24h核心趋势</div>
-                <div style="font-size:14px;color:#515154;line-height:1.5;">AI的商业化正在从'卖模型'转向'卖基础设施'和'卖入口'。Stripe 80亿美金收购OpenRouter，本质是押注Token成为新的货币、智能分发成为新的支付网络；SpaceX试图收购Cognition被拒后转向算力合作，说明巨头对AI编程资产的争夺已经白热化。同时英伟达联合华尔街推出5000亿美金算力融资平台，把GPU变成可证券化资产，AI的金融化程度在快速加深。</div>
+                <div style="font-size:14px;color:#515154;line-height:1.5;">AI商业化的竞争正在从'卖模型'转向'卖解决方案'。Ramp推出模型路由器、AT&T用开源模型压价、博通为Anthropic融资600亿美元，加上阿里云MaaS收入爆发，都指向同一个方向：算力、模型、应用的垂直整合成为新的竞争壁垒，企业客户开始用脚投票选择性价比更高的方案。</div>
             </div>
             
         </div>
@@ -158,45 +173,60 @@
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    AI firms can't yet contain what they've built, study finds
+                    Anthropic计划调整企业数据保留政策，转向更灵活的安全机制
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
                     <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">Reuters</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    一项新研究指出，AI公司目前还无法有效控制自己构建的系统，前OpenAI安全研究员呼吁将安全实践'内建'到开发流程而非依赖个别领导者的意志。这给'AI监管是否必要'的争论提供了关键实证：如果连开发者自己都管不住，外部约束就不可避免。
+                    Anthropic预计今年晚些时候推出新安全系统，让企业客户对数据保留拥有更大控制权。此前OpenAI已宣布推出不保留客户数据但仍能识别滥用的安全系统，两家头部AI公司在数据治理上的竞争正在加速，企业客户的数据主权诉求成为关键变量。
                 </div>
-                <a href="https://www.reuters.com/technology/artificial-intelligence/ai-firms-cant-yet-contain-what-theyve-built-study-finds-2026-08-19" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://www.reuters.com/business/anthropic-plans-change-enterprise-data-retention-policy-source-says-2026-08-20" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    California's new AI safety law shows regulation and innovation don't have to clash
+                    OpenAI推出Daybreak网络安全信任访问机制
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
-                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">TechCrunch</span>
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">OpenAI</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    加州州长签署SB 53 AI安全与透明度法案，相比被否决的SB 1047，该法案获得了更广泛的行业支持。支持者认为这是'监管与创新可以共存'的证明，也说明硅谷对AI监管的态度正在从全盘抵制转向有条件接受。
+                    OpenAI发布Daybreak Blue和Daybreak Red两级信任访问机制，为合格的企业客户和网络安全从业者提供更精准的安全防护边界。这是在网络安全这一高敏感领域建立治理框架的重要尝试，也反映出AI公司正在主动定义'合法使用'的边界。
                 </div>
-                <a href="https://techcrunch.com/2025/10/01/californias-new-ai-safety-law-shows-regulation-and-innovation-dont-have-to-clash" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://help.openai.com/en/articles/20001258-openai-daybreak-trusted-access-for-cyber-overview" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    以'嵌入式监管'健全医疗人工智能治理体系
+                    巴西启动AI超算建设，项目分拆给中美企业
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
-                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">人民网</span>
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">Reuters</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    光明日报发文提出在医疗AI领域推行'嵌入式监管'，要求企业在研发使用全周期内设合规审查部门，形成企业自治与政府监管协同的格局。这是中国在垂直行业AI治理上的一个具体思路，值得关注其后续落地方式。
+                    巴西政府启动AI超算建设计划，将项目分拆给中国和美国企业，同时宣布与西班牙基于RISC-V架构合作开发半导体。这是地缘政治博弈在AI基础设施领域的又一案例，也体现了新兴市场国家在AI供应链上寻求平衡的战略考量。
                 </div>
-                <a href="http://health.people.com.cn/n1/2026/0418/c14739-40703825.html" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://www.reuters.com/world/americas/brazil-launches-ai-supercomputer-push-splits-projects-between-chinese-us-firms-2026-08-20" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                    阅读原文 →
+                </a>
+            </div>
+            
+            <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
+                <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
+                    AI公司政治献金创纪录：OpenAI和Anthropic单月各投超2300万美元
+                </div>
+                <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">Reuters</span>
+                </div>
+                <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
+                    OpenAI和Anthropic及其高管在6月单月就向纽约一个选区的两位民主党候选人投入超2300万美元，AI超级PAC'Leading the Future'已为中期选举筹集1.4亿美元。AI公司正在成为美国政治的新金主，围绕AI监管的游说战已经白热化。
+                </div>
+                <a href="https://www.reuters.com/legal/legalindustry/new-kingmakers-crypto-ai-betting-firms-fuel-record-spending-2026-midterms-2026-08-20" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
@@ -204,7 +234,7 @@
             
             <div style="margin-top:16px;padding:12px 16px;background:#FF950008;border-left:3px solid #FF9500;border-radius:6px;">
                 <div style="font-size:13px;color:#FF9500;font-weight:600;margin-bottom:4px;">📊 本类24h核心趋势</div>
-                <div style="font-size:14px;color:#515154;line-height:1.5;">AI监管正在从'要不要管'的争论进入'怎么管'的落地阶段，但节奏明显分化。美国加州SB 53法案落地被视为监管与创新可以共存的例证，而联邦层面仍难产；中国则在医疗AI等垂直领域探索'嵌入式监管'，强调企业自治与政府监管协同。与此同时，一项研究揭示AI公司尚无法有效控制已部署的系统，给'监管滞后于技术'的担忧提供了新的实证。</div>
+                <div style="font-size:14px;color:#515154;line-height:1.5;">AI治理正在从'要不要管'进入'怎么管'的实操阶段。Anthropic调整数据保留政策、OpenAI推出网络安全信任访问机制、巴西启动AI超算建设，加上美国中期选举中AI公司政治献金创纪录，说明各方力量都在加速争夺AI规则制定的话语权。</div>
             </div>
             
         </div>
@@ -215,13 +245,13 @@
                 <span style="font-size:24px;margin-right:10px;">📡</span>
                 <h2 style="font-size:20px;font-weight:700;color:#FF9500;margin:0;">今日信号</h2>
             </div>
-            <div style="font-size:14px;color:#515154;line-height:1.7;padding-left:4px;">今天最值得关注的是Stripe 80亿美金收购OpenRouter和英伟达5000亿美金算力融资平台这两件事。它们共同指向一个判断：AI行业的竞争重心正在从'谁的模型更强'转向'谁掌握智能的分发和定价权'。OpenRouter成为'LLM界的Stripe'意味着Token正在变成可标准化结算的货币，而英伟达把GPU变成可证券化资产则是在为这个新经济体系提供'印钞机'。对从业者来说，这意味着模型层的机会正在收窄，而基础设施层和金融层的窗口正在打开。</div>
+            <div style="font-size:14px;color:#515154;line-height:1.7;padding-left:4px;">OpenAI开源Codex Harness和DeepSeek Harness一周三更这两件事放在一起看，Agent框架正在取代模型本身成为新的竞争制高点。Harness设计对模型表现的巨大影响（ARC-AGI-3得分从13.3%到38.3%）说明，模型能力的差距可以通过框架设计来弥补甚至反超，这会让模型层的竞争更加激烈，同时大幅降低Agent开发门槛。对开发者来说，选择哪个Harness生态可能比选择哪个模型更重要；对Anthropic和OpenAI来说，闭源Agent被装进竞对的开源框架里当'打工人'，生态位正在被悄悄抽走。</div>
         </div>
         </td></tr>
 <tr><td style="padding:0 0 20px;">
         <div style="margin-top:32px;padding-top:24px;border-top:2px dashed #d2d2d7;">
             <h3 style="font-size:18px;font-weight:700;color:#1d1d1f;margin-bottom:16px;">📖 名词释义库</h3>
-            <div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">Harness</span><span style="font-size:14px;color:#515154;line-height:1.5;">Agent编排框架，用于管理和调度多个AI智能体协同完成复杂任务，如自主科研实验。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">RSI</span><span style="font-size:14px;color:#515154;line-height:1.5;">Recursive Self-Improvement，递归自我改进，指AI系统利用自身能力来改进自身算法和性能的循环过程。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">SOTA</span><span style="font-size:14px;color:#515154;line-height:1.5;">State-of-the-Art，指在特定任务或基准测试中达到当前最优性能的模型或方法。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">Token流</span><span style="font-size:14px;color:#515154;line-height:1.5;">指AI模型处理的数据单元（Token）的流动，类比资金流，是AI经济中的核心计量单位。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">Agentic Commerce</span><span style="font-size:14px;color:#515154;line-height:1.5;">智能体商业，指由AI智能体驱动的商业活动，如智能体广告、自动交易等。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">嵌入式监管</span><span style="font-size:14px;color:#515154;line-height:1.5;">一种监管模式，要求企业在产品研发和使用的全流程中内设合规审查机制，实现企业自治与政府监管的协同。</span></div>
+            <div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">Harness</span><span style="font-size:14px;color:#515154;line-height:1.5;">AI Agent的底层执行框架，负责任务理解、记忆保持、工具调用、错误处理等'脏活累活'，决定模型在实际业务中的表现上限。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">Physical Prompting（物理提示）</span><span style="font-size:14px;color:#515154;line-height:1.5;"></span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">MaaS（Model as a Service）</span><span style="font-size:14px;color:#515154;line-height:1.5;">模型即服务，云厂商通过出售Token而非传统算力获取收入，毛利率高于传统IaaS。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">ARC-AGI-3</span><span style="font-size:14px;color:#515154;line-height:1.5;">一个高难度的通用智能基准测试，用于评估AI模型的抽象推理能力，比传统基准更能区分模型的实际智能水平。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">RISC-V</span><span style="font-size:14px;color:#515154;line-height:1.5;">开源指令集架构，允许企业免费使用和定制芯片设计，被视为降低对x86和ARM依赖的重要替代方案。</span></div>
         </div>
         </td></tr>
 <tr><td style="padding:24px;text-align:center;border-top:1px solid #d2d2d7;">
