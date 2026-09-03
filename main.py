@@ -23,6 +23,8 @@ import ssl
 import time
 import datetime
 import logging
+import html
+from urllib.parse import urlparse
 from zoneinfo import ZoneInfo
 from email.mime.text import MIMEText
 from email.header import Header
@@ -62,6 +64,23 @@ SEARCH_CATEGORIES = [
 
 BEIJING_TZ = ZoneInfo("Asia/Shanghai")
 CATEGORY_ORDER = ["产品与商业", "政策与治理", "模型与算法"]
+
+
+def _safe_text(value: Any) -> str:
+    """将外部文本转义为可安全嵌入 HTML 的内容。"""
+    return html.escape(str(value or ""), quote=True)
+
+
+def _safe_url(value: Any) -> str:
+    """只允许具有主机名的 HTTP(S) 新闻链接。"""
+    candidate = str(value or "").strip()
+    try:
+        parsed = urlparse(candidate)
+    except ValueError:
+        return "#"
+    if parsed.scheme.lower() not in {"http", "https"} or not parsed.netloc:
+        return "#"
+    return html.escape(candidate, quote=True)
 
 
 def get_report_context(
@@ -458,18 +477,22 @@ def generate_html(processed_news: str, report_context: Dict[str, Any]) -> str:
 
         items_html = ""
         for item in items:
+            title = _safe_text(item.get("title", ""))
+            source = _safe_text(item.get("source", ""))
+            summary = _safe_text(item.get("summary", ""))
+            link = _safe_url(item.get("link", ""))
             items_html += f"""
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    {item.get('title', '')}
+                    {title}
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
-                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">{item.get('source', '')}</span>
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">{source}</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    {item.get('summary', '')}
+                    {summary}
                 </div>
-                <a href="{item.get('link', '#')}" target="_blank" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="{link}" target="_blank" rel="noopener noreferrer" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
@@ -485,10 +508,11 @@ def generate_html(processed_news: str, report_context: Dict[str, Any]) -> str:
 
         trend_html = ""
         if trend:
+            safe_trend = _safe_text(trend)
             trend_html = f"""
             <div style="margin-top:16px;padding:12px 16px;background:{cfg['color']}08;border-left:3px solid {cfg['color']};border-radius:6px;">
                 <div style="font-size:13px;color:{cfg['color']};font-weight:600;margin-bottom:4px;">📊 本期核心趋势</div>
-                <div style="font-size:14px;color:#515154;line-height:1.5;">{trend}</div>
+                <div style="font-size:14px;color:#515154;line-height:1.5;">{safe_trend}</div>
             </div>
             """
 
@@ -506,13 +530,14 @@ def generate_html(processed_news: str, report_context: Dict[str, Any]) -> str:
     # 今日信号
     signal_html = ""
     if signal_text:
+        safe_signal = _safe_text(signal_text)
         signal_html = f"""
         <div style="background:linear-gradient(135deg,#FFD60A08,#FF950008);border-radius:16px;padding:24px;margin-bottom:20px;border:1px solid #FFD60A30;">
             <div style="display:flex;align-items:center;margin-bottom:12px;">
                 <span style="font-size:24px;margin-right:10px;">📡</span>
                 <h2 style="font-size:20px;font-weight:700;color:#FF9500;margin:0;">今日信号</h2>
             </div>
-            <div style="font-size:14px;color:#515154;line-height:1.7;padding-left:4px;">{signal_text}</div>
+            <div style="font-size:14px;color:#515154;line-height:1.7;padding-left:4px;">{safe_signal}</div>
         </div>
         """
 
@@ -521,8 +546,8 @@ def generate_html(processed_news: str, report_context: Dict[str, Any]) -> str:
     if glossary:
         g_items = "".join(
             f'<div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;">'
-            f'<span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">{g.get("term", "")}</span>'
-            f'<span style="font-size:14px;color:#515154;line-height:1.5;">{g.get("explanation", "")}</span></div>'
+            f'<span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">{_safe_text(g.get("term", ""))}</span>'
+            f'<span style="font-size:14px;color:#515154;line-height:1.5;">{_safe_text(g.get("explanation", ""))}</span></div>'
             for g in glossary if g.get("term")
         )
         glossary_html = f"""
@@ -535,10 +560,11 @@ def generate_html(processed_news: str, report_context: Dict[str, Any]) -> str:
     # 总览
     overview_html = ""
     if overview:
+        safe_overview = _safe_text(overview)
         overview_html = f"""
         <div style="background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);border-radius:16px;padding:24px;margin-bottom:20px;">
             <div style="font-size:16px;font-weight:600;color:#ffffff;margin-bottom:8px;">🌐 本期全球AI行业总览</div>
-            <div style="font-size:14px;color:rgba(255,255,255,0.9);line-height:1.6;">{overview}</div>
+            <div style="font-size:14px;color:rgba(255,255,255,0.9);line-height:1.6;">{safe_overview}</div>
         </div>
         """
 
