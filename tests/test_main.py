@@ -38,5 +38,36 @@ class NewsNormalizationTests(unittest.TestCase):
         self.assertEqual(len(normalized["categories"][2]["items"]), 3)
 
 
+class HtmlSafetyTests(unittest.TestCase):
+    def test_external_text_is_escaped(self):
+        context = main.get_report_context(
+            "midweek",
+            datetime.datetime(2026, 9, 2, 20, 0, tzinfo=main.BEIJING_TZ),
+        )
+        data = {
+            "categories": [{
+                "name": "产品与商业",
+                "trend": "趋势 <script>alert(1)</script>",
+                "items": [{
+                    "title": "A < B",
+                    "source": "媒体 & 来源",
+                    "summary": "<img src=x onerror=alert(1)>",
+                    "link": "javascript:alert(1)",
+                }],
+            }],
+            "overview": "总览 <b>不可执行</b>",
+        }
+        rendered = main.generate_html(json.dumps(data), context)
+        self.assertIn("A &lt; B", rendered)
+        self.assertIn("媒体 &amp; 来源", rendered)
+        self.assertNotIn("<script>", rendered)
+        self.assertNotIn("<img src=x", rendered)
+        self.assertIn('href="#"', rendered)
+
+    def test_https_link_is_retained_and_quotes_are_escaped(self):
+        safe = main._safe_url('https://example.com/news?q="ai"&lang=zh')
+        self.assertEqual(safe, "https://example.com/news?q=&quot;ai&quot;&amp;lang=zh")
+
+
 if __name__ == "__main__":
     unittest.main()
