@@ -1,4 +1,4 @@
-# 每日AI新闻推送 - GitHub Actions 独立运行脚本
+# AI周中简报与周报 - GitHub Actions 独立运行脚本
 """
 该脚本用于在 GitHub Actions 中独立运行，无需 Coze 环境。
 通过环境变量配置 API Key 和邮箱信息。
@@ -23,6 +23,7 @@ import ssl
 import time
 import datetime
 import logging
+from zoneinfo import ZoneInfo
 from email.mime.text import MIMEText
 from email.header import Header
 from email.utils import formataddr, formatdate, make_msgid
@@ -43,11 +44,6 @@ logger = logging.getLogger(__name__)
 # 搜索类别（中英文双轨，每类分别搜中文和英文）
 SEARCH_CATEGORIES = [
     {
-        "name": "模型与算法",
-        "cn": "AI 模型 发布 开源 算法 突破",
-        "en": "AI model release open-source breakthrough paper",
-    },
-    {
         "name": "产品与商业",
         "cn": "AI 产品发布 融资 收购 商业合作",
         "en": "AI product launch funding acquisition partnership enterprise",
@@ -57,7 +53,45 @@ SEARCH_CATEGORIES = [
         "cn": "AI 政策 监管 立法 安全伦理",
         "en": "AI regulation policy legislation safety ethics governance",
     },
+    {
+        "name": "模型与算法",
+        "cn": "AI 模型 发布 开源 算法 突破",
+        "en": "AI model release open-source breakthrough paper",
+    },
 ]
+
+BEIJING_TZ = ZoneInfo("Asia/Shanghai")
+CATEGORY_ORDER = ["产品与商业", "政策与治理", "模型与算法"]
+
+
+def get_report_context(
+    report_type: str = "auto", now: Optional[datetime.datetime] = None
+) -> Dict[str, Any]:
+    """按北京时间计算本期简报类型和检索日期范围。"""
+    now = now.astimezone(BEIJING_TZ) if now else datetime.datetime.now(BEIJING_TZ)
+    resolved_type = report_type
+    if resolved_type == "auto":
+        resolved_type = "weekly" if now.weekday() == 6 else "midweek"
+
+    monday = (now - datetime.timedelta(days=now.weekday())).date()
+    period_end = now.date()
+    if resolved_type == "midweek":
+        period_end = min(period_end, monday + datetime.timedelta(days=2))
+    # Tavily 的 end_date 是排他边界，因此使用北京时间次日。
+    end_date = period_end + datetime.timedelta(days=1)
+    if resolved_type == "midweek":
+        title = "AI周中简报"
+    else:
+        title = "AI信息周报"
+
+    return {
+        "type": resolved_type,
+        "title": title,
+        "start_date": monday.isoformat(),
+        "end_date": end_date.isoformat(),
+        "period_label": f"{monday.strftime('%m月%d日')}—{period_end.strftime('%m月%d日')}",
+        "display_date": now.strftime("%Y年%m月%d日"),
+    }
 
 # 来源白名单（三阶梯分级）
 # 核心来源（直接信任，优先采用）
@@ -126,17 +160,17 @@ def _get_source_tier(url: str) -> str:
 # 步骤1: 搜索新闻（Tavily API）
 # ============================================================
 
-def search_news() -> List[Dict[str, Any]]:
+def search_news(report_context: Dict[str, Any]) -> List[Dict[str, Any]]:
     """使用 Tavily API 搜索 AI 新闻（中英文双轨）"""
     api_key = os.environ.get("TAVILY_API_KEY", "")
     if not api_key:
-        logger.error("TAVILY_API_KEY 未设置")
-        return []
+        raise RuntimeError("TAVILY_API_KEY 未设置，无法执行新闻检索")
 
     import requests
 
     all_results: List[Dict[str, Any]] = []
     seen_urls: set = set()
+    successful_searches = 0
 
     for cat in SEARCH_CATEGORIES:
         cat_name = cat["name"]
@@ -148,17 +182,20 @@ def search_news() -> List[Dict[str, Any]]:
                     "https://api.tavily.com/search",
                     json={
                         "api_key": api_key,
-                        "query": query,
+                        "query": f"{query} {report_context['start_date']} 至 {report_context['end_date']}",
+                        "topic": "news",
                         "search_depth": "advanced",
                         "include_answer": True,
                         "include_domains": SOURCE_DOMAINS,
                         "max_results": 10,
-                        "time_range": "day",
+                        "start_date": report_context["start_date"],
+                        "end_date": report_context["end_date"],
                     },
                     timeout=30,
                 )
                 response.raise_for_status()
                 data = response.json()
+                successful_searches += 1
 
                 results = data.get("results", [])
                 for item in results:
@@ -181,6 +218,9 @@ def search_news() -> List[Dict[str, Any]]:
             except Exception as e:
                 logger.error(f"  [{cat_name}]{lang}搜索失败: {e}")
                 continue
+
+    if successful_searches == 0:
+        raise RuntimeError("全部新闻检索请求均失败，本期简报未生成")
 
     logger.info(f"搜索完成，共 {len(all_results)} 条结果")
 
@@ -217,12 +257,11 @@ def _filter_authoritative_sources(results: List[Dict[str, Any]]) -> List[Dict[st
 # 步骤2: LLM处理新闻（DeepSeek API）
 # ============================================================
 
-def process_news(search_results: List[Dict[str, Any]]) -> str:
+def process_news(search_results: List[Dict[str, Any]], report_context: Dict[str, Any]) -> str:
     """使用 DeepSeek API 进行去重、分类、总结，返回 JSON 字符串"""
     api_key = os.environ.get("DEEPSEEK_API_KEY", "")
     if not api_key:
-        logger.error("DEEPSEEK_API_KEY 未设置")
-        return '{"categories":[],"glossary":[],"overview":"今日暂无符合条件的AI新闻资讯。"}'
+        raise RuntimeError("DEEPSEEK_API_KEY 未设置，无法处理新闻")
 
     if not search_results:
         return '{"categories":[],"glossary":[],"overview":"今日暂无符合条件的AI新闻资讯。"}'
@@ -248,13 +287,13 @@ def process_news(search_results: List[Dict[str, Any]]) -> str:
 你是专业的全球AI热点资讯整理专家。你的读者是AI行业从业者，每天时间有限，需要你帮他们筛出真正值得关注的信息。像跟懂行的同事聊天一样输出，不是在写报告。
 
 # 任务目标
-处理给定的24小时内AI新闻素材，进行去重、筛选、分类，并输出**严格结构化的JSON**。
+处理给定报告周期内的AI新闻素材，进行去重、筛选、分类，并输出**严格结构化的JSON**。
 
 # 工作流上下文
 - **Input**:包含多条AI新闻资讯的列表，每条标注了来源等级（core=核心/primary=一手/supp=补充）、所属类别、语言
 - **来源选择规则（按优先级）**:
-  1. **核心来源（core）**:直接信任，优先采用。包括新华社、人民网、财新网、机器之心、量子位、Reuters、Bloomberg、TechCrunch、The Information、MIT Tech Review、Ars Technica
-  2. **一手来源（primary）**:公司官方博客/公告，直接信任。包括OpenAI、Google AI、Anthropic、Meta AI、Microsoft AI、Mistral等
+  1. **一手来源（primary）**:同一事件优先保留公司官方博客、公告或原始发布。包括OpenAI、Google AI、Anthropic、Meta AI、Microsoft AI、Mistral等
+  2. **核心来源（core）**:没有合适一手材料时，采用权威媒体的独立报道。包括新华社、人民网、财新网、机器之心、量子位、Reuters、Bloomberg、TechCrunch、The Information、MIT Tech Review、Ars Technica
   3. **补充来源（supp）**:仅当核心/一手来源对某个话题覆盖不足时使用。包括36氪、亿欧、VentureBeat、Wired、SemiAnalysis
   4. **不接受**:自媒体/个人号、PR通稿/软文（无独立观点、全篇引用官方说法）、内容农场/聚合平台、标题党/情绪化标题。如果发现此类内容，直接舍弃
 - **Process**:
@@ -264,7 +303,7 @@ def process_news(search_results: List[Dict[str, Any]]) -> str:
      - 如果同一事件有不同角度的权威报道（如:技术分析+商业影响），可各保留1篇，但需在总结中说明关联
      - 纯转载/改写一律去重，只保留原始来源
   2. **来源过滤**:按上述优先级规则选择，非白名单来源**一律剔除**，宁缺毋滥
-  3. **分类**:严格按【模型与算法、产品与商业、政策与治理】3类划分
+  3. **分类**:严格按【产品与商业、政策与治理、模型与算法】3类划分，并严格按此顺序输出
      - 不强制每个分类都输出，没有高价值资讯就跳过，不要凑数
      - **模型与算法**:AI模型能力层面的变化（新模型发布、开源项目、训练方法突破、基准测试变化）
        - 不属于此类的:纯学术小众论文、无实际影响的"理论上可能"
@@ -282,7 +321,7 @@ def process_news(search_results: List[Dict[str, Any]]) -> str:
 
 # 约束与规则
 - **来源过滤是硬性要求**:严格执行三级来源优先级
-- 每类最多输出4条，总数不超过12条
+- 每类最多输出3条，总数不超过9条
 - **3个分类不强制全输出**，没有高价值资讯的分类 items 设为 []，trend 写"今日无高价值资讯"，不要凑数
 - 禁止添加无关内容、不篡改资讯事实、不重复描述
 
@@ -316,7 +355,7 @@ def process_news(search_results: List[Dict[str, Any]]) -> str:
       "explanation": "一句话通俗解释"
     }
   ],
-  "overview": "24小时全球AI行业总览总结"
+  "overview": "本期全球AI行业总览总结"
 }"""
 
     try:
@@ -331,7 +370,7 @@ def process_news(search_results: List[Dict[str, Any]]) -> str:
                 "model": "deepseek-chat",
                 "messages": [
                     {"role": "system", "content": system_prompt},
-                    {"role": "user", "content": f"请处理以下24小时内AI新闻素材:\n\n{search_text}"},
+                    {"role": "user", "content": f"请处理{report_context['period_label']}检索到的AI新闻素材:\n\n{search_text}"},
                 ],
                 "temperature": 0.1,
                 "max_tokens": 8192,
@@ -350,29 +389,52 @@ def process_news(search_results: List[Dict[str, Any]]) -> str:
             if "```" in content:
                 content = content.rsplit("```", 1)[0]
             content = content.strip()
-        json.loads(content)  # 验证是合法JSON
-        return content
+        parsed = _normalize_processed_data(json.loads(content))
+        return json.dumps(parsed, ensure_ascii=False)
 
     except json.JSONDecodeError as e:
         logger.error(f"LLM未返回合法JSON: {e}，原始输出前200字符: {raw_content[:200]}")
-        return '{"categories":[],"glossary":[],"overview":"今日暂无符合条件的AI新闻资讯。"}'
+        raise RuntimeError("LLM 未返回合法 JSON，无法可靠生成本期简报") from e
     except Exception as e:
         logger.error(f"LLM处理失败: {e}")
-        return '{"categories":[],"glossary":[],"overview":"今日暂无符合条件的AI新闻资讯。"}'
+        raise RuntimeError("LLM 处理失败，本期简报未生成") from e
 
 
 # ============================================================
 # 步骤3: 生成HTML（从JSON解析，永不因格式变化失败）
 # ============================================================
 
-def generate_html(processed_news: str) -> str:
+def _normalize_processed_data(data: Any) -> Dict[str, Any]:
+    """固定板块顺序，并在代码层强制每板块最多3条。"""
+    if not isinstance(data, dict):
+        raise ValueError("LLM 输出的顶层结构不是对象")
+    categories = data.get("categories", [])
+    if not isinstance(categories, list):
+        categories = []
+    category_map = {
+        entry.get("name"): entry
+        for entry in categories
+        if isinstance(entry, dict) and entry.get("name") in CATEGORY_ORDER
+    }
+    normalized_categories = []
+    for name in CATEGORY_ORDER:
+        entry = category_map.get(name, {"name": name, "trend": "本期无高价值资讯", "items": []})
+        items = entry.get("items", [])
+        if not isinstance(items, list):
+            items = []
+        entry["items"] = [item for item in items if isinstance(item, dict)][:3]
+        normalized_categories.append(entry)
+    data["categories"] = normalized_categories
+    return data
+
+def generate_html(processed_news: str, report_context: Dict[str, Any]) -> str:
     """生成精美的HTML邮件内容（从JSON解析）"""
     if not processed_news:
         return _empty_html()
 
     try:
-        data = json.loads(processed_news)
-    except json.JSONDecodeError:
+        data = _normalize_processed_data(json.loads(processed_news))
+    except (json.JSONDecodeError, ValueError):
         return _empty_html()
 
     categories = data.get("categories", [])
@@ -425,7 +487,7 @@ def generate_html(processed_news: str) -> str:
         if trend:
             trend_html = f"""
             <div style="margin-top:16px;padding:12px 16px;background:{cfg['color']}08;border-left:3px solid {cfg['color']};border-radius:6px;">
-                <div style="font-size:13px;color:{cfg['color']};font-weight:600;margin-bottom:4px;">📊 本类24h核心趋势</div>
+                <div style="font-size:13px;color:{cfg['color']};font-weight:600;margin-bottom:4px;">📊 本期核心趋势</div>
                 <div style="font-size:14px;color:#515154;line-height:1.5;">{trend}</div>
             </div>
             """
@@ -475,24 +537,25 @@ def generate_html(processed_news: str) -> str:
     if overview:
         overview_html = f"""
         <div style="background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);border-radius:16px;padding:24px;margin-bottom:20px;">
-            <div style="font-size:16px;font-weight:600;color:#ffffff;margin-bottom:8px;">🌐 24小时全球AI行业总览</div>
+            <div style="font-size:16px;font-weight:600;color:#ffffff;margin-bottom:8px;">🌐 本期全球AI行业总览</div>
             <div style="font-size:14px;color:rgba(255,255,255,0.9);line-height:1.6;">{overview}</div>
         </div>
         """
 
-    today = datetime.datetime.now().strftime("%Y年%m月%d日")
+    today = report_context["display_date"]
+    report_title = report_context["title"]
 
     return f"""<!DOCTYPE html>
 <html lang="zh-CN">
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>AI每日简报</title></head>
+<title>{report_title}</title></head>
 <body style="margin:0;padding:0;background:#f5f5f7;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',Arial,sans-serif;">
 <table width="100%" cellpadding="0" cellspacing="0" style="background:#f5f5f7;">
 <tr><td align="center" style="padding:20px 0;">
 <table width="640" cellpadding="0" cellspacing="0" style="max-width:640px;width:100%;">
 <tr><td style="padding:40px 24px 24px;text-align:center;">
-<div style="font-size:32px;font-weight:800;color:#1d1d1f;letter-spacing:-0.5px;">AI 每日简报</div>
-<div style="font-size:14px;color:#86868b;margin-top:6px;">{today} · 全球AI资讯精选</div>
+<div style="font-size:32px;font-weight:800;color:#1d1d1f;letter-spacing:-0.5px;">{report_title}</div>
+<div style="font-size:14px;color:#86868b;margin-top:6px;">{today} · {report_context['period_label']}全球AI资讯精选</div>
 </td></tr>
 {overview_html}
 <tr><td style="padding:0 0 20px;">{cards_html}</td></tr>
@@ -500,7 +563,7 @@ def generate_html(processed_news: str) -> str:
 <tr><td style="padding:0 0 20px;">{glossary_html}</td></tr>
 <tr><td style="padding:24px;text-align:center;border-top:1px solid #d2d2d7;">
 <div style="font-size:12px;color:#86868b;line-height:1.6;">
-<p style="margin:0 0 4px;">🤖 由 AI 自动生成 · 每日 20:00 推送 · 中英文双轨搜索</p>
+<p style="margin:0 0 4px;">🤖 由 AI 自动生成 · 每周三/周日 20:00 推送 · 中英文双轨搜索</p>
 <p style="margin:0;">数据来源:新华网、人民网、机器之心、36氪、量子位、财新网、亿欧网、MIT Technology Review、VentureBeat、Wired、The Information、SemiAnalysis</p>
 </div></td></tr>
 </table></td></tr></table></body></html>"""
@@ -511,7 +574,7 @@ def _empty_html() -> str:
     return f"""<!DOCTYPE html>
 <html lang="zh-CN">
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>AI每日简报</title></head>
+<title>AI简报</title></head>
 <body style="margin:0;padding:0;background:#f5f5f7;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',Arial,sans-serif;">
 <table width="100%" cellpadding="0" cellspacing="0" style="background:#f5f5f7;">
 <tr><td align="center" style="padding:80px 20px;">
@@ -527,7 +590,7 @@ def _empty_html() -> str:
 # 步骤4: 发送邮件（SMTP）
 # ============================================================
 
-def send_email(to_addr: str, html_content: str) -> bool:
+def send_email(to_addr: str, html_content: str, report_context: Dict[str, Any]) -> bool:
     """通过 SMTP 发送 HTML 邮件（QQ邮箱专用）"""
     smtp_server = "smtp.qq.com"
     smtp_port = 465
@@ -540,9 +603,9 @@ def send_email(to_addr: str, html_content: str) -> bool:
 
     try:
         msg = MIMEText(html_content, "html", "utf-8")
-        msg["From"] = formataddr(("AI每日简报", account))
+        msg["From"] = formataddr(("AI资讯简报", account))
         msg["To"] = to_addr
-        msg["Subject"] = Header(f"AI每日简报 - {datetime.datetime.now().strftime('%Y年%m月%d日')}", "utf-8")
+        msg["Subject"] = Header(f"{report_context['title']} - {report_context['display_date']}", "utf-8")
         msg["Date"] = formatdate(localtime=True)
         msg["Message-ID"] = make_msgid()
 
@@ -576,26 +639,32 @@ def send_email(to_addr: str, html_content: str) -> bool:
 # ============================================================
 
 def main():
-    parser = argparse.ArgumentParser(description="AI每日新闻推送")
+    parser = argparse.ArgumentParser(description="AI周中简报与周报推送")
     parser.add_argument("--email", required=True, help="收件人QQ邮箱地址")
     parser.add_argument("--output", help="保存HTML到本地文件（可选）")
+    parser.add_argument(
+        "--report-type", choices=["auto", "midweek", "weekly"], default="auto",
+        help="简报类型；定时任务自动识别，手动运行时可指定",
+    )
     args = parser.parse_args()
 
-    logger.info(f"🚀 开始执行AI每日新闻推送，收件人: {args.email}")
+    report_context = get_report_context(args.report_type)
+
+    logger.info(f"🚀 开始执行{report_context['title']}，收件人: {args.email}")
 
     # 步骤1: 搜索
     logger.info("📡 步骤1/4: 搜索AI新闻...")
-    results = search_news()
+    results = search_news(report_context)
     logger.info(f"   共获取 {len(results)} 条结果")
 
     # 步骤2: LLM处理
     logger.info("🧠 步骤2/4: LLM处理新闻（去重/分类/总结）...")
-    processed = process_news(results)
+    processed = process_news(results, report_context)
     logger.info(f"   处理完成，{len(processed)} 字符")
 
     # 步骤3: 生成HTML
     logger.info("🎨 步骤3/4: 生成HTML邮件...")
-    html = generate_html(processed)
+    html = generate_html(processed, report_context)
     logger.info(f"   HTML生成完成，{len(html)} 字符")
 
     # 保存HTML（可选）
@@ -606,10 +675,10 @@ def main():
 
     # 步骤4: 发送邮件
     logger.info("📧 步骤4/4: 发送邮件...")
-    success = send_email(args.email, html)
+    success = send_email(args.email, html, report_context)
 
     if success:
-        logger.info("✅ AI每日新闻推送完成！")
+        logger.info(f"✅ {report_context['title']}推送完成！")
     else:
         logger.error("❌ 邮件发送失败，请检查配置")
         sys.exit(1)
