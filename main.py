@@ -64,6 +64,16 @@ SEARCH_CATEGORIES = [
 
 BEIJING_TZ = ZoneInfo("Asia/Shanghai")
 CATEGORY_ORDER = ["产品与商业", "政策与治理", "模型与算法"]
+SCORE_LIMITS = {
+    "impact": 30,
+    "novelty": 20,
+    "credibility": 20,
+    "relevance": 20,
+    "timeliness": 10,
+}
+MIN_SELECTION_SCORE = 55
+MIN_CREDIBILITY_SCORE = 10
+SIGNAL_MIN_SCORE = 80
 
 
 def _safe_text(value: Any) -> str:
@@ -344,6 +354,18 @@ def process_news(search_results: List[Dict[str, Any]], report_context: Dict[str,
 - **3个分类不强制全输出**，没有高价值资讯的分类 items 设为 []，trend 写"今日无高价值资讯"，不要凑数
 - 禁止添加无关内容、不篡改资讯事实、不重复描述
 
+# 事件评分（总分100，必须逐项给整数分）
+- **行业影响力 impact（0-30）**:25-30=改变行业格局/技术路线/监管环境；18-24=明显影响主要细分领域；10-17=影响特定群体；0-9=常规小动态
+- **变化与新颖性 novelty（0-20）**:17-20=突破或拐点；12-16=显著推进趋势；6-11=有限新增；0-5=常规迭代或旧闻包装
+- **事实可信度 credibility（0-20）**:18-20=官方文件或多权威来源印证；15-17=事实清楚的一手发布；11-14=单一权威媒体独立报道；6-10=补充来源且未充分确认；0-5=传闻或证据不足
+- **读者相关性 relevance（0-20）**:17-20=直接影响技术选型、成本、合规或产品决策；12-16=有明确行业参考价值；6-11=知识价值为主；0-5=弱相关
+- **时效性 timeliness（0-10）**:9-10=本期首次发生或确认；6-8=本期重要后续；3-5=较早但仍有价值；0-2=旧闻
+- **扣分 penalty（0-50）**:企业宣传无独立事实扣10；标题夸张扣10；匿名传闻扣10-15；缺发布时间扣5。核心事实无法确认或摘要超出材料时直接不收录
+- total_score = 五项之和 - penalty。不要自行改变权重
+- total_score < 55 或 credibility < 10 的事件不要输出
+- 80分以上才可作为“今日信号”候选，且 impact >= 24、credibility >= 15；无合格事件则 signal 留空
+- 先按事件去重，再评分；每类按 total_score 从高到低输出，55-64分只在高分新闻不足3条时补充
+
 # 语气要求
 - 像跟懂行的同事聊天，不是在写报告
 - 可以有判断，不要中立到什么都没说
@@ -362,7 +384,17 @@ def process_news(search_results: List[Dict[str, Any]], report_context: Dict[str,
           "title": "资讯标题",
           "source": "权威来源名称",
           "link": "原文完整URL",
-          "summary": "2-3句话，只说什么和为什么值得关注"
+          "summary": "2-3句话，只说什么和为什么值得关注",
+          "scores": {
+            "impact": 0,
+            "novelty": 0,
+            "credibility": 0,
+            "relevance": 0,
+            "timeliness": 0
+          },
+          "penalty": 0,
+          "total_score": 0,
+          "selection_reason": "一句话说明入选原因"
         }
       ]
     }
@@ -423,8 +455,37 @@ def process_news(search_results: List[Dict[str, Any]], report_context: Dict[str,
 # 步骤3: 生成HTML（从JSON解析，永不因格式变化失败）
 # ============================================================
 
+def _bounded_score(value: Any, maximum: int) -> int:
+    """将模型给出的评分转为范围内整数。"""
+    if isinstance(value, bool):
+        return 0
+    try:
+        return max(0, min(int(value), maximum))
+    except (TypeError, ValueError):
+        return 0
+
+
+def _score_item(item: Any) -> Optional[Dict[str, Any]]:
+    """复算总分并应用最低收录门槛，避免信任模型自报总分。"""
+    if not isinstance(item, dict) or not isinstance(item.get("scores"), dict):
+        return None
+    scores = {
+        name: _bounded_score(item["scores"].get(name), maximum)
+        for name, maximum in SCORE_LIMITS.items()
+    }
+    penalty = _bounded_score(item.get("penalty", 0), 50)
+    total_score = max(0, sum(scores.values()) - penalty)
+    if scores["credibility"] < MIN_CREDIBILITY_SCORE or total_score < MIN_SELECTION_SCORE:
+        return None
+    normalized = dict(item)
+    normalized["scores"] = scores
+    normalized["penalty"] = penalty
+    normalized["total_score"] = total_score
+    return normalized
+
+
 def _normalize_processed_data(data: Any) -> Dict[str, Any]:
-    """固定板块顺序，并在代码层强制每板块最多3条。"""
+    """复算评分、固定板块顺序，并强制每板块最多3条。"""
     if not isinstance(data, dict):
         raise ValueError("LLM 输出的顶层结构不是对象")
     categories = data.get("categories", [])
@@ -441,9 +502,28 @@ def _normalize_processed_data(data: Any) -> Dict[str, Any]:
         items = entry.get("items", [])
         if not isinstance(items, list):
             items = []
-        entry["items"] = [item for item in items if isinstance(item, dict)][:3]
+        scored_items = [_score_item(item) for item in items]
+        scored_items = [item for item in scored_items if item is not None]
+        scored_items.sort(
+            key=lambda item: (
+                -item["total_score"],
+                str(item.get("title", "")),
+                str(item.get("link", "")),
+            )
+        )
+        entry["items"] = scored_items[:3]
         normalized_categories.append(entry)
     data["categories"] = normalized_categories
+    signal_candidates = [
+        item
+        for category in normalized_categories
+        for item in category["items"]
+        if item["total_score"] >= SIGNAL_MIN_SCORE
+        and item["scores"]["impact"] >= 24
+        and item["scores"]["credibility"] >= 15
+    ]
+    if not signal_candidates:
+        data["signal"] = ""
     return data
 
 def generate_html(processed_news: str, report_context: Dict[str, Any]) -> str:
