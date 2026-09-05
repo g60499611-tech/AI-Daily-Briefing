@@ -22,12 +22,24 @@ class ReportContextTests(unittest.TestCase):
 
 
 class NewsNormalizationTests(unittest.TestCase):
+    @staticmethod
+    def scored_item(title, total=80, credibility=16):
+        scores = {
+            "impact": min(25, total),
+            "novelty": 15,
+            "credibility": credibility,
+            "relevance": 15,
+            "timeliness": 9,
+        }
+        penalty = max(0, sum(scores.values()) - total)
+        return {"title": title, "scores": scores, "penalty": penalty}
+
     def test_order_and_three_item_limit(self):
         data = {
             "categories": [
-                {"name": "模型与算法", "items": [{"title": str(i)} for i in range(5)]},
+                {"name": "模型与算法", "items": [self.scored_item(str(i), 80 - i) for i in range(5)]},
                 {"name": "政策与治理", "items": []},
-                {"name": "产品与商业", "items": [{"title": "A"}]},
+                {"name": "产品与商业", "items": [self.scored_item("A")]},
             ]
         }
         normalized = main._normalize_processed_data(data)
@@ -36,6 +48,31 @@ class NewsNormalizationTests(unittest.TestCase):
             ["产品与商业", "政策与治理", "模型与算法"],
         )
         self.assertEqual(len(normalized["categories"][2]["items"]), 3)
+
+    def test_total_is_recalculated_and_items_are_sorted(self):
+        high = self.scored_item("高分", 80)
+        high["total_score"] = 1
+        low = self.scored_item("低分", 60)
+        data = {"categories": [{"name": "产品与商业", "items": [low, high]}]}
+        normalized = main._normalize_processed_data(data)
+        items = normalized["categories"][0]["items"]
+        self.assertEqual([item["title"] for item in items], ["高分", "低分"])
+        self.assertNotEqual(items[0]["total_score"], 1)
+
+    def test_low_score_or_low_credibility_is_rejected(self):
+        low_total = self.scored_item("低总分", 40)
+        low_credibility = self.scored_item("低可信度", 70, credibility=5)
+        data = {"categories": [{"name": "产品与商业", "items": [low_total, low_credibility]}]}
+        normalized = main._normalize_processed_data(data)
+        self.assertEqual(normalized["categories"][0]["items"], [])
+
+    def test_signal_is_removed_without_qualified_event(self):
+        data = {
+            "signal": "不应保留",
+            "categories": [{"name": "产品与商业", "items": [self.scored_item("普通新闻", 70)]}],
+        }
+        normalized = main._normalize_processed_data(data)
+        self.assertEqual(normalized["signal"], "")
 
 
 class HtmlSafetyTests(unittest.TestCase):
@@ -53,6 +90,14 @@ class HtmlSafetyTests(unittest.TestCase):
                     "source": "媒体 & 来源",
                     "summary": "<img src=x onerror=alert(1)>",
                     "link": "javascript:alert(1)",
+                    "scores": {
+                        "impact": 25,
+                        "novelty": 15,
+                        "credibility": 16,
+                        "relevance": 15,
+                        "timeliness": 9,
+                    },
+                    "penalty": 0,
                 }],
             }],
             "overview": "总览 <b>不可执行</b>",
