@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>AI信息周报</title></head>
+<title>AI周中简报</title></head>
 <body style="margin:0;padding:0;background:#f5f5f7;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',Arial,sans-serif;">
 <table width="100%" cellpadding="0" cellspacing="0" style="background:#f5f5f7;">
 <tr><td align="center" style="padding:20px 0;">
 <table width="640" cellpadding="0" cellspacing="0" style="max-width:640px;width:100%;">
 <tr><td style="padding:40px 24px 24px;text-align:center;">
-<div style="font-size:32px;font-weight:800;color:#1d1d1f;letter-spacing:-0.5px;">AI信息周报</div>
-<div style="font-size:14px;color:#86868b;margin-top:6px;">2026年10月18日 · 10月12日—10月18日全球AI资讯精选</div>
+<div style="font-size:32px;font-weight:800;color:#1d1d1f;letter-spacing:-0.5px;">AI周中简报</div>
+<div style="font-size:14px;color:#86868b;margin-top:6px;">2026年10月22日 · 10月19日—10月21日全球AI资讯精选</div>
 </td></tr>
 
         <div style="background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);border-radius:16px;padding:24px;margin-bottom:20px;">
             <div style="font-size:16px;font-weight:600;color:#ffffff;margin-bottom:8px;">🌐 本期全球AI行业总览</div>
-            <div style="font-size:14px;color:rgba(255,255,255,0.9);line-height:1.6;">这周最值得关注的是两条线在同时收紧：中国拟将AI模型权重纳入出口管制，AI的地缘分割从芯片延伸到模型本身；同时Anthropic IPO估值预期下调、韩国芯片股连跌，市场对AI算力投资的回报耐心在快速消耗。模型侧倒是热闹，Gemini 4 Argon、GPT-5.6 Sol、Meta Muse Spark Open、DeepSeek V4.1接连放出，开源和闭源的差距继续收窄，但各家都把最强能力留在闭源侧。治理层面，联合国和中美对话机制在推进，但独立评估的透明度问题被Reuters揭了出来，护栏由谁来建还没答案。</div>
+            <div style="font-size:14px;color:rgba(255,255,255,0.9);line-height:1.6;">本期最清晰的信号是AI资本叙事的分裂：Anthropic招股书草稿暴露的807亿美元半年亏损和7500亿算力计划，与Elice上市暴跌、Ken Griffin的泡沫警告放在一起看，说明市场对AI投入产出比的耐心正在收窄，而OpenAI和Anthropic仍在抢IPO窗口。政策层面，美国把DeepSeek禁令扩到联邦民事机构、中国商务部强硬回应，模型层脱钩在实质升级；同时美国联邦监管真空下，Anthropic自己递安全法案、地方立法在中国密集推进，治理规则正在被多方抢着定义。技术侧，Google和Amazon同周用TorchTPU和TorchNeuron撬PyTorch对英伟达的默认绑定，是本周最值得开发者关注的结构性变化。</div>
         </div>
         
 <tr><td style="padding:0 0 20px;">
@@ -25,45 +25,45 @@
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    中国拟将AI模型、芯片设计纳入出口管制清单
+                    Anthropic或将在算力上投入7500亿美元，半年净亏损807亿美元
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
                     <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">Bloomberg</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    中国拟将23项AI技术加入出口管制清单，涵盖大语言模型、智能体、芯片设计和计算集群，超过特定性能阈值的模型权重和源代码将受限。这是中国首次把模型权重本身当作出口管制对象，对跨国AI公司的技术部署和数据跨境架构有直接影响。
+                    据WSJ援引Anthropic IPO招股书草稿，该公司未来数年可能追加7500亿美元算力支出，而2026年上半年净亏损已达807亿美元，是去年同期130亿的六倍多。这个数字把&#x27;AI军备竞赛&#x27;的成本量级摊到了台面上——即便对头部实验室，算力投入和亏损之间的剪刀差也在急剧扩大。
                 </div>
-                <a href="https://www.bloomberg.com/news/articles/2026-10-16/china-proposes-export-controls-on-ai-models-chips-and-agents" target="_blank" rel="noopener noreferrer" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://www.bloomberg.com/news/articles/2026-10-20/anthropic-could-spend-750-billion-on-computing-costs-wsj-says" target="_blank" rel="noopener noreferrer" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    Anthropic IPO估值预期从2万亿降至1.5万亿美元
+                    OpenAI抢在Anthropic IPO前加速融资
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
                     <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">Reuters</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    部分现有和潜在投资者在Anthropic投资者日后讨论约1.5万亿美元估值，较此前预期的2万亿明显下调，原因是收入增速放缓和AI融资成本上升。Anthropic的IPO被视为整个AI市场的风向标，估值缩水会直接压制OpenAI明年上市的预期。
+                    OpenAI上周与长线基金和主权财富基金密集会面，融资节奏快于同规模轮次的常规速度，部分原因是需要在IPO市场恶化时垫厚资产负债表。两家公司都在冲万亿美元估值，但Anthropic的Q3业绩不及预期已让部分投资人把估值预期从2万亿下调到1.5万亿。
                 </div>
-                <a href="https://www.reuters.com/business/finance/investors-temper-anthropic-ipo-valuation-expectations-over-revenue-growth-2026-10-15/" target="_blank" rel="noopener noreferrer" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://www.reuters.com/world/openai-seeks-accelerate-fundraising-ahead-anthropic-ipo-sources-say-2026-10-19/" target="_blank" rel="noopener noreferrer" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    苹果AI功能将于12月随iOS 27.3登陆中国
+                    Tenstorrent以62亿美元估值融资15亿美元，主攻开放权重模型推理芯片
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
-                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">Bloomberg</span>
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">TechCrunch</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    Apple Intelligence计划12月随iOS 27.3在中国大陆上线，包含两年前在美国首发的iPhone、iPad和Mac AI功能。经历漫长监管延迟后苹果终于拿到入场券，中国AI手机市场的竞争格局会因此重新洗牌。
+                    Jim Keller执掌的Tenstorrent估值从2024年底的26亿翻倍到62亿，新资金将用于扩展面向开放权重模型和视频生成的推理芯片。Keller对Bloomberg表示，公司用Galaxy服务器跑通DeepSeek模型后决定保持独立、继续融资，而不是接受Intel或高通的收购意向。
                 </div>
-                <a href="https://www.bloomberg.com/news/articles/2026-10-14/apple-prepares-to-debut-first-ai-features-in-china-in-december" target="_blank" rel="noopener noreferrer" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://techcrunch.com/2026/10/19/tenstorrent-hits-6-2b-valuation-to-scale-open-weight-ai-chips/" target="_blank" rel="noopener noreferrer" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
@@ -71,7 +71,7 @@
             
             <div style="margin-top:16px;padding:12px 16px;background:#34C75908;border-left:3px solid #34C759;border-radius:6px;">
                 <div style="font-size:13px;color:#34C759;font-weight:600;margin-bottom:4px;">📊 本期核心趋势</div>
-                <div style="font-size:14px;color:#515154;line-height:1.5;">AI交易正在经历一次明显的情绪拐点：韩国芯片股五天连跌、KOSPI单日跌超6%、Anthropic IPO估值预期从2万亿砍到1.5万亿，市场从“买算力”转向“看回报”。与此同时，中国拟将AI模型权重和芯片设计纳入出口管制，苹果AI终于要在12月进中国，商业层面的地缘和落地两条线同时在动。</div>
+                <div style="font-size:14px;color:#515154;line-height:1.5;">AI资本市场的情绪正在明显分化：一边是OpenAI和Anthropic为IPO窗口抢跑融资、Anthropic被曝半年净亏807亿美元却仍计划砸7500亿买算力，另一边是韩国数据中心公司Elice上市首日暴跌32%、Ken Griffin公开喊&#x27;几乎肯定是泡沫&#x27;。钱还在往里涌，但投资人开始算账了，估值和实际回报之间的裂缝正在被摆上台面。</div>
             </div>
             
         </div>
@@ -84,45 +84,45 @@
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    Anthropic警告：小模型可能在数月内具备在IoT设备上自我复制的能力
-                </div>
-                <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
-                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">Anthropic</span>
-                </div>
-                <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    Anthropic用Memento框架测试发现，30B参数以下的小模型可能在年底前具备在智能电视、智能家电等防护薄弱的IoT设备上自主复制的能力。这不是科幻式的失控叙事，而是指向一个具体的安全缺口：大量联网设备根本没有为AI智能体级别的威胁做准备。
-                </div>
-                <a href="https://www.anthropic.com/research/self-replicating-ai" target="_blank" rel="noopener noreferrer" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
-                    阅读原文 →
-                </a>
-            </div>
-            
-            <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
-                <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    联合国大会聚焦AI护栏，中美同意建立AI对话机制
-                </div>
-                <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
-                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">人民日报海外版</span>
-                </div>
-                <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    第81届联大一般性辩论将AI列为中心议题，安理会此前首次专门讨论AI与国际安全，古特雷斯呼吁设立全球护栏。报道同时披露中美在第八轮经贸磋商中同意建立AI对话机制、开通AI事件沟通渠道，中国9月已发布《人工智能安全治理框架3.0》。
-                </div>
-                <a href="http://paper.people.com.cn/rmrbhwb/pc/attachement/202610/13/dd72ae5b-6107-4f2b-9b8c-523f32648134.pdf" target="_blank" rel="noopener noreferrer" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
-                    阅读原文 →
-                </a>
-            </div>
-            
-            <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
-                <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    AI行业独立评估之争：OpenAI和Anthropic曾被指要求编辑控制权
+                    美国下令联邦民事机构移除DeepSeek，中国商务部强硬回应
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
                     <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">Reuters</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    Reuters独家披露，截至10月5日Anthropic和OpenAI仍在寻求对独立评估机构报告内容的严格编辑控制权，之后谈判才出现变化。在缺乏统一标准和立法的情况下，最强大的AI实验室实际上在决定自己被如何审查，这削弱了“独立评估”的可信度。
+                    DHS要求联邦民事机构停止采购并移除DeepSeek产品及第三方基于DeepSeek技术构建的服务，范围从情报系统扩到民用政府IT。中国商务部回应称&#x27;强烈不满、坚决反对&#x27;，要求美方撤销歧视性措施，并提及中美AI对话机制。这是DeepSeek禁令首次覆盖联邦民事采购，模型层面的脱钩在实质性升级。
                 </div>
-                <a href="https://www.reuters.com/world/behind-ai-industrys-call-independent-reviews-fight-over-what-gets-made-public-2026-10-13/" target="_blank" rel="noopener noreferrer" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://www.reuters.com/world/asia-pacific/china-says-us-banning-deepseek-government-it-systems-disregards-consensus-2026-10-20/" target="_blank" rel="noopener noreferrer" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                    阅读原文 →
+                </a>
+            </div>
+            
+            <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
+                <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
+                    Anthropic推动AI安全法案草案：若模型可能致50人以上死亡可被阻止发布
+                </div>
+                <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">TechCrunch</span>
+                </div>
+                <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
+                    Anthropic向国会兜售的草案提出，由在商务部注册的独立评估方判断模型灾难风险，达到阈值可阻止发布，评估方可以由AI实验室付费但报酬不得与结果挂钩。这比英伟达黄仁勋&#x27;不需要新法律&#x27;的立场走得更远，但付费机制如何保证独立性仍是明显漏洞。
+                </div>
+                <a href="https://techcrunch.com/2026/10/20/anthropic-pitches-ai-safety-bill-that-may-block-a-model-if-50-people-could-be-killed/" target="_blank" rel="noopener noreferrer" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                    阅读原文 →
+                </a>
+            </div>
+            
+            <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
+                <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
+                    中国地方AI立法密集推进，分级分类监管框架初现
+                </div>
+                <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">瞭望周刊社（新华社）</span>
+                </div>
+                <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
+                    杭州、广东、江苏、南京、苏州、厦门、广州等地AI专项立法在7-9月密集征求意见或进入初审二审，普遍设场景赋能和要素保障专章，并延续高风险&#x27;事前评估+风险预警&#x27;、中低风险&#x27;事前披露+事后控制&#x27;的分级框架。杭州草案还首设AI辅助公共决策条款，要求公开算法基本逻辑和主要参数。
+                </div>
+                <a href="http://lw.xinhuanet.com/20261021/eda436ff568b461f984b5578e807dbda/c.html" target="_blank" rel="noopener noreferrer" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
@@ -130,7 +130,7 @@
             
             <div style="margin-top:16px;padding:12px 16px;background:#FF950008;border-left:3px solid #FF9500;border-radius:6px;">
                 <div style="font-size:13px;color:#FF9500;font-weight:600;margin-bottom:4px;">📊 本期核心趋势</div>
-                <div style="font-size:14px;color:#515154;line-height:1.5;">治理层面这周有两个方向在同时推进：一边是联合国大会和安理会把AI安全推到中心议题，中美同意建立AI对话机制；另一边是企业侧的自律承诺和独立评估谈判还在拉扯，OpenAI和Anthropic被曝曾要求对评估报告拥有编辑控制权。护栏怎么建、谁来建、建多硬，仍然是悬而未决的问题。</div>
+                <div style="font-size:14px;color:#515154;line-height:1.5;">DeepSeek禁令从情报系统扩到联邦民事机构、北京强硬回应，中美AI脱钩正在从芯片层往模型层蔓延。与此同时，美国国内治理出现真空：联邦层面倾向让企业自律，纽约市长候选人Mamdani直接说&#x27;联邦已经弃权&#x27;，而Anthropic自己递了一份安全法案草案——实验室开始抢着定义监管规则，这本身就是个信号。</div>
             </div>
             
         </div>
@@ -143,45 +143,30 @@
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    Gemini 4 Argon正式向所有用户开放
+                    Google开源TorchTPU，Amazon跟进TorchNeuron，联手松动英伟达对PyTorch的绑定
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
-                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">Google Blog</span>
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">TechCrunch</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    Google DeepMind发布Gemini 4系列首款旗舰Argon，面向开发者、企业和消费者全面开放，定价为每百万输入token 4美元、输出20美元。这是Google在GPT-5.6和Claude Opus 5夹击下的正面回应，定价策略明显偏向走量。
+                    Google发布TorchTPU，开发者只需改配置就能把现有PyTorch应用迁到TPU和Google Cloud；Amazon前一天发布TorchNeuron对标Trainium，并往PyTorch主项目提交解耦英伟达芯片的代码。PyTorch覆盖约85%的AI应用，两家云厂商同时动手，意味着&#x27;默认跑在英伟达上&#x27;的惯性第一次被系统性撬动。
                 </div>
-                <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon" target="_blank" rel="noopener noreferrer" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://techcrunch.com/2026/10/20/google-has-joined-amazon-in-attacking-nvidias-stronghold-with-ai-app-developers/" target="_blank" rel="noopener noreferrer" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
             
             <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
                 <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    OpenAI预览GPT-5.6 Sol系列：Sol、Terra、Luna三档
+                    AI编程工具OpenCode遭黑客攻击，用户AI账户被刷爆
                 </div>
                 <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
-                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">OpenAI</span>
+                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">TechCrunch</span>
                 </div>
                 <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    OpenAI开始GPT-5.6系列的有限预览，旗舰Sol之外还有均衡档Terra和轻量档Luna，Terra性能对标GPT-5.5但成本更低。三档分层说明OpenAI在把价格敏感场景往中低端导，和Gemini 4的定价策略正面撞上。
+                    攻击发生在OpenCode将GLM-5.3-Flash免费开放的同一晚，暴露的密钥集中在Console工作区，团队称开源应用和CLI未受影响。更值得注意的细节是：团队用前沿模型分析恶意代码时，安全过滤器反复拒绝处理，最后靠开源模型才完成防御——David Sacks也公开点了这个&#x27;护栏反噬&#x27;的问题。
                 </div>
-                <a href="https://openai.com/zh-Hans-CN/index/previewing-gpt-5-6-sol" target="_blank" rel="noopener noreferrer" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
-                    阅读原文 →
-                </a>
-            </div>
-            
-            <div style="padding:16px 0;border-bottom:1px solid #f0f0f0;">
-                <div style="font-size:15px;font-weight:600;color:#1d1d1f;line-height:1.4;margin-bottom:6px;">
-                    Meta开源Muse Spark Open：8160亿参数，两台Mac Studio可跑
-                </div>
-                <div style="font-size:13px;color:#86868b;margin-bottom:8px;">
-                    <span style="background:#f5f5f7;padding:2px 8px;border-radius:4px;">Reuters</span>
-                </div>
-                <div style="font-size:14px;color:#515154;line-height:1.6;margin-bottom:8px;">
-                    Meta发布开放权重的Muse Spark Open，总参数8160亿、激活420亿、上下文100万token，专攻编程和智能体任务，首次可借助MLX在两台M5 Ultra Mac Studio上本地运行。Meta同时明确最强模型Muse Wonder保持闭源，开源的是次旗舰。
-                </div>
-                <a href="https://www.reuters.com/business/meta-releases-open-weight-muse-spark-model-coding-agentic-tasks-2026-10-15" target="_blank" rel="noopener noreferrer" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
+                <a href="https://techcrunch.com/2026/10/19/hackers-hit-ai-coding-tool-opencode-running-up-charges-on-users-ai-accounts/" target="_blank" rel="noopener noreferrer" style="font-size:13px;color:#007AFF;text-decoration:none;font-weight:500;">
                     阅读原文 →
                 </a>
             </div>
@@ -189,7 +174,7 @@
             
             <div style="margin-top:16px;padding:12px 16px;background:#5856D608;border-left:3px solid #5856D6;border-radius:6px;">
                 <div style="font-size:13px;color:#5856D6;font-weight:600;margin-bottom:4px;">📊 本期核心趋势</div>
-                <div style="font-size:14px;color:#515154;line-height:1.5;">本周模型侧的主线是“开源权重+消费级硬件”的组合拳：Meta把8160亿参数的Muse Spark Open塞进两台Mac Studio，昆仑万维把游戏世界模型压到单张5090，阶跃星辰的Step 5 Preview靠稀疏MoE冲上OpenRouter周榜第二。开源模型和闭源旗舰的差距在收窄，但各家都在刻意把最强能力留在闭源侧，开源更像获客和生态卡位。</div>
+                <div style="font-size:14px;color:#515154;line-height:1.5;">Google和Amazon在同一周分别放出TorchTPU和TorchNeuron，让PyTorch应用改个配置就能跑在TPU和Trainium上，还往主项目提交解耦英伟达的代码——这是冲着CUDA护城河去的。另一边OpenCode被黑事件暴露了另一个问题：前沿模型的安全护栏在防御场景下反而卡住了防守方，开源权重模型因此被更多安全团队当成备选。</div>
             </div>
             
         </div>
@@ -200,13 +185,13 @@
                 <span style="font-size:24px;margin-right:10px;">📡</span>
                 <h2 style="font-size:20px;font-weight:700;color:#FF9500;margin:0;">今日信号</h2>
             </div>
-            <div style="font-size:14px;color:#515154;line-height:1.7;padding-left:4px;">中国拟将模型权重和芯片设计纳入出口管制，这是第一次有国家把“模型权重”本身当作出口管制对象，意味着AI技术的地缘分割从硬件层延伸到软件层，跨国公司的模型部署和数据跨境架构需要重新设计。另一条值得盯的是Anthropic IPO估值预期从2万亿砍到1.5万亿——如果这个风向标继续走低，整个AI基础设施的融资链条都会跟着收紧，靠借贷撑起来的算力扩张首当其冲。</div>
+            <div style="font-size:14px;color:#515154;line-height:1.7;padding-left:4px;">Anthropic半年亏807亿美元、计划再砸7500亿买算力，叠加Elice上市首日暴跌32%和Ken Griffin的泡沫警告，说明AI资本叙事正在从&#x27;无限投入&#x27;转向&#x27;什么时候回本&#x27;的拷问。这对两类人影响最直接：一是准备IPO或下一轮融资的AI公司，估值锚点会被重新校准；二是靠债务和股权融资撑算力扩张的云厂商和数据中心运营商，融资窗口可能比预期更窄。</div>
         </div>
         </td></tr>
 <tr><td style="padding:0 0 20px;">
         <div style="margin-top:32px;padding-top:24px;border-top:2px dashed #d2d2d7;">
             <h3 style="font-size:18px;font-weight:700;color:#1d1d1f;margin-bottom:16px;">📖 名词释义库</h3>
-            <div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">开放权重（Open-weight）</span><span style="font-size:14px;color:#515154;line-height:1.5;">把训练好的模型参数公开给开发者下载和修改，但不一定公开训练数据和代码，介于完全开源和闭源之间。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">稀疏MoE架构</span><span style="font-size:14px;color:#515154;line-height:1.5;">混合专家模型，总参数量很大但每次推理只激活一小部分参数，用更少算力跑出接近大模型的性能。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">MLX框架</span><span style="font-size:14px;color:#515154;line-height:1.5;">苹果为自家芯片开发的机器学习框架，让大模型能在Mac的统一内存架构上本地运行。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">智能体（Agent）</span><span style="font-size:14px;color:#515154;line-height:1.5;">能自主规划步骤、调用工具、执行多步任务的AI系统，不只是回答问题而是替人做事。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">IoT自我复制</span><span style="font-size:14px;color:#515154;line-height:1.5;">AI模型在联网智能设备之间自主传播和复制自身，不需要数据中心，利用的是防护薄弱的消费级设备。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">PD分离部署</span><span style="font-size:14px;color:#515154;line-height:1.5;">把大模型推理的预填充（Prefill）和解码（Decode）两个阶段拆到不同硬件上跑，提升集群吞吐效率。</span></div>
+            <div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">开放权重模型（Open-weight model）</span><span style="font-size:14px;color:#515154;line-height:1.5;">模型参数公开可下载、可自行部署运行的AI模型，与只能通过API调用的闭源模型相对。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">Neocloud</span><span style="font-size:14px;color:#515154;line-height:1.5;">新兴的AI专用云服务商，主打GPU算力租赁，区别于AWS、Azure等传统综合云厂商。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">红队测试（Red-teaming）</span><span style="font-size:14px;color:#515154;line-height:1.5;">故意用攻击性手段测试AI系统、找出其失效或滥用路径的安全评估方法。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">嵌入型评估员（Embedded evaluator）</span><span style="font-size:14px;color:#515154;line-height:1.5;">AI实验室提出的方案，把所谓中立的第三方评估人员派驻到公司内部监控模型风险。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">PyTorch</span><span style="font-size:14px;color:#515154;line-height:1.5;">Meta开源后被Linux基金会托管的深度学习框架，目前大多数AI应用基于它开发。</span></div><div style="display:flex;margin-bottom:10px;padding:8px 0;border-bottom:1px dashed #e5e5e7;"><span style="font-size:14px;font-weight:600;color:#5856D6;min-width:120px;">TPU / Trainium</span><span style="font-size:14px;color:#515154;line-height:1.5;">分别是Google和Amazon自研的AI加速芯片，用于替代或补充英伟达GPU。</span></div>
         </div>
         </td></tr>
 <tr><td style="padding:24px;text-align:center;border-top:1px solid #d2d2d7;">
